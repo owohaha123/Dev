@@ -63,8 +63,12 @@
            : <option> 태그의 value 값이 같이 전송된다
  3) datalist : input + select 요소
              : 일종의 자동완성 기능처럼 동작
+             : input 태그에 list 속성을 사용.
+               datalist에 id 속성을 사용.
+               list 속성값과 id 속성값은 같아야 한다.
  4) label : 특정요소의 레이블을 정의하는 요소
           : 요소의 선택(클릭) 영역을 확장하는데 사용
+          : label 태그의 for 속성값과 input 태그의 id 속성값이 같으면 두 요소가 연결됨
 
       참고) 이벤트(Event)란?
           : 컴퓨터에 의해 감지되고 처리될 수 있는 동작이나 사건
