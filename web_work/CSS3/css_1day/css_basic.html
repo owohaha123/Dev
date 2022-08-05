@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 기초</title>
+    <!--link type="text/css" rel="stylesheet" href="ex_style.css"-->
+    <style type="text/css">
+        @import url("ex_style.css");
+        p {
+            color: red;
+        }
+        p2 {
+            color: green;
+        }
+        /* team 둘 중 아래가 적용됨 */
+        team {
+            color: yellow;
+            background-color: black;
+        }
+        team { 
+            color: red!important; /*[ !important ] 사용 시 최우선 적용*/
+            background-color: aqua;
+        }
+        department {
+            border: 1px solid red;
+        }
+    </style>
+    <link type="text/css" rel="stylesheet" href="ex_style.css">
+</head>
+<body>
+    <p>첫 번째 단락</p>
+    <p>두 번째 단락</p>
+    <p>세 번째 단락</p>
+    <p1 style="color: blue; background-color: pink; border: 1px solid;">인라인 스타일 적용</p1><br>
+    <p2>내부 스타일 적용</p2><br>
+    <p3>외부 스타일 적용</p3><br>
+    <company> ICIA
+        <department style="border: 1px solid black;"> 교육사업부
+            <team>
+                교육1팀
+            </team>
+        </department>
+    </company>
+</body>
+</html>
