@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+p3 {
+    color: rgb(255, 255, 255);
+    background-color: coral;
+}
+department {
+    border: 2px dotted palevioletred;
+    display: block;
+}
+team {
+    color: black;
+    display: block;
+    width: 100px;
+    height: 200px;
+}
+p3, department {
+    background-color: dimgrey;
+}
