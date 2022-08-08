@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>글자 효과</title>
+    <style>
+        #h1 {
+            text-align: left;
+            text-decoration: overline;
+        }
+        #h2 {
+            text-align: center;
+            text-decoration: underline;
+        }
+        #h3 {
+            text-align: right;
+            text-decoration: line-through;
+            direction: rtl;
+            unicode-bidi: bidi-override;
+        }
+        img {
+            vertical-align: top;
+        }
+        #p1 {
+            width: 500px;
+            height: 300px;
+            vertical-align: middle;
+            border: 1px solid;
+        }
+        a {
+            text-decoration: none;
+            color: cadetblue;
+        }
+        #d1 {
+            border: 1px solid;
+            padding: 10px;
+            width: 150px;
+            text-align: justify;
+        }
+        #d2 {
+            text-transform: uppercase;
+            text-transform: lowercase;
+            text-transform: capitalize;
+        }
+        #d1 {
+            text-indent: 16px;
+            letter-spacing: 2px;
+            text-align: left;
+            word-spacing: 10px;
+        }
+        #lh {
+            font-size: 30px;
+            padding: 10px;
+            border: 1px solid black;
+            text-shadow: 2px 2px 2px rgb(68, 212, 128);
+            color: rgb(148, 172, 13);
+        }
+    </style>
+</head>
+<body>
+    <h1 id="h1">글자의 위치</h1>
+    <h1 id="h2">글자의 위치</h1>
+    <h1 id="h3">글자의 위치</h1>
+    <hr>
+    <p>이 그림은<img src="circle.png" width="50">둥근 원입니다</p>
+    <p id="p1">이 글의 세로 위치는 어디일까요?</p>
+    <hr>
+    <p>링크 요소의 줄 제거</p>
+    <p><a href="">어딘가</a></p>
+    <hr>
+    <div id="d1">
+        Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. 
+        In ullamcorper augue vel
+        augue rutrum faucibus.       
+    </div>
+    <div id="d2">
+        Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. 
+        In ullamcorper augue vel
+        augue rutrum faucibus.       
+    </div>
+    <hr>
+    <div id="lh"><b>글자의 모양</b></div>
+</body>
+</html>
