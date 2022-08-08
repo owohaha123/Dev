@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>배경 처리(background)</title>
+    <style>
+        body {
+            background-image: url("circle.png");
+            /*background-color: rgb(15, 170, 218);
+            background-repeat: repeat-x;
+            background-size: 800px;*/
+            height: 1500px;
+            background-attachment: fixed;
+
+        }
+        div#d1 {
+            margin: 20px;
+            height: 500px;
+            background-image: url("dog.jpg");
+            background-repeat: no-repeat;
+            color: crimson;
+            background-size: 300px;
+            border: 1px solid; /*색상 미지정시 글자색상과 동일하게 나타남*/
+            background-position: right bottom;
+        }
+        #d2 {
+            width: 500px;
+            height: 400px;
+            border: 1px solid red;
+            background: url("dog.jpg")
+                        no-repeat
+                        top right;
+            background-size: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">여기에 이미지가 출력됩니다.</div>
+    <div id="d2">두 번째 공간</div>
+</body>
+</html>
