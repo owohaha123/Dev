@@ -1,0 +1,114 @@
+* 색상처리 (배경색, 글자색, 테두리 색 등)
+ 1) RGB(Red, Green, Blue) : 함수 사용
+   - 각 색상별 0~255 사이의 수치 조합
+   - rgba(Red, Green, Blue, alpha) 함수 : 투명도 반영
+   - alpha  : 투명도 (0.0~1.0), 0에 가까울수록 투명
+ 2) HEX : 16진수로 색상 지정
+   - ex) #FF00FF : 보라색
+         #abc : #aabbcc의 단축 표현
+   - 투명도 처리 : 8자리 수치로 표현 (00: 0.0 /FF: 1.0)
+ 3) HSL : hsl (hue, saturation, lightness) 함수 사용
+   - H(색조) : 0~360 까지의 색상환 각도로 표현
+     S(채도) : 0~100% 의 백분율 값. (0-회색음영, 100-색조의 본색)
+     L(명도) : 0~100% 의 백분율 값. (0-검은색, 100-흰색)
+   - ex) red - hsl (0, 100%, 50%)
+   - 투명도 : hsla 함수 사용
+
+
+* 요소의 크기(너비와 높이) - 박스모델 (Box Model)
+ - 문서를 구성하는 모든 요소는 box-model을 사용하여 크키 및 여백 처리
+ - 일반적 요소의 너비? [ = width + (2*padding) + (2*border) ]
+   ex) width: 100px;  / padding: 10px;  = 너비: 120px
+   ex2) w : 100px, p: 10px, b: 1px = 122px
+ - 일반적 요소의 높이? [ = height + (2*padding) + (2*border) ]
+ - 요소의 크기에 바깥쪽 여백(Margin)은 고려하지 않음
+ - Box-Sizing 속성
+   1) content-box : 기본값. 일반적 크기로 처리
+                  : 실제 너비/높이 = 너비/높이 + 패딩 + 테두리
+   2) border-box : 길이(width/height)에 패딩과 테두리 포함
+                 : 실제 너비/높이 = 너비/높이
+
+
+* 여백
+ 1. 안쪽 여백(padding) : 테두리의 안쪽, 요소의 컨텐츠 바깥쪽 영역
+   1) padding : 모든 여백
+   2) padding-top : 윗쪽 여백
+   3) padding-right : 오른쪽 여백
+   4) padding-bottom : 아랫쪽 여백
+   5) padding-left : 왼쪽 여백
+   - padding 속성 하나로 네 방향 모두 단축처리 가능
+   - top 을 시작으로 시계 방향으로 나열
+    > 4개 값 - top, right, bottom, left)
+    > 3개 값 - top, right/left, bottom)
+    > 2개 값 - top/bottom, right/left)
+    > 3방향 동일, 1방향 다름 - padding: 10px; padding-left: 30px;
+      (전체 여백 -> 부분 여백 순으로 작성)
+ 2. 바깥쪽 여백(Margin) : 테두리의 바깥쪽 영역
+  - 상동
+  - auto 속성 값 : 요소의 가운데 정렬에 사용 (세로 x)
+    ex) Margin: 0 auto;
+
+
+* CSS의 단위
+ 1) px : 픽셀 단위. 1px = 1인치의 1/96
+ 2) pt : 포인트 단위. 1pt = 1인치의 1/76
+ 3) cm : 센티미터
+ 4) em : 출판에서 사용하는 문자의 가로길이 (M 기준)
+ 5) 고정값 : thin(얇) medium(중간) thick(두껍)
+           : 테두리에서 사용
+ 6) % : 백분율
+
+
+ * 테두리 (border)
+  - 요소의 테두리 선을 표현하는 속성
+  - 여백과 마찬가지로 4방향에 따로 테두리를 설정할 수 있음
+   1) border-style : 테두리의 종류(선의 모양). 실선, 점선, 파선 등
+   2) border-width : 테두리의 두께
+   3) border-color : 테두리의 색상
+   4) border-radius : 모서리의 반지름 (둥근 모서리 처리)
+   5) border : 위의 각 속성을 합쳐서 사용하는 단축속성
+               (두께 - 종류 - 색상 순 작성)
+               (최소 두께와 종류는 작성해야 테두리가 나타남)
+
+
+* min/max width/height
+ 1) min-width : 지정된 범위 이하로 줄지 않는 요소
+ 2) max-width : 지정된 범위 이상으로 커지지 않는 요소
+
+
+* 배경 (Background)
+ - 요소의 배경 효과를 주기 위한 스타일 설정 속성
+ 1) Background-color : 배경 색상을 지정하는 속성
+ 2) Background-image : 배경에 이미지를 지정하는 속성
+ 3) Background-repeat : 배경 이미지의 반복여부 지정 속성
+                      > repeat : 기본값 (x,y 반복)
+                      > no-repeat : 반복 없음
+                      > repeat-x : 가로 방향으로만 반복
+                      > repeat-y : 세로 방향으로만 반복
+ 4) Background-Size : 배경 이미지의 크기 지정 속성
+    - 주요속성 값
+    1> 수치(px, % 등)
+    2> contain :  이미지가 요소 영역 내부에 모두 출력. 공백이 발생할 수 있음
+    3> cover : 이미지가 요소 영역을 덮음. (너비 공백은 발생x / 높이 공백은 발생할수도?)
+ 5) Background-attachment : 배경 이미지의 스크롤 여부 결정
+    - 속성 값 : fixed(스크롤 x, 고정) / scroll(스크롤 o, 기본값)
+ 6) Background-position : 배경 이미지의 위치 결정
+    - 9곳의 위치를 지정
+     ① left (왼쪽 세로 중앙) / ② right (오른쪽 세로 중앙)
+     ③ top (위쪽 가로 중앙) / ④ bottom (아래쪽 가로 중앙) / ⑤ center (정중앙)
+     ⑥ left top (왼쪽 상단) / ⑦ right top (오른쪽 상단)
+     ⑧ left bottom (왼쪽 하단) / ⑨ right bottom (오른쪽 하단)
+ 7) Background : 위 개별 속성을 하나로 처리하는 단축 속성
+    - 크기(Size) 제외
+    - 순서: 색상 - 이미지 - 반복여부 - 스크롤여부 - 위치
+
+
+* 텍스트 관련 속성
+ - 컨텐츠(내용)에 들어가는 글자(하위요소)에 대한 설정
+  > color : 글자색
+  > text-align : 정렬방식. left(기본값), center. right
+  > vertical-align : 수직정렬방식. 이미지 + 텍스트인 경우
+         top : 이미지와 글자를 윗선에 정렬
+         middle : 가운데(중앙선)에 정렬
+         bottom : 밑선에 정렬(기본값)
+ 
