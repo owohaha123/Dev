@@ -7,20 +7,23 @@
     <style>
         div {
             width: 200px;
-            background-color: lightcoral;
+            background-color: rgb(108, 170, 228);
             border-width: thick;
         }
         #d0 {
             border-style: solid;
+            border-width: thick thin medium thick;
         }
         #d1 {
-            border-style: dotted;
+            border-style: dotted solid dashed double;
         }
         #d2 {
             border-style: dashed;
         }
         #d3 {
             border-style: double;
+            border-left-style: solid;
+            border-top-color: rgb(186, 226, 43);
         }
         #d4 {
             border-style: groove;
@@ -41,32 +44,34 @@
             border-style: hidden;
         }
         #d10 {
-            border-radius: 5px;
+            border-style: solid;
+            border-radius: 30px 10px 20px 40px;
+            padding: 20px;
         }
     </style>
 </head>
 <body>
-    <div id="d0">실선(solid)</div>
+    <div id="d0">d0 : 실선(solid)</div>
     <br>
-    <div id="d1">점선(dotted)</div>
+    <div id="d1">d1 : 점선(dotted)</div>
     <br>
-    <div id="d2">파선(dashed)</div>
+    <div id="d2">d2 : 파선(dashed)</div>
     <br>
-    <div id="d3">이중선(double)</div>
+    <div id="d3">d3 : 이중선(double)</div>
     <br>
-    <div id="d4">음각선(groove)</div>
+    <div id="d4">d4 : 음각선(groove)</div>
     <br>
-    <div id="d5">양각선(ridge)</div>
+    <div id="d5">d5 : 양각선(ridge)</div>
     <br>
-    <div id="d6">삽입선(inset)</div>
+    <div id="d6">d6 : 삽입선(inset)</div>
     <br>
-    <div id="d7">돌출선(outset)</div>
+    <div id="d7">d7 : 돌출선(outset)</div>
     <br>
-    <div id="d8">선없음(none)</div>
+    <div id="d8">d8 : 선없음(none)</div>
     <br>
-    <div id="d9">선숨김(hidden)</div>
+    <div id="d9">d9 : 선숨김(hidden)</div>
     <br>
-    <div id="d10">둥근 모서리</div>
+    <div id="d10">d10 : 둥근 모서리</div>
 </body>
 
 </html>
