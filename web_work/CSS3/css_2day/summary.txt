@@ -106,9 +106,34 @@
 * 텍스트 관련 속성
  - 컨텐츠(내용)에 들어가는 글자(하위요소)에 대한 설정
   > color : 글자색
-  > text-align : 정렬방식. left(기본값), center. right
+  > text-align : 정렬방식. left(기본값), center. right. justify(양쪽정렬)
   > vertical-align : 수직정렬방식. 이미지 + 텍스트인 경우
          top : 이미지와 글자를 윗선에 정렬
          middle : 가운데(중앙선)에 정렬
          bottom : 밑선에 정렬(기본값)
- 
+  > text-decoration : 글자 장식(선) 설정 및 제거
+         overline : 윗줄
+         underline : 밑줄
+         line-through : 취소선(삭제선), 가운데 줄
+         none : 줄 제거
+  > decoration : 글자 인쇄 방향 설정. unicode-bidi와 함께 사용
+           Itr : 왼쪽에서 오른쪽으로 인쇄(기본값) 
+           rtl : 오른쪽에서 왼쪽으로 인쇄
+       참> unicode-bidi 속성: 유니코드의 방향 설정 보조 속성
+  > text-transform : 글자 변환 (알파벳 기준)
+         uppercase : 대문자 변환
+         lowercase : 소문자 변환
+         capitalize : 단어의 첫 글자만 대문자로 변환
+  > text-indent : 들여쓰기. 픽셀 단위로 들여쓰는 너비 지정
+  > letter-spacing : 글자 간격
+  > word-spacing : 단어 간격
+  > text-shadow : 글자에 그림자 효과를 추가
+         설정 값 : 수평이동수치 - 수직이동수치 - 흐림수치 - 색상
+  > white-space : 공백 문자에 대한 처리
+         normal : 일반 상태 (기본값)
+         nowrap : 연속 공백을 하나로 합침. <br>로 줄바꿈
+            pre : 연속 공백 유지 (편집화면대로). <br>로 줄바꿈
+       pre-wrap : 연속 공백 유지. 개행문자(엔터)와 <br>로 줄바꿈
+       pre-line : 연속 공백을 하나로 합침. 개행문자와 <br>로 줄바꿈
+  > font-size : 글자의 크기를 지정
+       사용단위 : px, em.
