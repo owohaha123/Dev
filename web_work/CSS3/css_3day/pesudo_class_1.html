@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>의사 클래스 선택자</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+        a:link {
+            color: green;
+        }
+        a:visited {
+            color: gray;
+        }
+        a:hover {
+            color: red;
+            background-color: yellow;
+            border: 2px dotted red;
+        }
+        a:active {
+            border: 2px solid black;
+        }
+        div {
+            width: 500px;
+            background-color: green;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        #p1 {
+            display: none; /*요소 제거*/
+            background-color: yellow;
+            padding: 20px;
+            color: black;
+        }
+        div:hover {
+            background-color: blue;
+        }
+        div:hover #p1 {
+            display: block;
+        }
+        input:focus {
+            background-color: skyblue;
+        }
+        input:disabled {
+            background-color: black;
+            color: lightgray;
+        }
+        input:checked {
+            height: 22px;
+            width: 22px;
+        }
+    </style>
+</head>
+<body>
+    <a href="http://daum.net">다음카카오</a><br>
+    <a href="http://icia.co.kr">인천일보아카데미</a>
+    <hr>
+    <div id="d1">여기에 마우스를 올려보세요.
+        <p id="p1">이게 보이나요?</p>
+    </div>
+    <hr>
+    <p>아래 입력창은 포커스를 가지면 변합니다🤩</p> 
+    <input type="text" name="in1"><br>
+    <input type="text" name="in2"><br>
+    <input type="text" name="in3"><br>
+    <hr>
+    <p>아래 입력창은 활성화 여부 및 체크상태에 따라 변합니다</p>
+    <input type="text" name="in4"><br>
+    <input type="text" name="in5" disabled value="비활성화 상태"><br>
+    <input type="checkbox" name="ck" value="1">대중교통<br>
+    <input type="checkbox" name="ck" value="2">자가용<br>
+</body>
+</html>
