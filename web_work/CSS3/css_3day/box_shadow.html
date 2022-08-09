@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>그림자 효과</title>
+    <style>
+        h1 {
+            width: 300px;
+        }
+        .c1 {
+            background-color: rgb(250, 247, 86);
+            border: 5px solid rgb(251, 182, 253);
+            box-shadow: 10px 10px 5px teal;
+        }
+        .c2 {
+            background-color: orange;
+            border: 5px solid red;
+            box-shadow: 20px 20px 50px red;
+        }
+        .c3 {
+            background-color: silver;
+            border: 5px solid black;
+            box-shadow: 20px 20px 30px -20px maroon;
+        }
+        .c4 {
+            background-color: skyblue;
+            border: 5px solid olive;
+            box-shadow: 5px 5px 2px 5px gray inset;
+        }
+        div {
+            width: 250px;
+            line-height: 50px; /*줄간격*/
+            font-size: 20px;
+            text-align: center;
+        }
+        #d1 {
+            border: 1px solid rgba(102, 186, 255, 0.4);
+            box-shadow: 0 0 20px 10px rgba(102, 186, 255, 0.4);
+        }
+        #d2 {
+            border: 1px solid black;
+            box-shadow: 10px 10px #bce55c,
+                        20px 20px #cef279,
+                        30px 30px #e4f7ba;
+        }
+        img {
+            padding: 20px;
+            padding-bottom: 60px;
+            margin: 20px;
+            box-shadow: 5px 5px 10px #000;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="c1">박스 스타일링 1</h1>
+    <h1 class="c2">박스 스타일링 2</h1>
+    <h1 class="c3">박스 스타일링 3</h1>
+    <h1 class="c4">박스 스타일링 4</h1>
+    <hr>
+    <br>
+    <div id="d1">박스 스타일링 5</div>
+    <br><br><br>
+    <div id="d2">박스 스타일링 6</div>
+    <br><br><br>
+    <hr>
+    <img src="dog.jpg"width="300">
+    <br><br>
+</body>
+</html>
