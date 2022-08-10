@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Overflow</title>
+    <style>
+        div {
+            width: 200px;
+            height: 80px;
+            border: 1px dotted black;
+            background-color: rgb(255, 205, 224);
+            float: left;
+        }
+        .d1 {overflow: visible;}
+        .d2 {overflow: hidden;}
+        .d3 {overflow: scroll;}
+        .d4 {overflow: auto;}
+    </style>
+</head>
+<body>
+    <div class="d1"><b>1. overflow: visible</b><br>
+        Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. 
+        In ullamcorper augue vel augue rutrum faucibus.
+    </div>
+    <div class="d2"><b>2. overflow: hidden</b><br>
+        Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. 
+        In ullamcorper augue vel augue rutrum faucibus.
+    </div>
+    <div class="d3"><b>3. overflow: scroll</b><br>
+        Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. 
+        In ullamcorper augue vel augue rutrum faucibus.
+    </div>
+    <div class="d4"><b>4. overflow: auto</b><br>
+        Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. 
+        In ullamcorper augue vel augue rutrum faucibus.
+    </div>
+</body>
+</html>
