@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>float 속성</title>
+    <style>
+        img {
+            float: left;
+            margin-right: 10px;
+        }
+        .p1 {
+            padding: 5px;
+            border: 1px solid;
+            /*overflow: auto;*/
+        }
+        .p1::after, div::after {/*clearfix 방식*/
+            content: "";
+            clear: both;
+            display: table;
+        }
+        .container>div {
+            width: 300px;
+            padding: 15px;
+            float: right;
+        }
+        .d1 {background-color: rgb(248, 152, 184);}
+        .d2 {background-color: rgb(252, 218, 81);}
+        .d3 {background-color: rgb(114, 165, 227);}
+        .d4 {background-color: rgb(175, 234, 161);
+            clear: right; width: 500px; height: 100px;}
+    </style>
+</head>
+<body>
+    <h2>이미지의 배치</h2>
+    <p>float 속성은 웹 문서의 레이아웃을 설계하는데
+        많이 사용되는 속성입니다.
+    </p>
+    <p class="p1">
+        <img src="dogg.jpg" alt="꼬또리" width="200">
+        float 속성은 웹 문서의 레이아웃을 설계하는데
+        많이 사용되는 속성입니다.
+        float 속성은 웹 문서의 레이아웃을 설계하는데
+        많이 사용되는 속성입니다.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        In ullamcorper augue vel augue rutrum faucibus.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        In ullamcorper augue vel augue rutrum faucibus.
+    </p>
+    <hr>
+    <div class="container">
+        <div class="d1">1번</div>
+        <div class="d2">2번</div>
+        <div class="d3">3번</div>
+    </div>
+    <div class="d4">4번</div>
+</body>
+</html>
