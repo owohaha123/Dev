@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>z-index</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+        .z1 {
+            top: 0;
+            left: 0;
+            background-color: rgb(248, 152, 184);
+            z-index: 3;
+        }
+        .z2 {
+            top: 30px;
+            left: 30px;
+            background-color: rgb(252, 218, 81);
+            z-index: 3;
+        }
+        .z3 {
+            top: 60px;
+            left: 60px;
+            background-color: rgb(114, 165, 227);
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="z1">공간 1</div>
+    <div class="z2">공간 2</div>
+    <div class="z3">공간 3</div>
+</body>
+</html>
