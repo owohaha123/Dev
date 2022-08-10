@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>배경이미지만 투명화</title>
+    <style>
+        div {
+            width: 400px;
+            height: 300px;
+            position: relative;
+            z-index: 1;
+        }
+        div::after {
+            content: "";
+            background-image: url("dogg.jpg");
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5!important;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>이건 제목입니다.</h2>
+        <ui>
+            <li>첫 번째 항목</li>
+            <li>두 번째 항목</li>
+            <li>세 번째 항목</li>
+        </ui>
+    </div>
+</body>
+</html>
