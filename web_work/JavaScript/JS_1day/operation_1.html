@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>연산자(Operation)</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var a = 3;
+    var b = 1.5;
+    var c = a * b;
+
+    // console 창에 a,b,c 출력
+    console.log(a);
+    console.log(b);
+    console.log(c);
+
+    // %, ++. --
+    var d = 7;
+    var e = 3;
+    var f = d % e;
+    console.log("7 % 3 = " + f);
+
+    d++;
+    d++;
+    console.log("d++ = " + d);
+
+    e--;
+    e--;
+    console.log("e++ = " + e);
+
+    // Q1. c에 대한 제곱근
+    console.log("c에 대한 제곱근 = " + Math.sqrt(c));
+    // Q2. b-a의 절대값
+    console.log("b-a의 절대값 = " + Math.abs(b-a));
+    // Q3. c를 소숫점 2자리까지 표시
+    console.log("c를 소숫점 2자리까지 표시 = " + c.toFixed(2));
+    // Q4. b를 정수로 표시
+    console.log("b를 정수로 표시 = " + parseInt(b));
+</script>
+</html>
