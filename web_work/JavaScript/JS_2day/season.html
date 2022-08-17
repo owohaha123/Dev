@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>좋아하는 계절(Season)</title>
+</head>
+
+<body>
+  <fieldset>
+    <legend>좋아하는 계절</legend>
+    <h3>[1]봄 [2]여름 [3]가을 [4]겨울</h3>
+    <input type="text" id="season" />
+    <input type="button" value="입력" onclick="input1()" />
+    <!-- onclick="input1()"
+            : 버튼을 클릭했을 경우
+              script에 있는 input1()함수를 호출한다 -->
+    <h1 id="result"></h1>
+  </fieldset>
+</body>
+<script>
+  function input1() {
+    var season1 = document.getElementById("season").value;
+    // document.getElementById ("season").value;
+    // 문서(body)에서 id값이 season인 요소의 값(value)을 불러온다
+    console.log("season1 :" + season1);
+
+    switch (season1) {
+      case "봄":
+        //document.write("좋아하는 계절은 봄입니다");
+        document.getElementById("result").innerHTML =
+          "좋아하는 계절은 봄입니다";
+        break;
+      case "여름":
+        //document.write("좋아하는 계절은 여름입니다");
+        document.getElementById("result").innerHTML =
+          "좋아하는 계절은 여름입니다";
+        break;
+      case "가을":
+        //document.write("좋아하는 계절은 가을입니다");
+        document.getElementById("result").innerHTML =
+          "좋아하는 계절은 가을입니다";
+        break;
+      case "겨울":
+        //document.write("좋아하는 계절은 겨울입니다");
+        document.getElementById("result").innerHTML =
+          "좋아하는 계절은 겨울입니다";
+        break;
+      default:
+        //document.write("잘못 입력했습니다. 좋아하는 계절을 입력해주세요.");
+        document.getElementById("result").innerHTML =
+          "잘못 입력했습니다. 좋아하는 계절을 입력해주세요.";
+        break;
+    }
+  }
+</script>
+
+</html>
