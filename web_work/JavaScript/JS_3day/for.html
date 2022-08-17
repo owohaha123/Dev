@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>반복문 for 문</title>
+</head>
+
+<body>
+    <!-- <fieldset>
+        <legend>두 수 사이의 합 구하기</legend>
+        <label>첫번째 수 : <input type="text" id="fNum"></label><br>
+        <label>두번째 수 : <input type="text" id="sNum"></label><br>
+        <input type="button" value="구하기" onclick="twoNumber()">
+        <h1 id="result"></h1>
+    </fieldset> -->
+</body>
+<script>
+    // function twoNumber() {
+    //     var fNum = Number(document.getElementById("fNum").value); // 숫자로 강제형변환
+    //     var sNum = Number(document.getElementById("sNum").value);
+    //     var result = document.getElementById("result")//value는 입력하는 값에만! (출력하는 값엔 x)
+
+    //     var sum = 0; //초기값을 Number형식으로 지정
+    //     var txt = null;
+
+    //     for (var i = fNum; i <= sNum; i++) {
+    //         sum += i; // sum = sum + i;
+
+    //         txt += i; 
+    //         if (i < sNum) {
+    //             txt += "+";
+    //         } else { // i==sNum 조건
+    //             txt += "=";
+    //         }
+    //     }
+    //     // result.innerHTML = txt + sum; 아래와 같은 식
+    //     txt += sum; 
+    //     result.innerHTML = txt;
+
+    // }
+
+    for (var i = 1; i <= 10; i++) {
+        console.log(i + ". 오늘은 반복문을 배웁니다.");
+    }
+
+    // for문을 사용해서 1부터 10까지의 합을 sum에 넣어보시오
+    var sum = 0;
+
+    for (var i = 1; i <= 10; i++) {
+        //console.log("sum : " + sum);
+        //console.log("i : " + i);
+        sum = sum + i; // 기존에 있던 [sum 값에 i 값을 더한 것]을 다시 [sum에 대입]한다
+
+        document.write(i);
+        if (i < 10) {
+            document.write("+");
+        } else {
+            document.write("=");
+        }
+    }
+    document.write(sum);
+
+
+
+</script>
+
+</html>
