@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>월별 날짜 구하기(Days)</title>
+</head>
+
+<body>
+  <fieldset>
+    <legend>해당 월의 날짜 구하기</legend>
+    <h3>구하려고 하는 월(month)을 입력해주세요!</h3>
+    <input type="text" id="month" />
+    <input type="button" value="입력" onclick="month1()" />
+    <h1 id="result"></h1>
+  </fieldset>
+</body>
+<script>
+  function month1() {
+    var mon = document.getElementById("month").value;
+    console.log("month1 :" + month1);
+
+    switch (mon) {
+      case "1": case "3": case "5": case "7": case "8": case "10": case "12":
+        day = 31;
+        break;
+      case "2":
+        day = 28;
+        break;
+      case "4": case "6": case "9": case "11":
+        day = 30;
+        break;
+      default:
+        document.getElementById("result").innerHTML =
+          "잘못 입력했습니다. 다시 입력해주세요.";
+        break;
+    }
+    if (mon >= 1 && mon <= 12) {
+      document.getElementById("result").innerHTML =
+        mon + "월은 " + day + "일까지 있습니다.";
+    }
+  }
+</script>
+
+</html>
