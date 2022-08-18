@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="yunusss" />
+		<meta name="date" content="" />
+		<link rel="shortcut icon" href="피카냥.ico" />
+		<title></title>
+	</head>
+
+	<body>
+		<fieldset style="text-align: center; width: 200px; height: 550px">
+			<legend><img src="ATM.png" width="150px" /></legend>
+			<h2>원하시는 기능을 선택해주세요.</h2>
+			<table>
+				<tr>
+					<br /><br />
+					<td>
+						<img src="deposit.png" width="220px" onclick="ac('입금')" />
+						<br />입금
+					</td>
+					<td>
+						<img src="withdraw.png" width="220px" onclick="ac('출금')" />
+						<br />출금
+					</td>
+					<td>
+						<img src="balance.png" width="220px" onclick="bal('잔액조회')" />
+						<br />잔액조회
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+	</body>
+
+	<script>
+		account = 100;
+
+		function deposit(money) {
+			account = account + money;
+		}
+
+		function withdraw(money) {
+			account = account - money;
+		}
+
+		function balance() {
+			return account;
+		}
+
+		function ac(atm) {
+			switch (atm) {
+				case "입금":
+					var money = prompt("금액을 입력해주세요");
+					if (!isNaN(money)) {
+						deposit(money);
+					} else {
+						alert("숫자만 입력 가능합니다.");
+						return;
+					}
+					break;
+				case "출금":
+					var money = prompt("금액을 입력해주세요");
+					if (!isNaN(money)) {
+						withdraw(money);
+					} else {
+						alert("숫자만 입력 가능합니다.");
+						return;
+					}
+					break;
+			}
+			if (money) {
+				alert(money + "원을" + atm + "합니다.");
+				alert(atm + "되었습니다." + "현재 잔고는" + balance() + "원 입니다.");
+			} else {
+				alert("취소 되었습니다.");
+			}
+		}
+		function bal(atm) {
+			var order = confirm(atm + "을 조회하시겠습니까?");
+			alert("현재 잔고는" + balance() + "원 입니다.");
+		}
+	</script>
+</html>
