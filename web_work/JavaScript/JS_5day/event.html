@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="yunusss">
+    <meta name="date" content="2022.08.19">
+    <link rel="shortcut icon" href="피카냥.ico">
+    <title>사건(event)</title>
+    <style>
+        div {
+            width: 250px;
+            height: 250px;
+            background-color: pink;
+
+        }
+    </style>
+</head>
+
+<!-- body -->
+<!-- <body onload="alert('로딩완료!')"> -->
+
+<body>
+    <div id="mouse" onmouseover="mouseEvent('over')" onmouseout="mouseEvent('out')">
+    </div>
+
+    <br>
+
+    <fieldset>
+        <legend>현재 시간 구하기</legend>
+        <h3 id="now"></h3>
+        <button onclick="getNow()">현재시간</button>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend>key Event</legend>
+        <input type="text" id="keyevt" onkeydown="keyEvent('change')" onkeyup="keyEvent('up')">
+        <h2 id="typing"></h2>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend> select & option </legend>
+        <select onchange="changeSelect()" id="myObj">
+            <option>과목선택</option>
+            <option>HTML</option>
+            <option>CSS</option>
+            <option>JavaScript</option>
+            <option>JQuery</option>
+        </select>
+        <h2 id="result"></h2>
+    </fieldset>
+
+</body>
+
+<!-- script -->
+<script>
+    // 마우스 이벤트
+    function mouseEvent(evt) {
+        if (evt == 'over') {
+            document.getElementById("mouse").innerHTML = "mouse over!!";
+        }
+        if (evt == 'out') {
+            document.getElementById("mouse").innerHTML = "mouse out!!";
+        }
+    }
+
+
+    // 날짜 출력
+    function getNow() {
+        var date = new Date();
+        document.getElementById("now").innerHTML = date;
+    }
+
+
+    // 키 이벤트
+    function keyEvent(evt) {
+        if (evt == 'down') {
+            //document.getElementById("typing").innerHTML = "key down!!";
+        }
+        if (evt == 'up') {
+            //document.getElementById("typing").innerHTML = "key up!!";
+            var id = document.getElementById("keyevt").value;
+            //document.getElementById("typing").innerHTML = msg;
+            if (id == 'icia') {
+                document.getElementById("typing").innerHTML = "이미 사용중인 아이디입니다.";
+            } else {
+                document.getElementById("typing").innerHTML = "사용가능한 아이디입니다.";
+            }
+        }
+    }
+
+    
+    // 
+    function changeSelect() {
+        var myObj = document.getElementById("myObj").value;
+        document.getElementById("result").innerHTML = myObj;
+    }
+
+</script>
+
+</html>
