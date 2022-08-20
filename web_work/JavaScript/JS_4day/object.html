@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="">
+   <link rel="shortcut icon" href="피카냥.ico">
+   <title>객체(object)</title>
+</head>
+
+<!-- body -->
+<body>
+    <h3 id="car1"></h3>
+    <h3 id="person1"></h3>
+</body>
+
+<!-- script -->
+<script>
+    // 자동차(car) 객체(object) 만들기
+    var car = {
+      // key : value
+        name : "Model S",
+        company : "Tesla",
+        color : "black",
+        type : "electric"
+    };
+
+    car.number = 4567;
+
+    console.log(car);
+    
+    // 너 차 이름이 뭐야?
+    var car1 = document.getElementById("car1"); // car1 = <h2 id="car1"> <h3>
+    car1.innerHTML = car.name;                  // car1 = <h2 id="car1"> Model S <h3>
+    
+    // 사람(person) 객체 생성
+    var person = new Object();
+
+    person["name"] = "늉듀";
+    person["age"] = "29";
+    person["phone"] = "1234";
+
+    console.log(person);
+  
+    var txt = "";
+    for(var i in person){
+        console.log("key : " + i);
+        console.log("value : " + person[i]);
+        txt += i + " : " + person[i] + "<br>"
+    }
+    var person1 = document.getElementById("person1");
+    person1.innerHTML = txt; // innerTEXT 사용 시 전부 그대로 출력
+
+</script>
+</html>
