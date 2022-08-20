@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.08.19">
+   <link rel="shortcut icon" href="피카냥.ico">
+   <title> Timing </title>
+</head>
+
+<!-- body -->
+<body>
+    <button id="interval">시작</button>
+    <button id="stop">정지</button>
+    <button id="setTime">3초 후 알림창</button>
+    <h1 id="result">0</h1>
+</body>
+
+<!-- script -->
+<script>
+    var interval = document.getElementById("interval");
+    var stop = document.getElementById("stop");
+    var setTime = document.getElementById("setTime");
+    var result = document.getElementById("result");
+
+    var myTime;
+    var x = 0;
+
+    // 시작버튼
+    interval.addEventListener("click",function(){
+
+        // 시작버튼을 여러번 누를 경우 발생하는 오류(올라가는 속도 빨라짐)방지
+        clearInterval(myTime);
+
+        // setInterval(function(){}, millisecond);
+        // 1000 millisecond = 1초
+        // 1초마다 function() 안에 있는 내용을 실행하겠다
+        myTime = setInterval(function(){
+            x++;
+            result.innerHTML = x;
+        },1000);
+    });
+
+    // 정지 버튼
+    stop.addEventListener("click",function(){
+        // 일시정지
+        clearInterval(myTime);
+
+        // 초기화
+        x = 0;
+        result.innerHTML = x;
+    });
+
+    // 3초 후 알림창
+    setTime.addEventListener("click",function(){
+        // setTimeout(function(){}, millisecond);
+        setTimeout(function(){
+            alert('3초가 지났습니다.');
+            link
+        },3000);
+    });
+
+
+</script>
+</html>
