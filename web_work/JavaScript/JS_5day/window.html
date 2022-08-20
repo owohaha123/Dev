@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.08.19">
+   <link rel="shortcut icon" href="피카냥.ico">
+   <title>윈도우</title>
+</head>
+
+<!-- body -->
+<body>
+    <!-- 요즘에 쓰는 기술은 아니므로 알아만 두기 -->
+    <button id="openWindow">창열기</button>
+    <button id="closeWindow">창닫기</button>
+    <button id="reSizeWindow">창크기 변경</button>
+</body>
+
+<!-- script -->
+<script>
+    // 각 버튼 요소를 변수에 담아라
+    var owin = document.getElementById("openWindow");
+    var cwin = document.getElementById("closeWindow");
+    var rwin = document.getElementById("reSizeWindow");
+
+    // myWindow 변수 하나 생성
+    var mwin; 
+
+    //addEventListener에서 함수 이름이 아닌 함수를 바로 작성할 수도 있음
+    owin.addEventListener("click", function(){
+        mwin = window.open("","mwin","width=200, height=100, resizable=yes");
+        // window.open("팝업 주소" , "팝업창 이름" , "팝업창 설정");
+    });
+
+    cwin.addEventListener("click", function(){
+        mwin.close();
+    });
+
+    rwin.addEventListener("click", function(){
+        //mwin.resizeTo(500,500); // 크기를 500x500으로 고정
+        mwin.resizeBy(100,100); // 버튼을 누를 때마다 100x100씩 커짐
+        mwin.focus();
+    })
+
+</script>
+</html>
