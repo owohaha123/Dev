@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.08.19">
+   <link rel="shortcut icon" href="피카냥.ico">
+   <title>마우스 위치</title>
+</head>
+
+<!-- body -->
+<body>
+    <h2>mousePosition(브라우저 client) => <span id="pos1"></span></h2>
+    <h2>mousePosition(모니터 screen) => <span id="pos2"></span></h2>
+</body>
+
+<!-- script -->
+<script>
+
+    document.addEventListener("mousemove" , mouseMove);
+
+    function mouseMove(move){
+        document.getElementById("pos1").innerHTML = "X : " + move.clientX + "Y : " + move.clientY
+        document.getElementById("pos2").innerHTML = "X : " + move.screenX + "Y : " + move.screenY
+
+    }
+
+</script>
+</html>
