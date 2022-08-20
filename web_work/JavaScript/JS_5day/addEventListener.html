@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.08.19">
+   <link rel="shortcut icon" href="피카냥.ico">
+   <title>addEventListener</title>
+   <style>
+    div{
+        width: 250px;
+        height: 250px;
+        line-height: 250px;
+        background-color: pink;
+        text-align: center;
+    }
+   </style>
+</head>
+
+<!-- body -->
+<body>
+    <h3 id="msg">FOCUS NULL</h3>
+    <input type="text" id="txtInput">
+    <br>
+    <br>
+    <br>
+    <div id="box" onmouseover="mouseEvent('over')" onmouseout="mouseEvent('out')"
+    onclick="mouseEvent('click')" ondblclick="mouseEvent('dbl')">
+    </div>
+</body>
+
+<!-- script -->
+<script>
+    var txtInput = document.getElementById("txtInput"); //value 사용하지 않는 이유? input태그전체를 보기 위함
+    txtInput.addEventListener("focusin" , fcsin);
+    txtInput.addEventListener("focusout" , fcsout);
+
+    var msg = document.getElementById("msg");
+
+    function fcsin(){
+        msg.innerHTML = "FOCUS IN!!";
+        txtInput.style.backgroundColor = "pink";
+    }
+
+    function fcsout(){
+        msg.innerHTML = "FOCUS OUT!!";
+        txtInput.style.backgroundColor = "lightblue";
+    }
+
+    var box = document.getElementById("box");
+
+    function mouseEvent(evt) {
+        if (evt == 'over') {
+            document.getElementById("box").innerHTML = "mouse in!!";
+        }
+        if (evt == 'out') {
+            document.getElementById("box").innerHTML = "mouse out!!";
+        }
+        if (evt == 'click') {
+            document.getElementById("box").innerHTML = "click!!";
+        }
+        if (evt == 'dbl') {
+            document.getElementById("box").innerHTML = "Dobble!!";
+        }
+    }
+
+
+</script>
+</html>
