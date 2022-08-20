@@ -1,0 +1,16 @@
+* event
+ - 종류
+   1) onload : 브라우저가 모든 페이지를 로딩한 후 실행
+   2) onmouseover : 마우스가 영역 위로 올라왔을 경우 실행
+   3) onmouseout : 마우스가 영역 밖으로 벗어났을 경우 실행
+   4) onclick : 마우스를 클릭했을 경우 발생
+   5) onkeydown : 키보드의 키가 눌렸을 경우 발생 
+   6) onkeyup : 눌린 키가 떨어졌을 경우 발생
+   7) onchange : 해당 요소에서 변화가 있을 경우 발생
+
+   
+ - addEventListener : event를 깔끔하게 작업하기 위해 사용
+   > 사용법 :
+        document.addEventListener(event,function)
+        event - 사용할 이벤트, function - 함수 이름
+
