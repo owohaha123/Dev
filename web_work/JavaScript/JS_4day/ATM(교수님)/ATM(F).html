@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="inchoriya">
+   <meta name="date" content="2022.08.18">
+   <link rel="shortcut icon" href="favicon.png">
+   <title>ATM기 만들기</title>
+   <style>
+        fieldset{
+            width: 200px;
+            height: 300px;
+            /* padding: 10px; */
+            /* padding-left: 40px; */
+            text-align: center;
+        }
+   </style>
+</head>
+
+<!-- body -->
+<body>
+    <fieldset>
+        <legend><img src="ATM.png" width="50px"></legend>
+        <input type="text" id="amount" placeholder="금액을 입력하세요." onclick="clean()"><br><br>
+        <img src="입금.png" width="50px" input type="button" value="입금" onclick="deposit()">
+        <img src="출금.png" width="50px" input type="button" value="출금" onclick="withdraw()">
+        <img src="잔액.png" width="38px" input type="button" value="잔액조회" onclick="msg()" onmouseover="clean()">
+        <h5 id="result"></h5>
+    </fieldset>
+</body>
+
+<!-- script -->
+<script>
+    var balance = 0;
+
+function clean(){
+    document.getElementById("result").innerHTML = "";
+}
+
+function deposit(){ //입금
+    amount1 = document.getElementById("amount");
+    amount = parseInt(amount1.value);
+    // amount = parseInt(document.getElementById("amount").value);
+    // document.getElementById("amount").value = '';
+    
+    console.log(amount);
+    if(amount1.value==""){
+        document.getElementById("result").innerHTML = "다시 입력하세요."
+    } else {
+        balance += amount;
+        document.getElementById("result").innerHTML = "==================" + "<br>" + amount + "원 입금되었습니다.";
+    }
+    amount1.value="";
+}
+
+function withdraw(){ //출금
+    amount1 = document.getElementById("amount");
+    amount = parseInt(amount1.value);
+    
+    if(amount1.value==""){
+        document.getElementById("result").innerHTML = "다시 입력하세요."
+    } else {
+        if(balance >= amount){
+            balance -= amount;
+            document.getElementById("result").innerHTML = "==================" + "<br>" + amount + "원 출금되었습니다.";
+        } else {
+            alert((amount-balance) + "원이 부족합니다.")
+        }
+    }
+    amount1.value="";
+}
+
+function msg(){ //잔액조회     
+    alert("잔액이 " + balance + "원 남았습니다.");
+}
+</script>
+</html>
