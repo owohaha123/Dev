@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.08.22">
+   <link rel="shortcut icon" href="피카냥.ico">
+   <title>입력한 값 보여주기</title>
+</head>
+
+<!-- body -->
+<body>
+    <h1>입력한 내용 : <span id="txt1"></span></h1>
+    <br>
+    <input type="text" id="input1" onkeyup="keyEvent()"><span id="txt2">(0자 입력)</span>
+</body>
+
+<!-- script -->
+<script>
+    function keyEvent(){
+    var txt1 = document.getElementById("txt1");
+    var txt2 = document.getElementById("txt2");
+    var input1 = document.getElementById("input1");
+    var input2 = input1.value; // input에 입력한 값
+    
+    // input2.length : 입력한 글자의 수
+    if(input2.length>=0 && input2.length<=5){
+        txt2.style.color = "black";
+    } else if (input2.length>=6 && input2.length<=9){
+        txt2.style.color = "orange";
+    } else {
+        txt2.style.color = "red";
+        alert('더이상 입력할 수 없습니다');
+
+        // 0부터 보여주고 10부터 잘라냄 (0~9)
+        input2 = input2.slice(0,10);
+
+        // 10부터 입력 불가
+        input1.value = input2;
+        
+    }
+
+    txt1.innerHTML = input2
+    txt2.innerHTML = "(" + input2.length + "자 입력)";
+
+    }
+
+</script>
+</html>
