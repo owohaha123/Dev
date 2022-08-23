@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="yunusss">
+    <meta name="date" content="2022.08.22">
+    <link rel="shortcut icon" href="피카냥.ico">
+    <title>history</title>
+</head>
+
+<!-- body -->
+
+<body>
+    <button onclick="goNaver()">네이버 페이지로 이동하기</button>
+    <button onclick="goBack()">이전 페이지로 이동하기</button>
+    <button onclick="goFoward()">다음 페이지로 이동하기</button>
+</body>
+
+<!-- script -->
+<script>
+    // 네이버 페이지로 이동하는 함수
+    function goNaver() {
+        location.href="http://www.naver.com";
+    }
+    // 이전 페이지로 이동하는 함수
+    function goBack() {
+        window.history.back();
+    }
+    // 다음 페이지로 이동하는 함수
+    function goFoward() {
+        window.history.forward();
+    }
+
+
+
+
+</script>
+
+</html>
