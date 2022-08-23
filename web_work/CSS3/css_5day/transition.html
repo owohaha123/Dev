@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.08.23">
+   <link rel="shortcut icon" href="피카냥.ico">
+   <title>Transition</title>
+   <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            transition-property: width, background-color, height;
+            transition-duration: 2s, 1s, 3s;
+            transition-delay: 0.5s;
+            transition-timing-function: ease;
+        }
+        div:hover{
+            width: 300px;
+            height: 150px;
+            background-color: skyblue;
+        }
+        p {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            color: white;
+            transition: width 3s;
+        }
+        p:hover {
+            width: 500px;
+        }
+        p:nth-child(1){
+            transition-timing-function: linear;
+        }
+        p:nth-child(2){
+            transition-timing-function: ease;
+        }
+        p:nth-child(3){
+            transition-timing-function: ease-in;
+        }
+        p:nth-child(4){
+            transition-timing-function: ease-out;
+        }
+        p:nth-child(5){
+            transition-timing-function: ease-in-out;
+        }
+   </style>
+</head>
+
+<!-- body -->
+<body>
+    <div>★</div>
+    <hr>
+    <p class-"linear">linear</p>
+    <p class-"ease">ease</p>
+    <p class-"easeIn">ease-in</p>
+    <p class-"easeOut">ease-out</p>
+    <p class-"easeInOut">ease-in-out</p>
+</body>
+
+<!-- script -->
+<script>
+
+</script>
+</html>
