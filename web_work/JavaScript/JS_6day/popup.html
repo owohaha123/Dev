@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="yunusss">
+    <meta name="date" content="2022.08.22">
+    <link rel="shortcut icon" href="피카냥.ico">
+    <title>팝업창</title>
+</head>
+
+<!-- body -->
+
+<body>
+    <button onclick="popup()">알림창</button>
+    <button onclick="conf()">확인창</button>
+    <button onclick="promp()">입력창</button>
+</body>
+
+<!-- script -->
+<script>
+    function popup() {
+        alert('경고 or 알림');
+    }
+
+    function conf() {
+        // 확인: con에 true 저장/ 취소: con에 false 저장
+        var con = confirm("정말 삭제하시겠습니까?");
+
+        if(con) {
+            alert('삭제되었습니다');
+        }else{
+            alert('취소되었습니다.');
+        }
+    }
+    
+    function promp() {
+        var stuName = prompt('당신의 이름은?');
+
+        if (stuName=="" || stuName==null || stuName==" "){
+            alert('다시 입력해주세요.');
+            promp();
+        }else{
+            alert( stuName + '님 반갑습니다.');
+        }
+    }
+
+</script>
+
+</html>
