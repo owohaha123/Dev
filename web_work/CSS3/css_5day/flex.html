@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.08.23">
+   <link rel="shortcut icon" href="피카냥.ico">
+   <title>flex</title>
+   <style>
+    .fcont {
+        margin: 10px;
+        padding: 15px;
+        height: 500px;
+        border-radius: 5px;
+        background-color: pink;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        /* justify-content: center; */
+        align-content: stretch ;
+    }
+    .fi {
+        margin: 10px;
+        padding: 20px;
+        color: white;
+        background-color: rgb(153, 219, 245);
+        border-radius: 5px;
+        font-size: 30px;
+        flex-basis: 50px; /* width 사용 시 내부텍스트 이탈할 수 있음 */
+        /* flex-grow: 1; */
+    }
+    .fi:nth-child(1){
+        /* flex-grow: 1; */
+        flex-shrink: 0;
+        width: 80px;
+        order: 3;
+    }
+    .fi:nth-child(2){
+        flex-grow: 2;
+        order: 1;
+    }
+    .fi:nth-child(3){
+        flex-grow: 1;
+        order: 2;
+        transform: scale(2);
+        border: 3px solid black;
+    }
+   </style>
+</head>
+
+<!-- body -->
+<body>
+    <div class="fcont">
+        <div class="fi">aaa</div>
+        <div class="fi">bbbbbbbbb</div>
+        <div class="fi">qqqqq</div>
+    </div>
+</body>
+
+<!-- script -->
+<script>
+
+</script>
+</html>
