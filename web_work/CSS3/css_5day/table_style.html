@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.08.23">
+   <link rel="shortcut icon" href="피카냥.ico">
+   <title>표 꾸미기</title>
+   <style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    table, th, td {
+        border-bottom: 1px solid gray;
+        text-align: center;
+    }
+    th, td {
+        padding: 5px;
+        height: 40px;
+        vertical-align: bottom;
+    }
+    th {
+        border-top: 1px solid gray;
+    }
+    tr:nth-child(even){
+        background-color: aliceblue;
+    }
+    tr:first-child {
+        background-color: navy;
+        color: white;
+    }
+    tr:last-child>td {
+        border-bottom: 1px solid black;
+    }
+    /* tr:hover {
+        background-color: #pink;
+    } */
+    td:hover {
+        background-color: pink;
+    }
+   </style>
+</head>
+
+<!-- body -->
+<body>
+    <table>
+        <tr>
+            <th>성</th>
+            <th>이름</th>
+            <th>연락처</th>
+        </tr>
+        <tr>
+            <td>김</td>
+            <td>길동</td>
+            <td>010-1111-2222</td>
+        </tr>
+        <tr>
+            <td>나</td>
+            <td>길동</td>
+            <td>010-2222-3333</td>
+        </tr>
+        <tr>
+            <td>박</td>
+            <td>길동</td>
+            <td>010-3333-4444</td>
+        </tr>
+        <tr>
+            <td>장</td>
+            <td>길동</td>
+            <td>010-4444-5555</td>
+        </tr>
+        <tr>
+            <td>최</td>
+            <td>길동</td>
+            <td>010-5555-6666</td>
+        </tr>
+    </table>
+</body>
+
+<!-- script -->
+<script>
+
+</script>
+</html>
