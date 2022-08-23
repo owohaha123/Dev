@@ -75,19 +75,5 @@
               baseline: 내부요소 중 큰 요소의 컨텐츠(내용)를 기준으로 베이스라인에 맞춤
                         (컨테이너 요소의 위쪽에 배치)
       6) align-content: 내부요소의 수직간격 조정
+                        (내부요소가 2줄 이상으로 배치되었을 경우 처리됨)
               [stretch] + [justify-content 6가지 속성]
-         
-      > flex item 관련 속성
-       1) flex-basis : 내부요소의 기본 크기를 설정
-             - flex-direction이 row계통이면 너비 속성으로, column일 땐 높이 속성으로 사용
-             - auto : 기본값
-             - 수치 : px, % 등
-             - 내용에 따라 : content
-
-
-    - 참고) space-evenly : IE에서 처리 안 됨
-              
-
-* transform (모양변환)
-
-* transition (변환 시 효과- 속도)
