@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="yunusss">
+    <meta name="date" content="2022.08.22">
+    <link rel="shortcut icon" href="피카냥.ico">
+    <title>이미지 변경하기</title>
+</head>
+
+<!-- body -->
+
+<body>
+    <button id="btn1">텍스트 표시</button><br>
+    <h1 id="txt"></h1><br>
+
+    <img id="image" src="흰둥1.png" alt="흰둥이" width="400px">
+    <button id="btn2">이미지 변경</button>
+</body>
+
+<!-- script -->
+<script>
+    // 텍스트 표시 버튼을 누르면 텍스트가 나타나고, 다시 버튼을 누르면 사라지게 만드는 작업
+    var txt = document.getElementById("txt");
+    var btn1 = document.getElementById("btn1");
+
+    var i = 0;
+
+    btn1.addEventListener("click", function() {
+        if (i == 0) {
+            txt.innerHTML = "새로운 텍스트 등장!";
+            i++;
+        } else {
+            txt.innerHTML = "";
+            i = 0;
+        }
+    });
+
+    var image = document.getElementById("image");
+    var btn2 = document.getElementById("btn2");
+
+    var j = 0;
+
+    btn2.addEventListener("click", function() {
+        if (j == 0) {
+            image.setAttribute("src","흰둥2.png")
+            j++;
+        } else if (j==1){
+            image.setAttribute("src","흰둥3.png")
+            j++;
+        } else if (j==2){
+            image.setAttribute("src","")
+            j++;
+        } else {
+            image.setAttribute("src","흰둥1.png")
+            j=0;
+        }
+    });
+</script>
+
+</html>

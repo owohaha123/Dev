@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>변수(variable)</title>
+</head>
+<body></body>
+<script>
+    var global = 100; // 전역변수: script 어디서나 사용가능한 변수
+
+    function localfocus1(){
+        var local = 200;     // 지역변수: 해당 함수에서만 사용가능한 변수
+        console.log(global);         //: 해당 함수의 밖이나 다른 함수에서 사용할 수 없다
+        console.log(local);
+    }
+    localfocus1(); // localfocus1 함수 호출
+
+    function localfocus2(){
+        var local = 150;   
+        console.log(global);
+        console.log(local);
+    }
+    localfocus2();
+
+</script>
+</html>

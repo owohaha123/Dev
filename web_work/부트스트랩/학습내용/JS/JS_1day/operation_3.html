@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>논리연산자</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var result;
+
+    result = true && true; //true
+    console.log("true && true : " + result);
+    result = false && true; //false
+    console.log("false && true : " + result);
+    result = (5>3) && (3<2); //false
+    console.log("(5>3) && (3<2) : " + result);
+
+
+    result = true || true; //true
+    console.log("true || true : " + result);
+    result = true || false; //true
+    console.log("true || false : " + result);
+    result = false || false; //false
+    console.log("false || false : " + result);
+    result = (5>3) || (3<2); //true
+    console.log("(5>3) && (3<2) : " + result);
+
+    result = !true //false
+    console.log("!true : " + result);
+    result = !false //true
+    console.log("!false : " + result);
+    result = !!false //false
+    console.log("!!false : " + result);
+
+</script>
+</html>

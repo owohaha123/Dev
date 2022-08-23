@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="yunusss">
+    <meta name="date" content="">
+    <link rel="shortcut icon" href="피카냥.ico">
+    <title></title>
+</head>
+
+<!-- body -->
+
+<body>
+    <fieldset style="text-align:center;">
+        <legend>
+            <img src="ATM.png" width="150px">
+        </legend>
+        <table>
+            <tr>
+                <td><img src="deposit.png" width="220px" onclick="ac('입금')">
+                    <br>입금</td>
+                <td><img src="withdraw.png" width="220px" onclick="ac('출금')">
+                    <br>출금</td>
+                <td><img src="balance.png" width="220px" onclick="ac('잔액')">
+                    <br>잔액</td>
+            </tr>
+        </table>
+    </fieldset>
+</body>
+
+<!-- script -->
+<script>
+    // 계좌 object 만들기
+
+    // [1]계좌 생성
+    var account = {};
+
+    // [2]잔액 추가
+    account.balance = 0;
+
+    // [3]입금 함수
+    account.deposit = function (amount) {
+        this.balance += amount; // this.balance : 객체의 key가 balance인 것을 의미
+    }                           // = [this.balance = this.balance + amount;]
+    // = [현재 잔액 = 기존잔액 + 입금액(양);]
+
+    // [4]출금 함수
+    account.withdraw = function (amount) {
+        // 잔액부족 메시지
+        if (this.balance > amount) {
+            this.balance -= amount;
+        } else {
+            console.log("잔액이 부족합니다.");
+        }
+
+    }
+
+    // [5]잔액 조회 함수
+    account.toString = function () {
+        console.log("현재 잔액 : " + this.balance);
+    }
+    // ----------------------------------------------------
+
+    // [6]object 사용
+
+    // 1) 계좌 생성 시 10,000원으로 시작
+    account.balance = 10000;
+    // 2) 10,000원 입금
+    account.deposit(10000);
+    // 3) 50,000원 출금
+    account.withdraw(50000);
+
+    // [-]잔액 조회
+    account.toString();
+
+</script>
+
+</html>

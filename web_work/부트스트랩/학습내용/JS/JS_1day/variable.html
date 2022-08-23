@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- head -->
+<head>
+    <meta charset="UTF-8">
+    <title>variable(변수)</title>
+    <!-- 아이콘 넣기 -->
+    <link rel="shortcut icon" href="피카냥.ico">
+</head>
+
+<!-- body -->
+<body>   
+</body>
+
+<!-- script -->
+<script>
+    var age = 20;
+    console.log(age);
+
+    // 데이터 타입
+    var number1 = 10;       // number
+    var number2 = '10';     // string
+    var number3 = true;     // boolean
+
+    // 변수값과 변수의 타입을 확인 하는 법
+    console.log("number1 : " + number1); 
+    console.log("number1의 타입 : " + typeof(number1));
+
+    // number2, number3의 값과 타입 확인하기
+    console.log("number2 : " + number2);
+    console.log("number2의 타입 : " + typeof(number2));
+    console.log("number3 : " + number3);
+    console.log("number3의 타입 : " + typeof(number3));
+
+    // boolean
+    var number4 = number1 > 11;  // false
+    var number5 = number1 < 11;  // true
+
+    console.log("number4 : " + number4);
+    console.log("number5 : " + number5);
+
+    // script에서 선언한 변수를 body(html)에 출력해보기
+    // script에서 출력할 때 : console.log();
+    // script에서 선언한 내용을 body에서 출력할 때(여러가지)
+    // document.write();
+    document.write("script의 내용을 body에 출력합니다.");
+    document.write("<br/><h1>number1 : " + number1 + "</h1>");
+
+    // 변수이름 예시
+    var stuNum = 1; // 카멜(낙타) 표기법
+    var nam_e = "in"; // 영문자, 숫자, 특수문자(_ $ 만 사용)
+    var n$ame = "cho";
+    // var n!ame = "ri";
+    // var n#ame = "ya";
+    var a1b = 123;
+    // var 1ab = 123;  <- 숫자시작 불가
+    // var var = 10;   <- 예약어 사용 불가
+    var document = 10; // 예약어(document)지만 오류x 
+    console.log("document : " + document); // but 이상한 결과ㅠ
+
+</script>
+</html>

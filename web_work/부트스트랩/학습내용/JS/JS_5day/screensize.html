@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.08.19">
+   <link rel="shortcut icon" href="피카냥.ico">
+   <title>스크린 크기(Screen Size)</title>
+</head>
+
+<!-- body -->
+<body>
+    <h2 id="winSize"></h2>
+    <h2 id="screenSize"></h2>
+    <h2 id="availSize"></h2>
+</body>
+
+<!-- script -->
+<script>
+    var ww = window.innerWidth; // 브라우저 가로길이
+    var wh = window.innerHeight; // 브라우저 세로길이
+
+    document.getElementById("winSize").innerHTML = "브라우저 사이즈 : " + ww + " x " + wh;
+
+    var sw = screen.width;
+    var sh = screen.height;
+ 
+    document.getElementById("screenSize").innerHTML = "모니터 사이즈 : " + sw + " x " + sh;
+
+    var aw = screen.availWidth;
+    var ah = screen.availHeight;
+
+    document.getElementById("availSize").innerHTML = "모니터(작업표시줄 제외) 사이즈 : " + aw + " x " + ah;
+
+
+</script>
+</html>

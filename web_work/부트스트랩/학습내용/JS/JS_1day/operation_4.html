@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>조건연산자</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var dhAge = 34;
+    var jbAge = 28;
+
+    var result;
+    result = (dhAge<jbAge) ? 'o' : 'x';
+    console.log("result : " + result);
+    console.log("result타입 : " + typeof(result));
+
+    result = (dhAge>jbAge) ? 0 : 1;
+    console.log("result : " + result); // 0
+    console.log("result타입 : " + typeof(result)); // number
+
+    var num = 10;
+    var resultEven;
+
+    // Q. num이 짝수일 때 true, num이 홀수일 때 false 출력 (조건연산자)
+    resultEven = (num%2 == 0) ? true : false;
+    console.log("resultEven : " + resultEven); 
+    console.log("resultEven타입 : " + typeof(resultEven));
+</script>
+</html>

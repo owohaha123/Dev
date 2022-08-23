@@ -1,0 +1,16 @@
+* 배열(Array)
+ - 여러 개의 데이터를 하나의 변수에 담는 것
+ - 선언방법
+  1) var arrNum = [];
+  2) var arrString = new Array();
+ - 배열타입 확인
+    console.log(typeof arrNum);
+    console.log(typeof arrString);
+ - 배열값 넣기
+    arrNum = [1,2,3,4,5];
+    arrString = ["A", "B", "C", "D", "E"];
+ - 배열값 확인
+    console.log(arrNum);
+    console.log(arrString);
+ - 배열의 크기 확인(배열이름.length)
+    console.log("arrNum 배열의 크기 : " + arrNum.length);

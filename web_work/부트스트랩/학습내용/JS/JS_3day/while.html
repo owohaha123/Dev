@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>반복문 While문</title>
+</head>
+<body></body>
+<script>
+    var i = 1;
+    while(i<=3){
+        console.log("Hello");
+        i++;
+    }
+
+    //Q. 예제
+    var run = true; // 실행의 의미를 지닌 변수 run에 true 값 대입
+    var cnt = 0;    // 카운터를 세는 변수 cnt 선언
+    var dice = 0;   // 주사위 숫자를 표현하기 위한 변수 dice 선언
+  
+    while(run){
+        dice = parseInt((Math.random()*6) + 1); // 1~6 사이의 랜덤한 숫자 저장
+        cnt++; // 주사위를 한 번 굴릴 때마다 카운트 1씩 증가
+
+        if(dice==5){ // 굴릴 주사위 값이 5가 되면 주사위의 값이 멈추도록
+            run = false;
+        }
+        console.log("주사위의 값 : " + dice);
+    }
+    console.log("던진 횟수 : " + cnt);
+
+</script>
+</html>

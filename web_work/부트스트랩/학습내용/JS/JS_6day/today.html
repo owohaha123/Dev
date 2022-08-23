@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.08.22">
+   <link rel="shortcut icon" href="피카냥.ico">
+   <title>today</title>
+</head>
+
+<!-- body -->
+<body>
+    <button onclick="today1()">today1</button>
+    <button onclick="time1()">time1</button>
+    <h1 id="result"></h1>
+</body>
+
+<!-- script -->
+<script>
+    function today1(){
+        var today = new Date();
+        
+        //년(year)
+        var yy = today.getFullYear();
+        //월(month)
+        var mm = today.getMonth() + 1;
+        //일(day)
+        var dd = today.getDate();
+        //요일(days)
+        var day = today.getDay();
+        var days = ["일","월","화","수","목","금","토"];
+        
+        document.getElementById("result").innerHTML =
+        yy + "년" + mm + "월" + dd + "일" + days[day] + "요일";
+    }   
+
+    function time1(){
+        var today = new Date();
+
+        var hh = today.getHours();
+        var mi = today.getMinutes();
+        var ss = today.getSeconds();
+
+        hh = checkTime(hh);
+        mi = checkTime(mi);
+        ss = checkTime(ss);
+
+        document.getElementById("result").innerHTML =
+        hh + "시" + mi + "분" + ss + "초";
+
+        setTimeout( time1, 500 ); // 재귀함수
+                                  // 1000 미만 으로 적어주면 더 확실하게 반응
+        
+    }
+
+    function checkTime(i){
+        if (i<10) {
+            i = "0" + i;
+        }
+        return i ;
+    }
+    //setInterval( time1, 1000 );
+</script>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Icia 카페</title>
+    <style>
+        #item {
+            width: 100%;
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset style="text-align: center;">
+        <legend>안녕하세요. icia 카페입니다.</legend>
+        <h3>주문을 도와드리겠습니다.</h3>
+        <table>
+            <tr>
+                <td>
+                    <img src="ame.webp" width="200">
+                    <br><input type="button" value="아메리카노" onclick="menu('아메리카노')">
+                </td>
+                <td>
+                    <img src="latte.jpg" width="200">
+                    <br><input type="button" value="카페라떼" onclick="menu('카페라떼')">
+                </td>
+                <td>
+                    <img src="black.png" width="200">
+                    <br><input type="button" value="자몽허니블랙티" onclick="menu('자몽허니블랙티')">
+                </td>
+                <td>
+                    <img src="cara.jpg" width="200">
+                    <br><input type="button" value="카라멜마끼야또" onclick="menu('카라멜마끼야또')">
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+</body>
+<script>
+    function menu(myChoice) {
+
+        var price;
+        switch (myChoice) {
+            case "아메리카노":
+                price = 2000;
+                break;
+            case "카페라떼":
+                price = 2500;
+                break;
+            case "자몽허니블랙티":
+                price = 3000;
+                break;
+            case "카라멜마끼야또":
+                price = 3500;
+                break;
+            default:
+                price = 0;
+                break;
+        }
+
+        var order = confirm('주문하신 메뉴는 ' + myChoice +
+            "\n가격은 " + price + "원 입니다.\n주문하시겠습니까?");
+
+        if (order) {
+            alert('주문을 성공했습니다.');
+        } else {
+            alert('주문을 취소했습니다.');
+        }
+    }
+</script>
+
+</html>
