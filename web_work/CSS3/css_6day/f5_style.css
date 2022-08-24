@@ -1,0 +1,204 @@
+@charset "UTF-8";
+
+/* 전체 스타일 */
+* {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+
+/* 구성 영역의 레이아웃 */
+header {
+    height: 105px;
+}
+section {
+    height: 1220px;
+    margin: 0 auto;
+}
+footer {
+    height: 205px
+}
+
+/* header의 행간 레이아웃 */
+#h_top{
+    height: 35px;
+    background-color: #4f5b61;
+}
+#h_bottom {
+    width: 960px;
+    height: 70px;
+    margin: 0 auto;
+}
+
+/* h_top의 내부 구성 요소 */
+#h_top>#h_top_wrap {
+    width: 960px;
+    margin: 0 auto;
+}
+#h_top_wrap>.h_left {
+    float: left;
+    height: 35px;
+    background-color: #2b3134;
+    color: white;
+}
+#h_top_wrap>.t_nav {
+    float: right;
+}
+#h_top_wrap>.t_nav>ul>li {
+    float: left;
+    margin: 0 10px;
+    line-height: 35px;
+}
+
+/* h_bottom의 내부 구성 요소 */
+#h_bottom>h1 {
+    float: left;
+    margin-top: 10px;
+    margin-right: 90px;
+}
+#h_bottom>nav.m_nav {
+    float: left;
+    margin-top: 20px;
+}
+#h_bottom>nav.m_nav>ul>li{
+    float: left;
+    margin-right: 50px;
+}
+
+/* section의 행간 레이아웃 */
+section>div {
+    width: 960px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+section>div#s_box1 {
+    height: 355px;
+}
+section>div#s_box2 {
+    height: 160px;
+}
+section>div#s_box3 {
+    height: 125px;
+}
+section>div#s_box4 {
+    height: 65px;
+}
+section>div#s_box5 {
+    height: 240px;
+}
+section>div#s_box6 {
+    height: 155px;
+    margin-bottom: 60px;
+}
+
+/* s_box1 내부 구성 요소 */
+#s_box1>div {
+    float: left;
+}
+#s_box1>div:first-child {
+    width: 650px;
+    height: 355px;
+    background-color: orange;
+}
+#s_box1>div:last-child {
+    width: 310px;
+    height: 355px;
+    background-color: pink;
+}
+
+/* s_box2 내부 구성 요소 */
+#s_box2>div {
+    float: left;
+    width: 310px;
+    height: 160px;
+    margin-right: 15px;
+    background-color: orange;
+}
+#s_box2>div:last-child {
+    margin-right: 0; /*이탈 방지를 위해 마지막 박스만 우측 마진 제거*/
+}
+
+/* s_box3,s_box4 내부 구성 요소 */
+#s_box3, #s_box4 {
+    border: 1px solid gray;
+    box-sizing: border-box; /*border의 px 포함*/
+}
+
+/* s_box5 내부 구성 요소 */
+#s_box5>div {
+    float: left;
+    width: 475px;
+    height: 240px;
+    margin-right: 10px;
+    background-color: #e9e9e9;
+    border: 1px solid gray;
+    box-sizing: border-box;
+}
+#s_box5>div:last-child {
+    margin-right: 0; /*이탈 방지를 위해 마지막 박스만 우측 마진 제거*/
+}
+
+/* s_box6 내부 구성 요소 */
+#s_box6>div {
+    float: left;
+    width: 232.5px;
+    height: 155px;
+    margin-right: 10px;
+    background-color: #e9e9e9;
+    border: 1px solid gray;
+    box-sizing: border-box;
+}
+#s_box6>div:last-child {
+    margin-right: 0; /*이탈 방지를 위해 마지막 박스만 우측 마진 제거*/
+    background-color: white;
+    border: none;
+}
+#s_box6>div:last-child>ul>li{
+    height: 72.5px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+}
+#s_box6>div:last-child>ul>li:first-child{
+margin-bottom: 10px;
+}
+
+/* footer 행간 레이아웃 */
+#f_top {
+    height: 60px;
+    background-color: #e9e9e9;
+}
+#f_bottom {
+    height: 145px;
+    background-color: #4f5b61;
+}
+
+/* #f_top 내부 구성 요소 */
+#f_top>#f_top_wrap {
+    width: 960px;
+    margin: 0 auto;
+}
+#f_top_wrap>nav.f_nav {
+    float: left;
+}
+#f_top_wrap>nav.f_nav>ul>li {
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    margin: 0 5px;
+}
+#f_top_wrap>div.f_site{
+    float: right;
+}
+
+/* #f_bottom 내부 구성 요소 */
+#f_bottom>#f_bottom_wrap{
+    width: 960px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+#f_bottom_wrap>h1 {
+    float: left;
+    margin-right: 80px;
+}
