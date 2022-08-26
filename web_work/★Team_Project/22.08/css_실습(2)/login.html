@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<!-- head -->
+<head>
+   <meta charset='UTF-8'>
+   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+   <meta name='author' content='YeomDongSu'>
+   <meta name='date' content='2022.08.25'>
+   <title>로그인</title>
+   <style>
+        * {
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
+        body{
+            font-size: 14px;
+            font-family: 'Roboto', sans-serif;
+    }
+        .login-wrapper{
+            width: 400px;
+            height: 350px;
+            padding: 40px;
+            box-sizing: border-box;
+            margin: auto;
+            margin-top: 220px;
+    }
+
+        .login-wrapper > h2{
+            font-size: 24px;
+            color: #6A24FE;
+            margin-bottom: 20px;
+            text-align: center;
+    }
+        #login-form > input{
+            width: 100%;
+            height: 50px;
+            padding: 0 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            background-color: white;
+            border: 1px solid gray;
+    }
+        #login-form > input::placeholder{
+            color: gray;
+            font-size: 15px;
+    }
+        #login-form > input[type="submit"]{
+            color: #C7D3D4;
+            font-size: 16px;
+            background-color: #603F83;
+            margin-top: 10px;
+            height: 50px;
+            margin-bottom: 0;
+    }
+        #login-form > input[type="submit"]{
+            height: 50px;
+            color: #603F83;
+            font-size: 16px;
+            background-color: #C7D3D4;
+            margin-top: 7px;
+            text-align: center;
+            margin-bottom: 7px;
+    }
+        span {
+            color: black;
+        }
+        /* 기존의 checkbox를 없애고 label를 이용하여  디자인 시안과 동일하게 변경시켜줍니다. */
+
+        #login-form > input[type="checkbox"]{
+            display: none;
+    }
+        #login-form > label{
+            color: black;
+            font-size: 14px;
+    }
+        #login-form input[type="checkbox"] + label{
+            cursor: pointer;
+            padding-left: 26px;
+            background-image: url("checkbox.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+    }
+        #login-form input[type="checkbox"]:checked + label{
+            background-image: url("checkbox-active.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+    }
+   </style>
+</head>
+
+<!-- body -->
+<body>
+    <div class="login-wrapper">
+        <h2>Cookooo</h2>
+        <form method="post" action="서버의url" id="login-form">
+            <input type="text" name="userName" placeholder="아이디를 입력해주세요.">
+            <input type="password" name="userPassword" placeholder="비밀번호를 입력해주세요.">
+            <label for="remember-check">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;아이디 저장하기&nbsp;<input type="checkbox" id="remember-check">
+            </label>
+            <input type="submit" value="로그인">
+            <input type="submit" value="회원가입">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>아이디 찾기</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>비밀번호 찾기</span>
+        </form>
+    </div>
+</body>
+
+<!-- script -->
+<script>
+
+</script>
+</html>

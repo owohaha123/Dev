@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<!-- head -->
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+   <meta name='author' content='YeomDongSu'>
+   <meta name='date' content='2022.08.25'>
+   <title>레시피</title>
+
+   <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+   <style>
+    * {
+        font-family: 'Noto Sans KR', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    #navbar>.t_nav {
+    float: right;
+    }
+    #navbar>.t_nav>ul>li {
+    float: left;
+    margin: 0 10px;
+    line-height: 35px;
+    }
+    img {
+        margin-top: 15px;
+        width: 520px;
+        height: 500px;
+    }
+    .box {
+        /* width: 100%; */
+        /* height: 100%; */
+        margin-top: 200px;
+        margin-left: 425px;
+    }
+    .a { 
+        float: left;
+    }
+    .b {
+        /* position: relative; */
+        width: 30%;
+        margin-left: 20px;
+        float: left;
+    }
+    span {
+        font-size: 25px;
+        line-height: 8px;
+    }
+    h3 {
+        color: #815854;
+    }    
+    /* #button1 {
+        position: absolute;
+        top: 560px; right: 450px;
+        background-color: black;
+         width: 100px;
+         height: 100px;
+    } */
+    #button1 {
+        position: relative;
+        left: 3px;
+        top: 14px;
+        width: 48px;
+        height: 48px;
+        border:0px solid #f0f0f0;
+    }
+    .heart1 {
+        /* position: absolute; */
+        top :0; left: 0;
+        box-sizing: border-box;
+        width: 48px;
+        height: 48px;
+        margin-top: -4px; margin-left: -4px;
+    }
+    /* .bb {
+        width: 60px;
+        height: 60px;
+        border: 0.5px solid black;
+        box-sizing: border-box;
+    } */
+    .button2 {
+        /* background-color: #603F83;
+        color : #C7D3D4; */
+        position: relative;
+        bottom: 20px;
+        right: 2px;
+        margin-top: 30px;
+        float: right;
+        width: 390px;
+        height: 50px;
+        font-size: 15px;
+        border: 1px solid rgb(65, 4, 122);
+    }
+    
+   </style>
+    <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS Files -->
+  <link href="assets/css/variables.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<!-- body -->
+<body>  <!--style="display:none;"-->
+
+ <!-- ======= Header ======= -->
+ <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" width="50px" height="50px"> -->
+        <h1 style="color: white !important;">Cookooo</h1>
+      </a>
+
+      
+
+      <!-- 로그인 -->
+      <div class="d-flex align-items-center">
+        <nav id="navbar" class="navbar">     
+          <ul class="t_nav" >
+            <li><a href="#"><span style="font-size: 18px;">New 레시피</span></a></li>
+            <li><a href="#"><span style="font-size: 18px;">Top 100</span></a></li>
+            <li><a href="#"><span style="font-size: 18px;">관련상품</span></a> </li>
+            <li><a href="#"><span style="font-size: 18px;">계절 추천 요리</span></a></li>
+            <li><a href="#"><span style="font-size: 18px;">이벤트/쿠폰</span></a></li>
+        </ul>
+      </nav>
+      </div>
+
+  
+
+        <a href="#" class="mx-2 js-search-open"></a>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+
+        <!-- ======= Search Form ======= -->
+        <div class="search-form-wrap js-search-form-wrap">
+          <form action="search-result.html" class="search-form">
+            <!-- <span class="icon bi-search"></span> -->
+            <input type="text" placeholder="Search" class="form-control">
+            <button class="btn js-search-close"><span class="bi-x"></span></button>
+          </form>
+        </div><!-- End Search Form -->
+
+      </div>
+
+
+
+  </header><!-- End Header -->
+
+  <main id="main">
+<!-- recipe -->
+    <div class="box">
+        <div class="a">
+            <img src="assets/img/떡볶이1.png" alt="떡볶이">
+        </div>
+        <div class="b">
+            <!-- <hr style="margin-bottom: 8px;"> -->
+            <fieldset>
+            <legend><span style="color:#000000">&nbsp;떡볶이&nbsp;</span></legend><br>
+            <h3>&nbsp;재료</h3><br>
+            <p>&nbsp;떡볶이용 떡 500g, 어묵 150g (사각형 어묵 3장), 물 한컵 반(360ml)<br><br>
+            <strong>&nbsp;양념장 :</strong> 고추장 3큰술, 간장 1/2큰술, 설탕 2큰술, 물엿 1큰술<br><br></p>
+            <h3>&nbsp;준비하기</h3><br>
+            <p>&nbsp;1. 떡볶이용 떡은 말랑하면 그냥 씻어 건져두고, 단단히 굳었으면 끓는 물에 살짝 데쳐서 사용한다.<br><br>
+                        &nbsp;2. 어묵은 2.5 * 5cm 크기로 썰어 체에 올려놓고 뜨거운 물을&nbsp; 부어 기름을 뺀다.<br><br>
+            </p>
+            <h3>&nbsp;만들기</h3><br>
+            <p>&nbsp;1. 팬에 물을 넣고 고추장, 간장, 설탕, 물엿을 넣어 잘 푼다.<br><br>
+                        &nbsp;2. 1의 팬을 불에 올리고 떡을 넣어 눌러붙지 않게 저어가며 &nbsp;&nbsp;&nbsp;&nbsp;잠시 끓인다.<br><br>
+                        &nbsp;3. 어묵을 넣고 양념장이 걸쭉해질 때까지 끓인다.<br>
+                        &nbsp;</p>
+            </fieldset>
+            <hr style="margin-top:8px"> 
+            <!-- <div class="k"> -->
+                <button id="button1">
+                    <img id="heart" class="heart1" src="assets/img/하트.png">
+                    <!-- <img id="heart2" class="bb" src="하트2.png" onclick="heart2()"> -->
+                </button>
+            <!-- </div> -->
+            <input class="button2" style="color: white; background-color: #603F83; "type="button" value="관련 상품 구매">     
+        </div>
+    </div>
+</main>
+
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <!-- <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+<!-- script -->
+<script>
+    var button1 = document.getElementById("button1");
+    var heart = document.getElementById("heart");
+
+    var i = 0;
+
+    button1.addEventListener("click" , function(){
+        if(i==0){
+            heart.setAttribute("src","assets/img/하트2.png");
+            i++
+            
+        var con = confirm("마이페이지로 이동하시겠습니까?");
+        if(con) {
+            location.href="http://www.naver.com";
+        }else{     
+            alert('취소되었습니다.');
+            i=0;
+        }
+    
+        }else if(i==1){
+            heart.setAttribute("src","assets/img/하트.png");
+            i--
+        }else if(i==0){
+            heart.setAttribute("src","assets/img/하트2.png");
+            i++
+        }else if(i==1){
+            heart.setAttribute("src","assets/img/하트.png");
+            i--;
+        }
+    });
+
+    // function heart(){
+    //     var heart = document.getElementById("heart");
+    //     var heart2 = document.getElementById("heart2");
+    //     document.heart.style.display = block;
+    //     document.heart2.style.display = hidden;
+    // }
+    // function heart2(){
+    //     var heart = document.getElementById("heart");
+    //     var heart2 = document.getElementById("heart2");
+    //     document.heart.style.display = hidden;
+    //     document.heart2.style.display = block;
+    // }
+
+    // function heart(){
+    //     var heart = document.getElementById("heart");
+    //     var heart2 = document.getElementById("heart2");
+    //     document.getElementById("heart").src = "하트2.png";
+    //     document.heart2.style.visiblity = "hidden";
+        
+    //     // alert('찜 하였습니다.')    
+    // };
+    // function heart2(){
+    //     document.getElementById("heart2").src = "하트.png";
+    // };
+    
+
+</script>
+</html>
