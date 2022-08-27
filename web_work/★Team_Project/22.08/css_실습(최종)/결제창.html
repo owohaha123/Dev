@@ -1,0 +1,319 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<title>ICIA 커피샵</title>
+		<link type="text/css" rel="stylesheet" href="style4.css" />
+		<link type="text/css" rel="stylesheet" href="style_slide.css" />
+	</head>
+	<style>
+		*{padding: 0px; margin: 0px; }
+		li{list-style: none;}
+		header{height: 115px}
+		section{width: 960px; height: 1510px; margin: 0px auto;}
+		footer{ height: 150px;}
+		/*header의 행간레이아웃*/
+/*div#h_top{ width: 1000px; height: 75px; margin: 0px auto;   }
+div#h_bottom{ height: 40px; background-color: #1d326c; }
+
+/*div#h_top의 내부 구성 요소
+div#h_top > h1{ float: left; height: 75px; line-height: 75px; }
+div#h_top > div.sns_banner{ float: right; width: 190px; height: 75px; 
+		line-height: 75px; margin-left: 15px; }
+div#h_top > div.lang_select{ float: right; height: 75px; 
+		line-height: 75px; margin-left: 15px; }
+div#h_top > nav.t_nav{ float: right; height: 75px; line-height: 75px; }
+div#h_top > nav.t_nav > ul > li{ float: left; margin: 0px 5px; }
+
+/*div#h_bottom의 내부 구성 요소
+div#h_bottom > nav.m_nav{ width: 1000px; margin: 0px auto; padding: 0px 20px; 
+		box-sizing: border-box;}
+div#h_bottom > nav.m_nav > ul > li{ float: left; color: white; 
+		width: 160px; height: 40px; line-height: 40px; text-align: center; }*/
+
+/*section의 행간레이아웃*/
+section > div{ width: 960px; margin-bottom: 35px; }
+section > div#s_box1{ height: 450px; }
+section > div#s_box2{ height: 250px; }
+section > div#s_box3{ height: 150px; }
+section > div#s_box4{ height: 330px; }
+section > div#s_box5{ height: 150px; }
+
+
+h1{  height: 75px; line-height: 75px; text-align: center; color: #5f0080;  }
+
+/*s_box1의 내부 구성 요소*/
+div#s_box1 > div.image_slider{ float: left; 
+		width: 960px; height: 450px; background-color: #5f0080; color: #fcf6f5; }
+
+
+/*s_box2의 내부 구성 요소*/
+div#s_box2 > div{ float: left; width: 465px; height: 250px; 
+		margin-right: 30px; background-color: #fcf6f5; color: #5f0080; border: 1px solid #5f0080; box-sizing: border-box;}
+div#s_box2 > div:last-child{ margin-right: 0px; }
+
+div#s_box2>.ediya_menu>#menu1{
+	margin-top: 10px;
+	width: 250px;
+	height: 70px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+
+div#s_box2>.ediya_menu>#menu2{
+	width: 250px;
+	height: 70px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+
+div#s_box2>.new_notice>#menu3{
+	width: 250px;
+	height: 50px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+
+div#s_box2>.new_notice>#menu4{
+	width: 250px;
+	height: 50px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+
+div#s_box2>.new_notice>#menu5{
+	width: 250px;
+	height: 50px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+
+/*s_box3의 내부 구성 요소*/
+div#s_box3 > div{ float: left; width: 960px; height: 150px; background-color: #fcf6f5;  color:#5f0080; border: 1px solid #5f0080; box-sizing: border-box;}
+div#s_box3>.fund_box>#fid{
+	margin-top: 15px;
+	border: 1px solid #5f0080;
+}
+
+div#s_box3>.fund_box>#fid>#cupon{       
+	
+	margin-left: 120px;
+	width: 75px;
+	height: 55px;
+	margin-bottom: 5px;
+
+}
+
+div#s_box3>.fund_box>#fid>#point{       
+	margin-left: 120px;
+	width: 75px;
+	height: 55px;
+	margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+
+
+/*s_box4의 내부 구성 요소*/
+div#s_box4 > div{ float: left; width: 465px; height: 330px; 
+		margin-right: 30px; background-color: #fcf6f5; color: #5f0080; border: 1px solid  #5f0080 ; box-sizing: border-box; }
+div#s_box4>.b_water>#fi{
+	margin-top: 50px;
+	border: 1px solid  #5f0080;
+}
+div#s_box4 > div:last-child{ margin-right: 0px; }
+
+/*s_box5의 내부 구성 요소*/
+div#s_box5{ background-color: #5f0080; color: #fcf6f5; }
+
+div#s_box5>#bt{
+	width: 300px;
+	height: 150px;
+	text-align: center;
+	margin-left: 330px;
+	color:  #5f0080;
+	font-size: 35px;
+}
+
+
+/*footer의 행간레이아웃
+div#f_top{ height: 45px; border-bottom: 1px solid gray; border-top: 1px solid gray; }
+div#f_bottom{ height: 105px; }
+
+div#f_top의 내부 구성 요소
+div#f_top > div#f_top_wrap{ width: 960px; margin: 0px auto; }
+div#f_top_wrap > nav.f_nav{ float: left; }
+div#f_top_wrap > nav.f_nav > ul > li{ float: left; height: 45px; 
+		line-height: 45px; margin: 0px 15px; }
+
+div#f_bottom의 내부 구성 요소
+div#f_bottom{ width: 1000px; margin: 0px auto; 
+		padding-top: 30px; box-sizing: border-box; }
+div#f_bottom > h2{ float: left; margin-right: 80px; }
+div#f_bottom > div.f_site{ float: right; }*/
+
+
+	</style>
+
+	<body>
+		<!--<header>
+			<div id="h_top">-->
+				<h1 >COOKOO</h1>
+				<!--<div class="sns_banner">sns</div>
+				<div class="lang_select">언어선택</div>
+				<nav class="t_nav">
+					<ul>
+						<li>로그인</li>
+						<li>회원가입</li>
+						<li>고객센터</li>
+						<li>쇼핑몰</li>
+					</ul>
+				</nav>
+			</div>
+			<div id="h_bottom">
+				<nav class="m_nav">
+					<ul>
+						<li>ICIA COFFEE</li>
+						<li>COFFEE STORY</li>
+						<li>PRODUCT</li>
+						<li>FRANCHISE</li>
+						<li>EVENT & NEWS</li>
+						<li>STORE</li>
+					</ul>
+				</nav>
+			</div>
+		</header>-->
+		<section>
+			
+			<div id="s_box1">
+				<div class="image_slider">
+					<p>상품정보</p>
+                  <!-- <p class="pos">
+                        <label for="pos1" onclick="change(0)"></label> 
+                        <label for="pos2" onclick="change(1)"></label> 
+                        <label for="pos3" onclick="change(2)"></label> 
+                        <label for="pos4" onclick="change(3)"></label>
+                    </p>-->
+                </div>
+				
+			</div>
+			<div id="s_box2">
+				<div class="ediya_menu">배송지정보<br>
+					<input type="text" id="menu1" placeholder="배송지 주소"><br>
+					<input type="text" id="menu2" placeholder="전화번호">
+				</div>
+				<div class="new_notice">주문자정보<br>
+					<input type="text" id="menu3" placeholder="이름"><br>
+					<input type="email" id="menu4" placeholder="이메일"><br>
+					<input type="text" id="menu5" placeholder="전화번호">
+                    </div>
+			</div>
+			<div id="s_box3">
+				<div class="fund_box">할인 및 포인트
+					<fieldset id="fid">
+						<legend>쿠폰할인 및 포인트</legend>
+						<input type="button" value="쿠폰할인" id="cupon" onclick="cp()">
+						<input type="radio" name="cc"> 쿠폰A
+						<input type="radio" name="cc">쿠폰B
+						<input type="radio" name="cc">쿠폰C
+						<input type="button" value="포인트" id="point" onclick="po()">
+						<p id="result"></p>
+					
+					</fieldset>
+					
+				</div>
+				
+			</div>
+			<div id="s_box4">
+				<div class="b_water">결제방법<br>
+					<fieldset id="fi">
+						<legend>결제방법을 고르시오</legend>
+					<input type="radio" name="pay" >카드 간편결제<br>
+					<input type="radio" name="pay">계좌 간편결제<br>
+					<input type="radio" name="pay">신용카드<br>
+					<input type="radio" name="pay">계좌결제<br>
+					<input type="radio" name="pay">휴대폰 결제
+				</fieldset>
+				</div>
+				<div class="store">결제가격</div>
+			</div>
+			<div id="s_box5"><input type="button" id="bt" onclick="button()" value="결제"></div>
+		</section>
+		<!--<footer>
+			<div id="f_top">
+				<div id="f_top_wrap">
+					<nav class="f_nav">
+						<ul>
+							<li>채용안내</li>
+							<li>제휴 / 제안</li>
+							<li>이용약관</li>
+							<li>개인정보 처리방침</li>
+							<li>이메일 수집거부</li>
+							<li>사이트맵</li>
+							<li>점주의 방</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<div id="f_bottom">
+				<h2>로고</h2>
+				<div class="f_site">패밀리사이트</div>
+				<address>주소</address>
+				<p>카피라이트</p>
+			</div>
+		</footer>-->
+	</body>
+	<script>
+	/*var inter = setInterval("slide()", 3000);
+	var i = 0;
+	var pos = document.querySelectorAll("[type='radio']");
+
+	function slide(){
+		i++;
+		if(i >= 4){
+			i = 0;
+		}
+	   
+		pos[i].checked = true;  
+	}
+	function change(idx){
+		i = idx;
+		console.log(i);
+		clearInterval(inter);
+		inter = setInterval("slide()", 3000);
+	}*/
+
+	
+ function po(){
+	var point=prompt("현재 포인트 10000원. 포인트를 입력 하세요")
+	if(point>10000){
+		alert("포인트가 부족 합니다")
+		po();
+	}else if(point==" "||point==""){
+		alert("다시 입력하세요")
+		po();
+	}
+	else if(point==null){
+		alert("취소 되었습니다")
+	}
+	else(
+		document.getElementById("result").innerHTML=point+"  포인트 사용합니다"+"  잔여 포인트"+(10000-point)+"입니다"
+	)
+ }
+
+    function button(){
+		location.href="결제확인.html"
+	}
+	
+
+
+	
+
+	
+	</script>
+</html>

@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "nanum";
+    src: url("../fonts/eun_NanumSquareR.ttf");
+}
+
+div.col-md-8 {
+    width: 650px;
+    display: relative;
+    margin-left: 75px;
+}
+
+div.col-md-8>.img-fluid {
+    position: absolute;
+	top: 50%;
+	left: 50%;
+    transform: translate( -50%, -50% );
+}

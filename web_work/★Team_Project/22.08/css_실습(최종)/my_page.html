@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="yunusss">
+    <meta name="date" content="2022.08.27">
+    <link rel="shortcut icon" href="피카냥.ico">
+    <title>My_page</title>
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        #navbar>.t_nav {
+            float: right;
+        }
+
+        #navbar>.t_nav>ul>li {
+            float: left;
+            margin: 0 10px;
+            line-height: 35px;
+        }
+
+        #mymain {
+            width: 100vw;
+            /*viewport width의 사이즈가 100%*/
+            margin-top: 90px;
+            /*header 크기만큼 margin-top*/
+            height: calc(100vh - 210px);
+            /*viewport height에서 (header+footer)크기 차감*/
+        }
+
+        #wrapper {
+            display: flex;
+            flex-direction: column;
+            /*세로 정렬*/
+            align-items: center;
+            /*중앙 정렬*/
+        }
+
+        #mycard {
+            width: 40vw;
+            height: 20vh;
+            background-color: white;
+            display: flex;
+            border: 1px solid rgb(173, 173, 173);
+            margin: 20px 0 20px 0;
+        }
+
+        #sdb {
+            width: 7vw;
+            height: 30vh;
+            background-color: white;
+            margin-right: 30px;
+            border: 1px solid rgb(173, 173, 173);
+
+        }
+
+        #itm {
+            width: calc(30vw - 20px);
+            height: 50vh;
+            background-color: white;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            border: 1px solid rgb(173, 173, 173);
+        }
+
+        #content {
+            display: flex;
+            flex-direction: row;
+            /*가로 정렬*/
+        }
+
+        .my_pf {
+            width: 40%;
+            height: 100%;
+            display: flex;
+            align-content: stretch;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            border-right: 1px solid gray;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .my_img {
+            width: 30%;
+            height: 40%;
+        }
+
+        .my_gd {
+            width: 60%;
+            height: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-content: stretch;
+            font-size: 18px;
+        }
+
+        .gd_img {
+            width: 30%;
+            height: 60%;
+            opacity: 0.5;
+        }
+
+        .sdb_itm {
+            height: 20%;
+            border-bottom: 1px solid gray;
+            padding: 5px 0 0 10px;
+
+        }
+
+        .itm_head {
+            width: 100%;
+            height: 2%;
+            font-size: 20px;
+            padding-left: 35px;
+        }
+
+        .itm_info {
+            width: 40%;
+            height: 40%;
+            border: 1px solid rgb(173, 173, 173);
+        }
+
+        .itm_img {
+            width: 100%;
+            height: 80%;
+        }
+
+        .itm_title {
+            height: 20%;
+            background-color: white;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .gd_bt {
+            width: 10%;
+            height: 10%;
+        }
+    </style>
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS Files -->
+    <link href="assets/css/variables.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+</head>
+<!-- body -->
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+            <a href="index.html" class="logo d-flex align-items-center">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <img src="assets/img/logo.png" width="50px" height="50px">
+                <h1 style="color: white !important;">Cookooo</h1>
+            </a>
+
+            <!-- 검색바 -->
+            <div class="search-bar" style="margin-left:30px; margin-right: 10px;">
+                <form class="search-form d-flex align-items-center" method="#" action="#">
+                    <input style="height: 35px; border:none; border-radius: 5px 0px 0px 5px;" type="text" name="query"
+                        placeholder="검색">
+                    <button
+                        style="height: 35px; width:35px; background-color: white; border: none; border-radius: 0 5px 5px 0;"
+                        type="submit" title="Search">
+                        <i style="color: #5f0080; font-size:18px;" class="bi bi-search"></i></button>
+                </form>
+            </div>
+
+
+            <!-- 로그인 -->
+            <div class="d-flex align-items-center">
+                <nav id="navbar" class="navbar">
+                    <ul class="t_nav">
+                        <li><a href="#"><span>New 레시피</span></a></li>
+                        <li><a href="#"><span>Top 100</span></a></li>
+                        <li><a href="#"><span>관련상품</span></a> </li>
+                        <li><a href="#"><span>계절 추천 요리</span></a></li>
+                        <li><a href="#"><span>이벤트/쿠폰</span></a></li>
+                    </ul>
+                    <ul id="h_bottom" class="h_bottom">
+                        <li><a href="my_page.html"><button
+                                    style="width:100px; height: 30px; background-color: white; color: #3d0550;
+                            border: 1px solid #5f0080; border-radius: 5px; font-size: 15px; margin-left:40px;">마이페이지</button></a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <a href="#" class="mx-2 js-search-open"></a>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+
+            <!-- ======= Search Form ======= -->
+            <div class="search-form-wrap js-search-form-wrap">
+                <form action="search-result.html" class="search-form">
+                    <!-- <span class="icon bi-search"></span> -->
+                    <input type="text" placeholder="Search" class="form-control">
+                    <button class="btn js-search-close"><span class="bi-x"></span></button>
+                </form>
+            </div><!-- End Search Form -->
+        </div>
+    </header><!-- End Header -->
+
+    <!-- main -->
+    <main id="mymain">
+        <!-- 내정보 -->
+        <div id="wrapper">
+            <div id="mycard">
+                <div class="my_pf">
+                    <img src="assets/img/프로필.jpg" class="my_img">
+                    <div>
+                        <span>김윤주님.</span>
+                        <br>
+                        <span>환영합니다!</span>
+                    </div>
+                </div>
+                <div class="my_gd">
+                    <div>
+                        <h3>등급</h3>
+                    </div>
+                    <img src="assets/img/새싹.png" class="gd_img">
+                    <div><span>Welcome</span></div>
+                </div>
+            </div>
+
+            <div id="content">
+                <!-- 사이드바 -->
+                <div id="sdb">
+                    <div class="sdb_itm">My 레시피</div>
+                    <div class="sdb_itm">My 쇼핑</div>
+                    <div class="sdb_itm">Diary</div>
+                    <div class="sdb_itm">찜 한 목록</div>
+                    <div class="sdb_itm">내 정보</div>
+                </div>
+
+                <!-- 상품란 -->
+                <div id="itm">
+                    <div class="itm_head">
+                        <span> 찜 한 목록</span>
+                    </div>
+                    <div class="itm_info" onclick="location.href='item.html';" style="cursor:pointer">
+                        <img src="assets/img/떡.png" class="itm_img">
+                        <div class="itm_title">
+                            <span>[쫄깃상사] 떡 사리 </span>
+                            <br>
+                            <div style="text-align: right;">
+                                <span style="margin-right:10px;">수량 2 개</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="itm_info">
+                        <img src="assets/img/양념.png" class="itm_img">
+                        <div class="itm_title">
+                            <span>[맘스맘] 매콤 떡볶이 양념 </span>
+                            <br>
+                            <div style="text-align: right;">
+                                <span style="margin-right:10px;">수량 1 개</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="itm_info">
+                        <img src="assets/img/어묵.png" class="itm_img">
+                        <div class="itm_title">
+                            <span>[대림] 부산어묵</span>
+                            <br>
+                            <div style="text-align: right;">
+                                <span style="margin-right:10px;">수량 1 개</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="itm_info" onclick="location.href='recipe.html';" style="cursor:pointer">
+                        <img src="assets/img/떡볶이1.png" class="itm_img">
+                        <div class="itm_title">
+                            <span>[★Recipe] Top 레시피!
+                                <br>매콤달콤 즉석떡볶이</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+        <div class="footer-legal">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-md-6">
+                        <div class="social-links mb-3 mb-lg-0 text-center text-md-end">
+                            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
+                            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <!-- <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+
+</body>
+
+</html>

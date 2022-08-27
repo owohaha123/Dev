@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Cookooo</title>
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    #navbar>.t_nav {
+      float: right;
+    }
+
+    #navbar>.t_nav>ul>li {
+      float: left;
+      margin: 0 10px;
+      line-height: 35px;
+    }
+  </style>
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS Files -->
+  <link href="assets/css/variables.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/img/logo.png" width="50px" height="50px">
+        <h1 style="color: white !important;">Cookooo</h1>
+      </a>
+
+      <!-- 검색바 -->
+      <div class="search-bar" style="margin-left:30px; margin-right: 10px;">
+        <form class="search-form d-flex align-items-center" method="#" action="#">
+          <input style="height: 35px; border:none; border-radius: 5px 0px 0px 5px;" type="text" name="query"
+            placeholder="검색">
+          <button style="height: 35px; width:35px; background-color: white; border: none; border-radius: 0 5px 5px 0;"
+            type="submit" title="Search">
+            <i style="color: #5f0080; font-size:18px;" class="bi bi-search"></i></button>
+        </form>
+      </div>
+
+      <!-- 로그인 -->
+      <div class="d-flex align-items-center">
+        <nav id="navbar" class="navbar">
+          <ul class="t_nav">
+            <li><a href="#"><span>New 레시피</span></a></li>
+            <li><a href="#"><span>Top 100</span></a></li>
+            <li><a href="#"><span>관련상품</span></a> </li>
+            <li><a href="#"><span>계절 추천 요리</span></a></li>
+            <li><a href="#"><span>이벤트/쿠폰</span></a></li>
+          </ul>
+          <ul id="h_bottom" class="h_bottom">
+            <li><a href="login.html"><button style="width:80px; height: 30px; background-color: white; color: #3d0550;
+            border: 1px solid #5f0080; border-radius: 5px; font-size: 15px; margin-left:40px;">로그인</button></a></li>
+            <li><a href="회원가입1.html"><button style="width:80px; height: 30px; background-color: white; color: #3d0550;
+            border: 1px solid #5f0080; border-radius: 5px; font-size: 14px; margin-left:-10px;">회원가입</button></a></li>
+          </ul>
+        </nav>
+      </div>
+
+
+
+      <a href="#" class="mx-2 js-search-open"></a>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+
+      <!-- ======= Search Form ======= -->
+      <div class="search-form-wrap js-search-form-wrap">
+        <form action="search-result.html" class="search-form">
+          <!-- <span class="icon bi-search"></span> -->
+          <input type="text" placeholder="Search" class="form-control">
+          <button class="btn js-search-close"><span class="bi-x"></span></button>
+        </form>
+      </div><!-- End Search Form -->
+
+    </div>
+
+
+
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Hero Slider Section ======= -->
+    <section id="hero-slider" class="hero-slider">
+      <div class="container-md" data-aos="fade-in">
+        <div class="row">
+          <div class="col-12">
+            <div class="swiper sliderFeaturedPosts">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <a class="img-bg d-flex align-items-end"
+                    style="background-image: url('assets/img/post-slide-1.jpg');">
+                    <div class="img-bg-inner">
+                      <h2></h2>
+                      <p></p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="swiper-slide">
+                  <a class="img-bg d-flex align-items-end"
+                    style="background-image: url('assets/img/post-slide-2.jpg');">
+                    <div class="img-bg-inner">
+                      <h2></h2>
+                      <p></p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="swiper-slide">
+                  <a class="img-bg d-flex align-items-end"
+                    style="background-image: url('assets/img/post-slide-3.jpg');">
+                    <div class="img-bg-inner">
+                      <h2></h2>
+                      <p></p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="swiper-slide">
+                  <a class="img-bg d-flex align-items-end"
+                    style="background-image: url('assets/img/post-slide-4.jpg');">
+                    <div class="img-bg-inner">
+                      <h2></h2>
+                      <p></p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="custom-swiper-button-next">
+                <span class="bi-chevron-right"></span>
+              </div>
+              <div class="custom-swiper-button-prev">
+                <span class="bi-chevron-left"></span>
+              </div>
+
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Hero Slider Section -->
+
+    <!-- ======= Post Grid Section ======= -->
+    <section id="posts" class="posts">
+      <div class="container" data-aos="fade-up">
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <div class="post-entry-1 lg">
+              <a href="#"><img src="assets/img/post-landscape-1.jpg" alt="" class="img-fluid"></a>
+              <div class="post-meta"><span class="date">Recipe</span></div>
+              <h2><a href="#">건강한 맛 루꼴라 피자 만들기</a></h2>
+              <p class="mb-4 d-block">우리밀 또띠아로 피자를 만드니까 참 쉽게 간편해서 좋아요. 도우를 만들고 반죽을 발효하고... 시간이 꽤 걸리잖아요. 피자는 얼른 먹고
+                싶은데....그래서 쉽게 만들어 바로 먹을 수 있는 우리밀또띠아로 피자를 만들었어요.칼로리는 낮고 건강하게 즐기는 피자라고 할 수 있습니다.</p>
+
+              <div class="d-flex align-items-center author">
+                <div class="photo"><img src="assets/img/person-1.jpg" alt="" class="img-fluid"></div>
+                <div class="name">
+                  <h3 class="m-0 p-0">DongMa</h3>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-8">
+            <div class="row g-5">
+              <div class="col-lg-4 border-start custom-border">
+                <div class="post-entry-1">
+                  <a href="recipe.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Food</span></div>
+                  <h2><a href="recipe.html">이열치열! 매운떡볶이!</a></h2>
+                </div>
+                <div class="post-entry-1">
+                  <a href="#"><img src="assets/img/post-landscape-5.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Food</span></div>
+                  <h2><a href="#">삼겹살, 더 맛있게 먹는 방법</a></h2>
+                </div>
+                <div class="post-entry-1">
+                  <a href="#"><img src="assets/img/post-landscape-7.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Food</span></div>
+                  <h2><a href="#">치킨, 어느 브랜드가 제일?</a></h2>
+                </div>
+              </div>
+              <div class="col-lg-4 border-start custom-border">
+                <div class="post-entry-1">
+                  <a href="#"><img src="assets/img/post-landscape-3.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Recipe</span></div>
+                  <h2><a href="#">일본에 가서 먹었던 오코노미야끼 만들기</a></h2>
+                </div>
+                <div class="post-entry-1">
+                  <a href="#"><img src="assets/img/post-landscape-6.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Recipe</span></div>
+                  <h2><a href="#"">일본풍 도시락 어때요?</a></h2>
+                </div>
+                <div class=" post-entry-1">
+                      <a href="#"><img src="assets/img/post-landscape-8.jpg" alt="" class="img-fluid"></a>
+                      <div class="post-meta"><span class="date">Recipe</span></div>
+                      <h2><a href="#">집에 남은 재료로 뚝딱, 비빔밥</a></h2>
+                </div>
+              </div>
+
+              <!-- Trending Section -->
+              <div class="col-lg-4">
+
+                <div class="trending">
+                  <h3><span>오늘의 요리명언</span></h3>
+                  <ul class="trending-post">
+                    <li>
+                      <a href="#">
+                        <span class="number">1</span>
+                        <h3><span>살면서 참으로 기쁨을 주는 것이 몇 가지나 될까 헤아려보니 그 첫번째는 단연코 음식이다.</span></h3>
+                        <span class="author">Lin Yutang</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="number">2</span>
+                        <h3><span>배고픈 자는 음식을 가리지 않는다.</span></h3>
+                        <span class="author">맹자</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span class="number">3</span>
+                        <h3><span>잘못된 음식이란 것은 없다.</span></h3>
+                        <span class="author">Sean Stewart</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div> <!-- End Trending Section -->
+            </div>
+          </div>
+
+        </div> <!-- End .row -->
+      </div>
+    </section> <!-- End Post Grid Section -->
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="footer-legal">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-md-6">
+            <div class="social-links mb-3 mb-lg-0 text-center text-md-end">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <!-- <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

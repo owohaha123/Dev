@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            height: 90px;
+            width: 300px;
+            margin: 0px auto;
+        }
+
+        section {
+            width: 350px;
+            height: 1200px;
+            margin: 0px auto;
+        }
+
+        footer {
+            height: 130px;
+            width: 350px;
+            margin: 0px auto;
+        }
+
+        h1 {
+            margin: 0 auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 50px;
+            color:  #5f0080;
+        }
+
+        h2 {
+            margin: 0 auto;
+            margin-top: 10px;
+            color:  #5f0080;
+        }
+
+        #ip1 {
+            margin-top: 10px;
+           COLOR: #5f0080;
+            width: 300px;
+            height: 70px;
+        }
+
+        #ip2 {
+            margin-top: 10px;
+            color:  #5f0080;
+            width: 300px;
+            height: 70px;
+        }
+
+        #ip3 {
+            margin-top: 10px;
+            color:  #5f0080;
+            width: 300px;
+            height: 70px;
+        }
+
+        #ip4 {
+            margin-top: 10px;
+            color:  #5f0080;
+            width: 300px;
+            height: 70px;
+        }
+
+        #gender {
+            width: 305px;
+            height: 70px;
+            border: 1px solid  #5f0080;
+            box-sizing: border-box;
+        }
+
+        #ip5 {
+            margin-top: 10px;
+            width: 90px;
+            height: 70px;
+            margin-right: 15px;
+            color:  #5f0080;
+        }
+
+        #mon {
+            margin-top: 10px;
+            height: 70px;
+            width: 75px;
+            margin-right: 15px;
+        }
+
+        #date {
+            margin-top: 10px;
+            height: 70px;
+            width: 90px;
+
+        }
+
+
+        #ip6 {
+
+            width: 240px;
+            margin-right: 5px;
+            height: 70px;
+        }
+
+        #button {
+            width: 60px;
+            height: 50px;
+
+        }
+
+        #idnumber {
+            width: 300px;
+            height: 70px;
+            margin-top: 10px;
+        }
+
+        #ip7 {
+            margin-top: 10px;
+
+            width: 300px;
+            height: 70px;
+        }
+
+
+
+
+
+        #bt1 {
+
+            margin-right: 10px;
+            width: 140px;
+            height: 60px;
+        }
+
+        #bt2 {
+            width: 140px;
+            height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>cookooo</h1>
+    </header>
+
+    <section>
+        
+            <h2>ID(아이디)</h2>
+            <input type="text" id="ip1" required autofocus placeholder="id">
+
+            <h2>PASSWORD(비밀번호)</h2>
+            <input type="password" ID="ip2" required placeholder="비밀번호">
+
+            <h2>RECONFIRM PASSWORD(비밀번호 확인)</h2>
+            <input type="password" ID="ip3" required placeholder="비밀번호 확인">
+
+            <h2>NAME(이름)</h2>
+            <input type="text" ID="ip4" required placeholder="이름">
+
+            <h2>성별</h2>
+            <select id="gender" required>
+                <option value="남성">남성</option>
+                <option value="여성">여성</option>
+                <option value="선택안함">선택안함</option>
+            </select>
+
+            <h2>생년월일</h2>
+            <input type="text" ID="ip5" required placeholder="년(4자)" maxlength="4">
+
+            <select id="mon" required>
+                <option value="1월">1월</option>
+                <option value="2월">2월</option>
+                <option value="3월">3월</option>
+                <option value="4월">4월</option>
+                <option value="5월">5월</option>
+                <option value="6월">6월</option>
+                <option value="7월">7월</option>
+                <option value="8월">8월</option>
+                <option value="9월">9월</option>
+                <option value="10월">10월</option>
+                <option value="11월">11월</option>
+                <option value="12월">12월</option>
+            </select>
+
+            <input type="text" id="date" required placeholder="일" maxlength="2">
+
+            <h2>PHONE (휴대폰 번호)</h2>
+            <input type="text" maxlength="13" ID="ip6" required placeholder="휴대폰 번호">
+
+            <input type="button" value="인증번호 확인" id="button" onclick="bt1()">
+
+            <h2>인증번호</h2>
+            <input type="text" maxlength="6" id="idnumber" required placeholder="인증번호">
+
+            <h2>E-MAIL(이메일)</h2>
+            <input type="email" ID="ip7" required placeholder="이메일">
+
+            <div>
+                <input type="submit" value="가입" id="bt1" onclick="bt2()">
+                <input type="button" value="취소" id="bt2" onclick="bt3()">
+        
+        </div>
+    
+    </section>
+
+    <footer>
+    </footer>
+
+
+</body>
+
+<script>
+    function bt1() {
+        alert("인증번호를 발송 했습니다");
+    };
+
+    function bT2(){
+        location.href="1.로그인페이지.html"
+    }
+   // function bt2() {
+
+//if (document.getElementById("ip1").value == "" && document.getElementById("ip2") == "" && document.getElementById("ip3") == ""
+////  && document.getElementById("ip4") == "" && document.getElementById("ip5") == "" && document.getElementById("ip6") == ""
+// && document.getElementById("ip7") == "" && document.getElementById("mon") == "" && document.getElementById("date") == ""
+// && document.getElementById("gender") == "" && document.getElementById("idnumber") == "") {
+//  alert("모두 입력하세요")
+//}
+
+ //   }
+
+ function bt2(){
+    location.href="M.html"
+ }
+
+
+
+</script>
+
+</html>
