@@ -77,20 +77,20 @@
                 if (i <= 100) {
                     i++;
                     x = x + 1;
-                } else{
+                } else {
                     stop();
-                    i=0;
+                    i = 0;
                 }
-                obj.style.left =x + "px";
-            },10)
+                obj.style.left = x + "px";
+            }, 10)
         }
     }
 
-    function stop(){
-        
-        
+    function stop() {
+
+
         clearInterval(move);
-        console.log("x : "+x + "y : "+y);
+        console.log("x : " + x + "y : " + y);
     }
 
     function up() {
@@ -106,8 +106,8 @@
                     y = y - 1;
                 } else {
                     stop();
-                    i= 1000+"px";
-                    
+                    i = 1000 + "px";
+
                 }
                 obj.style.top = y + "px";
             }, 10);
@@ -124,16 +124,15 @@
                 if (i <= 100) {
                     i++;
                     y = y + 1;
-                } else{
-                    i= 500+"px";
+                } else {
+                    i = 500 + "px";
                     stop();
-                    
+
                 }
-                obj.style.top =y + "px";
-            },10)ㄷ
+                obj.style.top = y + "px";
+            }, 10)
         }
     }
-
 </script>
 
 </html>
