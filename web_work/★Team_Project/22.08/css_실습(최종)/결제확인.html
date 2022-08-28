@@ -5,82 +5,208 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+      <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <style>
         *{
+            font-family: 'Noto Sans KR', sans-serif;
             padding: 0;
             margin: 0;
         }
+        #navbar>.t_nav {
+      float: right;
+    }
+
+    #navbar>.t_nav>ul>li {
+      float: left;
+      margin: 0 10px;
+      line-height: 35px;
+    }
         head{
-            width: 560px;
-            height: 80px;
+            width: 100%;
+            height: 50px;
             margin: 0 auto;
         }
         section{
-            width: 560px;
-            height: 500px;
+            width: 360px;
+            height: 700px;
             margin: 0 auto;
-            background-color: #5f0080;
         }
         footer{
-            width: 560px;
-            height: 80px;
+            width: 360px;
+            height: 90px;
             margin: 0 auto;
         }
-
-        #headline{background-color: #5f0080;
-            
-            color: aliceblue;
+        
+        /*제목 헤드*/
+        h1#headline{
+            background-color:  #5f0080;
+            color: white;
             text-align: center;
+            margin-bottom: 70px;
         }
 
-        #div1{
-            height: 300px;
-            line-height: 300px;
-            background-color:#5f0080;
-            color: aliceblue;
+           /*==섹션 시작==*/             
+
+       
+        h2#mini_head{
+        color: #5f0080;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 30px;
+       }
+
+
+       /*이미지 */
+       img#image{
+        width: 360px;
+        height: 360px;
+        margin-bottom: 20px;
+       }
+
+       /*글*/
+      
+
+
+
+
+        h2#word{
+            color: #5f0080;
+            text-align: center;
+            font-size: 30px;
             margin-bottom: 50px;
-            margin-top: 150px;
-            text-align: center;
         }
-
         
 
-        #clear{
-            margin-top:50px ;
-            width: 560px;
-            height: 80px;
+        
+        h3#mini_word{
+            color: #5f0080;
             text-align: center;
-            line-height: 80px;
+            margin-bottom: 20px;
         }
 
+        /*푸터*/
+        /*메인으로 돌아가기*/
+         input#clear{
+            width: 360px;
+            height: 50px;
+            background-color: #5f0080 ;
+            color: white;
+         }
         
     
         
 
     </style>
+      <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS Files -->
+  <link href="assets/css/variables.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+
 </head>
 <body>
+    <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="M.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" width="50px" height="50px"> -->
+        <h1 style="color: white !important;">Cookooo</h1>
+      </a>
+
+
+
+      <!-- 검색바 -->
+      <div class="search-bar" style="margin-left:30px; margin-right: 10px;">
+        <form class="search-form d-flex align-items-center" method="#" action="#">
+          <input style="height: 35px; border:none; border-radius: 5px 0px 0px 5px;" type="text" name="query"
+            placeholder="검색">
+          <button style="height: 35px; width:35px; background-color: white; border: none; border-radius: 0 5px 5px 0;"
+            type="submit" title="Search">
+            <i style="color: #5f0080; font-size:18px;" class="bi bi-search"></i></button>
+        </form>
+      </div>
+
+
+      <!-- 로그인 -->
+      <div class="d-flex align-items-center">
+        <nav id="navbar" class="navbar">
+          <ul class="t_nav">
+            <li><a href="#"><span style="font-size: 16px;">New 레시피</span></a></li>
+            <li><a href="#"><span style="font-size: 16px;">Top 100</span></a></li>
+            <li><a href="#"><span style="font-size: 16px;">관련상품</span></a> </li>
+            <li><a href="#"><span style="font-size: 16px;">계절 추천 요리</span></a></li>
+            <li><a href="#"><span style="font-size: 16px;">이벤트/쿠폰</span></a></li>
+          </ul>
+          <ul id="h_bottom" class="h_bottom">
+            <li><a href="my_page.html"><button style="width:100px; height: 30px; background-color: white; color: #3d0550;
+            border: 1px solid #5f0080; border-radius: 5px; font-size: 15px; margin-left:40px;">마이페이지</button></a></li>
+          </ul>
+        </nav>
+      </div>
+
+
+
+      <a href="#" class="mx-2 js-search-open"></a>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+
+      <!-- ======= Search Form ======= -->
+      <div class="search-form-wrap js-search-form-wrap">
+        <form action="search-result.html" class="search-form">
+          <!-- <span class="icon bi-search"></span> -->
+          <input type="text" placeholder="Search" class="form-control">
+          <button class="btn js-search-close"><span class="bi-x"></span></button>
+        </form>
+      </div><!-- End Search Form -->
+    </div>
+  </header><!-- End Header -->
     <head>
     <h1 id="headline">cookoo</h1>
 </head>
 
     <section>
-
-    <div id="div1">
-        <h1>결제완료<br>
-        결제가 완료 되었습니다
-        주문해 주셔서 감사합니다</h1>
-    </div>
+        <h2 id ="mini_head">주문완료</h2>
+        <img src="assets/img/결제.jpg" id="image">
+      
+        <h2 id="word">주문이완료 되었습니다</h2>
+        <h3 id="mini_word"> 주문해주셔서 감사합니다</h3>
+   
 </section>
 
     <footer>
-    <input type="button" value="메인으로 돌아가기" id="clear" onclick="burron()">
+    <input type="button" value="메인으로 돌아가기" id="clear" onclick="button()">
 
 </footer>
-    
+
+  
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+    class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<!-- <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
+
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
 </body>
 <script>
-    function burron(){
+    function button(){
         location.href="M.html"
     }
 </script>
