@@ -34,8 +34,9 @@
             margin: 0 auto;
         }
         section{
+            margin-top: 200px;
             width: 360px;
-            height: 700px;
+            height: 600px;
             margin: 0 auto;
         }
         footer{
@@ -67,7 +68,7 @@
        img#image{
         width: 360px;
         height: 360px;
-        margin-bottom: 20px;
+        margin: 0 0 20px -25px;
        }
 
        /*글*/
@@ -77,7 +78,7 @@
 
 
         h2#word{
-            color: #5f0080;
+            color: rgb(29, 27, 27);
             text-align: center;
             font-size: 30px;
             margin-bottom: 50px;
@@ -86,7 +87,7 @@
 
         
         h3#mini_word{
-            color: #5f0080;
+            color: rgb(29, 27, 27);
             text-align: center;
             margin-bottom: 20px;
         }
@@ -96,8 +97,12 @@
          input#clear{
             width: 360px;
             height: 50px;
+            border: 1px solid #3d0550;
             background-color: #5f0080 ;
             color: white;
+            border-radius: 5px;
+            font-size: 20px;
+            margin-top: 80px;    
          }
         
     
@@ -178,11 +183,11 @@
 </head>
 
     <section>
-        <h2 id ="mini_head">주문완료</h2>
-        <img src="assets/img/결제.jpg" id="image">
+        
+        <img src="assets/img/결제.png" id="image">
       
-        <h2 id="word">주문이완료 되었습니다</h2>
-        <h3 id="mini_word"> 주문해주셔서 감사합니다</h3>
+        <h2 id="word"><b>주문 완료</b></h2>
+        <h3 id="mini_word"> 주문해주셔서 감사합니다!</h3>
    
 </section>
 
@@ -205,6 +210,7 @@
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
 </body>
+
 <script>
     function button(){
         location.href="M.html"

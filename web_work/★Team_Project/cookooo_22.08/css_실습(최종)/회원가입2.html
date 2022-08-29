@@ -6,12 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
+
+      <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
     <style>
-        * {
+        * { font-family: 'Noto Sans KR', sans-serif;
             padding: 0;
             margin: 0;
         }
-        header{
+        #navbar>.t_nav {
+      float: right;
+    }
+
+    #navbar>.t_nav>ul>li {
+      float: left;
+      margin: 0 10px;
+      line-height: 35px;
+    }
+        #hd{
             width: 100%;
             height: 90px;
             margin: 0 auto;
@@ -21,7 +40,7 @@
             height: 1000px;
             margin: 0 auto;
         }
-        footer{
+        #ft{
             width: 200px;
             height: 100px;
             margin: 0 auto;
@@ -38,55 +57,55 @@
 
         /*부제목(섹션)*/
               /*아이디*/
-            h2#mini_head{
+            h3#mini_head{
                 color: #5f0080;
                 text-align: center;
                 margin-bottom: 5px;
             }
              /*비번*/
-            h2#mini_head2{
+            h3#mini_head2{
                 color: #5f0080;
                 text-align: center;
                 margin-bottom: 5px;
             }
              /*비번확인*/
-            h2#mini_head3{
+            h3#mini_head3{
                 color: #5f0080;
                 text-align: center;
                 margin-bottom: 5px;
             }
              /*이름*/
-            h2#mini_head4{
+            h3#mini_head4{
                 color: #5f0080;
                 text-align: center;
                 margin-bottom: 5px;
             }
              /*성별 선택 셀렉트 */  
-            h2#mini_head5{
+            h3#mini_head5{
                 color: #5f0080;
                 text-align: center;
                 margin-bottom: 5px;
             }
              /*생년월일*/
-            h2#mini_head6{
+            h3#mini_head6{
                 color: #5f0080;
                 text-align: center;
                 margin-bottom: 5px;
             }
              /*폰번호*/
-            h2#mini_head7{
+            h3#mini_head7{
                 color: #5f0080;
                 text-align: center;
                 margin-bottom: 5px;
             }
              /*인증번호*/
-            h2#mini_head8{
+            h3#mini_head8{
                 color: #5f0080;
                 text-align: center;
                 margin-bottom: 5px;
             }
              /*이메일*/
-            h2#mini_head9{
+            h3#mini_head9{
                 color: #5f0080;
                 text-align: center;
                 margin-bottom: 5px;
@@ -213,31 +232,92 @@
             height: 50px;
            }
 
-        
-       
+      
     </style>
+    
+      <!-- Vendor CSS Files -->
+      <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+      <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+      <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+      <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    
+      <!-- Template Main CSS Files -->
+      <link href="assets/css/variables.css" rel="stylesheet">
+      <link href="assets/css/main.css" rel="stylesheet">
 </head>
 
 <body>
-    <header>
+      <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="M.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/img/logo.png" width="50px" height="50px">
+        <h1 style="color: white !important;">Cookooo</h1>
+      </a>
+
+
+
+
+      <!-- 로그인 -->
+      <div class="d-flex align-items-center">
+        <nav id="navbar" class="navbar">
+          <ul class="t_nav">
+            <li><a href="#"><span>New 레시피</span></a></li>
+            <li><a href="#"><span>Top 100</span></a></li>
+            <li><a href="#"><span>관련상품</span></a> </li>
+            <li><a href="#"><span>계절 추천 요리</span></a></li>
+            <li><a href="#"><span>이벤트/쿠폰</span></a></li>
+          </ul>
+          <ul id="h_bottom" class="h_bottom">
+            <li><a href="login.html"><button style="width:80px; height: 30px; background-color: white; color: #3d0550;
+            border: 1px solid #5f0080; border-radius: 5px; font-size: 15px; margin-left:40px;">로그인</button></a></li>
+            <li><a href="회원가입1.html"><button style="width:80px; height: 30px; background-color: white; color: #3d0550;
+            border: 1px solid #5f0080; border-radius: 5px; font-size: 14px; margin-left:-10px;">회원가입</button></a></li>
+          </ul>
+        </nav>
+      </div>
+
+
+
+      <a href="#" class="mx-2 js-search-open"></a>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+
+      <!-- ======= Search Form ======= -->
+      <div class="search-form-wrap js-search-form-wrap">
+        <form action="search-result.html" class="search-form">
+          <!-- <span class="icon bi-search"></span> -->
+          <input type="text" placeholder="Search" class="form-control">
+          <button class="btn js-search-close"><span class="bi-x"></span></button>
+        </form>
+      </div><!-- End Search Form -->
+
+    </div>
+
+
+
+  </header><!-- End Header -->
+    <header id="hd">
         <h1 id="headline">cookooo</h1>
     </header>
 
     <section>
         
-            <h2 id="mini_head">ID(아이디)</h2>
+            <h3 id="mini_head">ID</h3>
             <input type="text" id="ip1" required autofocus placeholder="id">
 
-            <h2 id="mini_head2">PASSWORD(비밀번호)</h2>
+            <h3 id="mini_head2">Password</h3>
             <input type="password" ID="ip2" required placeholder="비밀번호">
 
-            <h2 id="mini_head3">RECONFIRM PASSWORD(비밀번호 확인)</h2>
+            <h3 id="mini_head3">비밀번호 확인</h3>
             <input type="password" ID="ip3" required placeholder="비밀번호 확인">
 
-            <h2 id="mini_head4">NAME(이름)</h2>
+            <h3 id="mini_head4">이름</h3>
             <input type="text" ID="ip4" required placeholder="이름">
 
-            <h2 id="mini_head5">성별</h2>
+            <h3 id="mini_head5">성별</h3>
             <select id="gender" required>
                 <option value="성별">성별</option>
                 <option value="남성">남성</option>
@@ -245,8 +325,8 @@
                 <option value="선택안함">선택안함</option>
             </select>
 
-            <h2 id="mini_head6">생년월일</h2>
-            <input type="text" ID="ip5" required placeholder="년(4자)" maxlength="4">
+            <h3 id="mini_head6">생년월일</h3>
+            <input type="text" ID="ip5" required placeholder="년(4자)" maxlength="4" style="width:70px">
 
             <select id="mon" required>
                 <option value="1월">1월</option>
@@ -265,69 +345,84 @@
 
             <input type="text" id="date" required placeholder="일" maxlength="2">
 
-            <h2 id="mini_head7">PHONE (휴대폰 번호)</h2>
+            <h3 id="mini_head7">전화번호</h3>
             <input type="text" maxlength="13" ID="ip6" required placeholder="휴대폰 번호">
 
             <input type="button" value="인증번호 확인" id="button" onclick="button()"><!--alert창 -->
 
-            <h2 id="mini_head8">인증번호</h2>
+            <h3 id="mini_head8">인증번호</h3>
             <input type="text" maxlength="6" id="idnumber" required placeholder="인증번호" >
 
            
 
-            <h2 id="mini_head9">E-MAIL(이메일)</h2>
+            <h3 id="mini_head9">E-MAIL(이메일)</h3>
             <input type="email" ID="ip7" required placeholder="이메일">
 
            
     
     </section>
 
-    <footer>
+    <footer id="ft">
             
-            <input type="submit" value="가입" id="bt1" onclick="bt1()"><!--로그인 페이지로-->
-            <input type="button" value="취소" id="bt2" onclick="bt2()"><!--메인 페이지로 돌아감-->
+            <input type="submit" value="가입" id="bt1" onclick="location.href='login_after.html'"
+            style="width:93px; height: 40px; background-color: #5f0080; color: white;
+            border: 1px solid #5f0080; border-radius: 5px; font-size: 15px;" >
+            <input type="button" value="취소" id="bt2" onclick="location.href='M.html'"
+            style="width:93px; height: 40px; background-color: white; color: #3d0550;
+            border: 1px solid #5f0080; border-radius: 5px; font-size: 15px;"><!--메인 페이지로 돌아감-->
        
 
     </footer>
+
+      <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="footer-legal">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-md-6">
+            <div class="social-links mb-3 mb-lg-0 text-center text-md-end">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <!-- <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
     <script>
         function button() {
             alert("인증번호를 발송 했습니다");
         };
 
-       
-
-        
-          
-            
-
         function bt1(){
             location.href="1.로그인페이지.html"
-        }
-       
+        }    
      function bt2(){
         location.href="M.html"
      }
 
-
-
-        
-        
-
-
-
-
-
-
-
-
     </script>
-
-
-
-
-
-
-
-</body>
 
 </html>

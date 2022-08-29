@@ -4,13 +4,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>약관동의</title>
+
+      <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
     <style>
-        *{
+        *{  font-family: 'Noto Sans KR', sans-serif;
             padding: 0;
-            margin: 0;
-            
+            margin: 0;  
         }
-        header {
+        #navbar>.t_nav {
+      float: right;
+    }
+
+    #navbar>.t_nav>ul>li {
+      float: left;
+      margin: 0 10px;
+      line-height: 35px;
+    }
+        #hd {
             height: 90px;
             width: 100%;
             margin: 0px auto;
@@ -20,7 +38,7 @@
             height: 700px;
             margin: 0px auto;
         }
-        footer {
+        #ft {
             height: 100px;
             width: 350px;
             margin: 0px auto ;
@@ -61,7 +79,7 @@
        /*내용*/
        div#word{
         width: 350px;
-        height: 150px;
+        height: 140px;
         overflow: auto;
         margin: 0 auto;
         border: 1px solid #5f0080;
@@ -72,7 +90,7 @@
        
        div#word2{
         width: 350px;
-        height: 150px;
+        height: 140px;
         overflow: auto;
         margin: 0 auto;
         border: 1px solid #5f0080;
@@ -82,7 +100,7 @@
 
        div#word3{
         width: 350px;
-        height: 150px;
+        height: 140px;
         overflow: auto;
         margin: 0 auto;
         border: 1px solid #5f0080;
@@ -124,15 +142,72 @@
 
     }
 
-  
-      
-
-
-
     </style>
 
+      <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS Files -->
+  <link href="assets/css/variables.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+
 <body>
-    <header>
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="M.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/img/logo.png" width="50px" height="50px">
+        <h1 style="color: white !important;">Cookooo</h1>
+      </a>
+
+
+
+
+      <!-- 로그인 -->
+      <div class="d-flex align-items-center">
+        <nav id="navbar" class="navbar">
+          <ul class="t_nav">
+            <li><a href="#"><span>New 레시피</span></a></li>
+            <li><a href="#"><span>Top 100</span></a></li>
+            <li><a href="#"><span>관련상품</span></a> </li>
+            <li><a href="#"><span>계절 추천 요리</span></a></li>
+            <li><a href="#"><span>이벤트/쿠폰</span></a></li>
+          </ul>
+          <ul id="h_bottom" class="h_bottom">
+            <li><a href="login.html"><button style="width:80px; height: 30px; background-color: white; color: #3d0550;
+            border: 1px solid #5f0080; border-radius: 5px; font-size: 15px; margin-left:40px;">로그인</button></a></li>
+            <li><a href="회원가입1.html"><button style="width:80px; height: 30px; background-color: white; color: #3d0550;
+            border: 1px solid #5f0080; border-radius: 5px; font-size: 14px; margin-left:-10px;">회원가입</button></a></li>
+          </ul>
+        </nav>
+      </div>
+
+
+
+      <a href="#" class="mx-2 js-search-open"></a>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+
+      <!-- ======= Search Form ======= -->
+      <div class="search-form-wrap js-search-form-wrap">
+        <form action="search-result.html" class="search-form">
+          <!-- <span class="icon bi-search"></span> -->
+          <input type="text" placeholder="Search" class="form-control">
+          <button class="btn js-search-close"><span class="bi-x"></span></button>
+        </form>
+      </div><!-- End Search Form -->
+
+    </div>
+
+
+
+  </header><!-- End Header -->
+    <header id="hd">
     <h1 id="headline">COOKOOO</h1>
 </header>
 
@@ -166,12 +241,47 @@
 
     </section>
 
-    <Footer>
+    <Footer id="ft">
         
        <input type="button" value="확인" id="i1" onclick="l1()" >
        <input type="button" value="취소" id="i2"  onclick="l2()"  >
        
     </Footer>
+
+    <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="footer-legal">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-md-6">
+            <div class="social-links mb-3 mb-lg-0 text-center text-md-end">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <!-- <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
 
 </body>
 <script>
