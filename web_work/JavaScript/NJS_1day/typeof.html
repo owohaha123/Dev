@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.08.30">
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+</body>
+
+<!-- script -->
+<script>
+    let a = 100;
+    console.log("a의 값은 " + a);
+    console.log("a의 타입은 " + typeof(a));
+
+    a = "100";
+    console.log("a의 값은 " + a);
+    console.log("a의 타입은 " + typeof(a));
+
+    let arr = [1, 2, 3, 4, "5", 6]; //배열: 변수를 묶어서 사용
+    arr.forEach(function(item, idx){
+        console.log(item);
+        console.log(idx + "번째 값의 타입은 " +  typeof(item));
+    });
+
+    let sum = 100;
+    arr.forEach(function(item){
+        //sum += item; // 자바스크립트는 [+ 연산]만 문자열 구분 
+        sum -= item; // [그 외 연산]은 구분 x
+    });
+    console.log(sum);
+    console.log(typeof(sum));
+</script>
+</html>
