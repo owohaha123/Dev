@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.08.23">
+   <!-- <link rel="shortcut icon" href="피카냥.ico"> -->
+   <title>레벨평가문제</title>
+</head>
+
+<!-- body -->
+<body>
+    <button onclick="promp1()">100미만의 수 출력</button>
+    <button onclick="promp2()">임의의 수의 합</button>
+    <button onclick="promp3()">표준체형 판단</button>
+</body>
+
+<!-- script -->
+<script>
+
+// 100보다 작은 정수만을 입력받는 자바스크립트 프로그램을 작성하시오.
+// 100보다 큰 정수가 입력되었을 경우 경고창을 띄우시오.
+// (100 미만의 값이 입력되면 브라우저에 출력하시오.)
+
+function promp1() {
+        var num1 = prompt('숫자를 입력하세요');
+
+        if (num1>=100){
+            alert('100이상의 수를 입력할 수 없습니다.');
+            promp1();
+        }else{
+            document.write(num1);
+        }
+    }
+
+
+
+// 임의의 수를 입력 받아 1부터 입력받은 수까지의 합을
+// 브라우저에 출력하는 프로그램을 작성하시오
+
+function promp2() {
+        var num4 = prompt('숫자를 입력하세요');
+        var sum = 0;
+
+        if (num4 > 1) {
+            for (var i = 1; num4 >= i; i++) {
+                sum += i; 
+            } 
+            alert(sum);
+            document.write(sum);
+        } else {
+            alert('다시 입력해주세요');
+        }
+    } 
+
+    
+// 키와 몸무게를 입력받아서 비만여부를 판단하는 프로그램을 작성하시오.
+// 표준 체형 판단 기준 = (키 - 100) *  0.9
+// - 표준 이상일 경우 : 다이어트가 필요할 수 있습니다!
+// - 표준 미만일 경우 : 표준(또는 마른) 체형입니다!
+
+function promp3() {
+        var num2 = prompt('당신의 키는?');
+        var num3 = prompt('당신의 몸무게는?');
+
+        if (num3>( num2 - 100) *  0.9){
+            alert('다이어트가 필요할 수 있습니다!');
+            document.write('다이어트가 필요할 수 있습니다!');
+        }else{
+            alert( '표준(또는 마른) 체형입니다!');
+            document.write('표준(또는 마른) 체형입니다!');
+        }
+    }
+
+
+
+</script>
+</html>
