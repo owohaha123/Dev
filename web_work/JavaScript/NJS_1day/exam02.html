@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.08.30">
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+
+    <h1>문제1</h1>
+    <p> 100보다 작은 정수만을 입력받는 자바스크립트 프로그램을 작성하시오. <br>
+        100보다 큰 정수가 입력되었을 경우 경고창을 띄우시오. <br>
+        (100 미만의 값이 입력되면 브라우저에 출력하시오.) </p>
+    <input id="nin" type="number">
+    <button onclick="exam1()">입력</button> <br>
+    <span id="nout"></span>
+
+    <br>
+
+    <h1>문제2</h1>
+    <p> 임의의 수를 입력 받아 1부터 입력받은 수까지의 합을 <br>
+        브라우저에 출력하는 프로그램을 작성하시오. </p>
+    <input id="nin2" type="number">
+    <button onclick="exam2()">입력</button> <br>
+    <span id="nout2"></span>
+
+    <br>
+
+    <h1>문제3</h1>
+    <p> 키와 몸무게를 입력받아서 비만여부를 판단하는 프로그램을 작성하시오. <br>
+        표준 체형 판단 기준 = (키 - 100) *  0.9 <br>
+         - 표준 이상일 경우 : 다이어트가 필요할 수 있습니다! <br>
+         - 표준 미만일 경우 : 표준(또는 마른) 체형입니다! </p>
+    <input id="nin3" type="number">
+    <button onclick="exam3()">입력</button> <br>
+    <span id="nout3"></span>
+
+</body>
+
+<!-- script -->
+<script>
+    // 출력용 span
+    const noutSpan = document.getElementById("nout");
+    // 입력용 input
+    const ninInput = document.getElementById("nin");
+    // console.log(noutSpan);
+    function exam1(){
+        // input 태그의 입력값을 가져오자. value의 값을 가져오자.
+        let inNum = ninInput.value ;
+        console.log(inNum); //입력값을 콘솔에서 확인
+        console.log(typeof(inNum)); //입력값의 타입을 확인
+
+        // 조건제어문(if)
+        if (inNum >= 100){
+            alert(`${inNum} 는 100 이상인 수 입니다.`);
+            noutSpan.innerHTML = ""; // 출력부 초기화
+        } else {
+            noutSpan.innerHTML = "입력한 값은 " + inNum + "입니다.";
+        }                       // `입력한 값은 ${inNum} 입니다`
+        ninInput.value = ""; // input 태그의 값 제거
+    }
+
+// --------------------------------------------------------------------
+
+    const in2 = document.getElementById("nin2");
+    const out2 = document.getElementById("nout2");
+
+    function exam2() {
+        let in2_v = in2.value;
+        let sum = 0; // 누적값 저장 변수
+
+        for(let i = 1; i <= in2_v; i++){ //for( 카운터_초기화 / 횟수 / 증감 )
+            // 사용자가 입력한 값까지 반복하여 누적
+            sum += i;
+        }
+        out2.innerHTML = `${in2_v} 까지의 누적 합은 ${sum} 입니다.`;
+        in2.value = "";
+    }
+
+</script>
+</html>
