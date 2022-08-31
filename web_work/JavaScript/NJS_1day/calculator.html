@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .container {
+            background-color: antiquewhite;
+            width: 220px;
+            height: 320px;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        #out {
+            width: 100%;
+            height: 50px;
+            text-align: right;
+            font-size: 25px;
+        }
+        .btnPr {
+            width: 200px;
+            height: 250px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        button {
+            flex-basis: 50px;
+            /*flex: 1;*/
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input id="out">
+        <div class="btnPr">
+            <button>7</button><button>8</button>
+            <button>9</button><button>/</button>
+            <button>4</button><button>5</button>
+            <button>6</button><button>*</button>
+            <button>1</button><button>2</button>
+            <button>3</button><button>-</button>
+            <button>C</button><button>0</button>
+            <button>=</button><button>+</button>
+        </div>
+    </div>
+</body>
+<script>
+    const btns = document.querySelector(".btnPr");
+    console.log(btns);
+    const out = document.getElementById("out");
+    out.value = 0;
+    let v1 = 0, v2 = 0;
+    let temp = 0;
+
+    for(let i = 0; i < btns.children.length; i++){
+        let ce = btns.children[i];
+        ce.addEventListener("click", bclick);
+    }
+
+    function bclick(e){
+        let n = e.target.innerText;
+        console.log(n);
+        let ov = out.value;
+
+        switch(n){
+            case "+":
+                if(ov != "0"){
+
+                }
+                break;
+            case "-":
+
+                break;
+            case "*":
+
+                break;
+            case "/":
+
+                break;
+            case "C":
+                out.value = "0";
+                break;
+            case "=":
+
+                break;
+            default:
+                if(ov == "0"){
+                    out.value = n;
+                }
+                else {
+                    out.value += n;
+                }
+        }
+    }
+</script>
+</html>
