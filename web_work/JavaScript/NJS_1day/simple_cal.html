@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="yunusss">
+    <meta name="date" content="2022.08.31">
+    <title>간단한 계산기</title>
+    <style>
+        .btns {
+            padding: 10px;
+            display: flex;
+        }
+    </style>
+</head>
+
+<!-- body -->
+
+<body>
+    <h2>계산기</h2>
+    <fieldset style="width: 300px;">
+        <legend>숫자 입력</legend>
+        <p> N1 : <input type="number" id="n1"></p>
+        <p> N2 : <input type="number" id="n2"></p>
+    </fieldset>
+    <div class="btns">
+        <button>+</button><button>-</button>
+        <button>*</button><button>/</button>
+        <button>%</button>
+    </div>
+    <p>결과 : <span id="res"></span></p>
+</body>
+
+<!-- script -->
+<script>
+    const n1 = document.getElementById("n1");
+    const n2 = document.getElementById("n2");
+    const res = document.getElementById("res");
+
+    // class 만 있을 경우 요소연결 방법
+    // 1. getElementsByClassName("클래스명")
+    // 2. querySelector("선택자") <--- css의 선택자 형식을 따라감
+    const btns = document.querySelector(".btns").children;
+    console.log(btns);
+
+    for (let i = 0; i < btns.length; i++) {
+        // 자바스크립트 요소에서 발생하는 이벤트를 처리하도록 [이벤트처리기] 작성
+        // 작성('이벤트' , 처리함수)
+        btns[i].addEventListener("click", bclick);
+    }
+
+    function bclick(e) {
+        // 클릭 이벤트가 발생된 요소의 글자(내용)를 가져와서 n에 저장
+        let n = e.target.innerText;
+        console.log(n);
+        let nf = n1.value;
+        let ns = n2.value;
+        let rs = 0; // 결과 저장
+
+        switch (n) {
+            case "+":
+                rs = Number(nf) + Number(ns); // input 의 text 를 number 타입으로 변경
+                break;
+            case "-":
+                rs = nf - ns;
+                break;
+            case "*":
+                rs = nf * ns;
+                break;
+            case "/":
+                rs = nf / ns;
+                break;
+            case "%":
+                rs = nf % ns;
+                break;
+        } // switch end
+
+        res.innerHTML = rs;
+
+    } // function end
+</script>
+
+</html>
