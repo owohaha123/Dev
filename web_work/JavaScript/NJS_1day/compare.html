@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.08.31">
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+    <p id="res1"></p>
+    <p id="res2"></p>
+
+    <hr>
+    <h2>윤년 계산기</h2>
+    <p>연도를 입력하세요</p>
+    <input type="number" id="inYear">
+    <button onclick="leap()">확인</button>
+    <p>결과 : <span id="outRes"></span></p>
+</body>
+
+<!-- script -->
+<script>
+    // 윤년계산기 스크립트
+    const iy = document.getElementById("inYear");
+    const or = document.getElementById("outRes");
+
+    const leap = function(){
+        let year = iy.value;
+        
+        let t2 = (((year % 4) == 0) &&   
+             ((year % 100) != 0)) ||
+             ((year % 400) == 0);
+
+        let str = (t2) ? "윤년입니다." : "윤년이 아닙니다.";
+        or.innerHTML = str;
+        iy.value = "";
+
+
+    };
+
+    // if(!(score>=90))
+
+    // 윤년 계산
+    // 2월이 29일이 되는 연도
+    // 4년마다 한번씩 윤년이다
+    // 100년마다 한번씩은 윤년이 아니다
+    // 400년마다 한번씩은 윤년이다
+
+    // let year = 100;
+    // let f = (year % 4) == 0; // 윤년
+    // console.log(f);
+
+    // let h = !((year % 100) == 0); // 윤년 아님
+    // console.log(h);
+
+    // let fh = (year % 400) == 0; // 윤년
+
+    // let t1 = ((year % 4) == 0) &&
+    //          ((year % 100) != 0);
+    
+    // let t2 = (((year % 4) == 0) &&    // and
+    //          ((year % 100) != 0)) ||  // or
+    //          ((year % 400) == 0);
+
+    // console.log(t2);
+
+    // 비교연산자 스크립트
+    let a = "50";
+    let b = "100";
+
+    const r1 =  document.getElementById("res1");
+    const r2 =  document.getElementById("res2");
+
+    r1.innerHTML = ` a === b는 ${(a === b)}`;
+    r2.innerHTML = ` a !== b는 ${(a !== b)}`;
+    // console.log(a == b);
+
+
+</script>
+</html>
