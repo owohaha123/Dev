@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.08.31">
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+    <h1>증가연산자(전위)</h1>
+    <p>z : <span id="be"></span></p>
+    <p>x : <span id="af"></span></p>
+    <h1>증가연산자(후위)</h1>
+    <p>z : <span id="be2"></span></p>
+    <p>y : <span id="af2"></span></p>
+</body>
+
+<!-- script -->
+<script>
+     const b = document.getElementById("be");
+    const a = document.getElementById("af");
+    const b2 = document.getElementById("be2");
+    const a2 = document.getElementById("af2");
+
+    let x = 10, y = 10, z = 0;
+    z = 5 + ++x; // 전위 연산자
+    b.innerHTML = z;
+    a.innerHTML = x;
+
+    z = 5 + y++; // 후위 연산자
+    b2.innerHTML = z;
+    a2.innerHTML = y;
+
+
+</script>
+</html>
