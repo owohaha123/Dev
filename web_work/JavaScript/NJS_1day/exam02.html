@@ -35,9 +35,10 @@
         표준 체형 판단 기준 = (키 - 100) *  0.9 <br>
          - 표준 이상일 경우 : 다이어트가 필요할 수 있습니다! <br>
          - 표준 미만일 경우 : 표준(또는 마른) 체형입니다! </p>
-    <input id="nin3" type="number">
-    <button onclick="exam3()">입력</button> <br>
-    <span id="nout3"></span>
+    키: <input id="hei" type="number"> <br>
+    몸무게: <input id="we" type="number"> <br>
+    <button onclick="f1()">입력</button> <br>
+    <span id="out3"></span>
 
 </body>
 
@@ -79,6 +80,16 @@
         }
         out2.innerHTML = `${in2_v} 까지의 누적 합은 ${sum} 입니다.`;
         in2.value = "";
+    }
+
+// --------------------------------------------------------------------
+
+    const hei = document.getElementById("hei");
+    const we = document.getElementById("we");
+
+    const f1 = function(){ // 익명함수
+        let h = hei.value;
+        let w = we.value;
     }
 
 </script>

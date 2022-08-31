@@ -1,0 +1,7 @@
+* 변수(var, let), 상수(const)
+* 데이터 타입(number, string, boolean, undefined, null )
+* 연산자(=, +, -, *, /, %, +=, =+, *=, /=, 비교, ++, --, ...)
+* 제어문(if, switch, for, while)
+* 배열
+* 함수
+* 객체(HTML의 요소 처리)
