@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.09.01">
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+    <h2>학점 변환기</h2>
+    <p>점수 : <input type="number" id="score">
+        <button onclick="toGrade()">입력</button>
+    </p>
+    <p>학점 : <span id="grade"></span></p>
+</body>
+
+<!-- script -->
+<script>
+    const score = document.getElementById("score");
+    const grade = document.getElementById("grade");
+
+    function toGrade(){
+        let s = score.value;
+
+        if (s == ""){ // 점수가 입력되지 않았을 때
+            alert("점수를 입력하세요.");
+            score.value = "";
+            return; // 경고창을 띄우고 함수 종료!
+        }
+
+        if (s > 100 || s < 0) {
+            alert("0~100점 사이의 수만 입력하세요.");
+            score.value = "";
+            return; // 경고창을 띄우고 함수 종료!
+        }
+
+        let g = "";
+        s = parseInt(s/10)
+        // parseInt(실수): 실수를 정수로 변환 (소수점 이하 값은 버림)
+        // 정수: Integer (0, 1, -8 ...) / 실수: Float (0.1 , 3.14 ...)
+        switch(s) {
+            case 10: case 9:
+                g = "A학점";
+                break;
+            case 8:
+                g = "B학점";
+                break;
+            case 7:
+                g = "C학점";
+                break;
+            case 6:
+                g = "D학점";
+                break;
+            default:
+                g = "F학점";
+        }
+        grade.innerHTML = g;
+        score.value = "";
+    }
+
+</script>
+</html>
