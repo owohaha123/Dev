@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.09.01">
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+    <input type="number" id="num">
+    <button onclick="start()">구구단 출력</button>
+    <div id="space"></div>
+</body>
+
+<!-- script -->
+<script>
+    const sp = document.getElementById("space");
+    const n = document.getElementById("num");
+
+    function start(){
+        // 구구단 2단 출력
+        let str = "";
+        let a = n.value;
+
+        for(let x = 1; x <= 9; x++)
+        str += `${a} * ${x} = ${a * x} <br>`;
+
+        sp.innerHTML = str;
+    }
+
+</script>
+</html>
