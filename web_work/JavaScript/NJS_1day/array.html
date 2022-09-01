@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.09.01">
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+
+</body>
+
+<!-- script -->
+<script>
+    let nums = [1, 2, 3, 4, 5];
+    let strs = new Array("one","two","three","four");
+
+    console.log(nums);
+    console.log(strs);
+
+    console.log(nums[2]);
+    nums[4] = 8;
+    console.log(nums);
+
+    console.log(strs[4]);
+
+    let arr = [,,,,]; // 마지막 , 는 무시됨
+    // 배열의 크기(공간개수) : length
+    console.log(arr.length);
+
+    // 빈 배열에 값 추가
+    let fruits = [];
+    fruits.push("바나나");
+    fruits.push("사과");
+    fruits.push("배");
+
+    console.log(fruits);
+
+    fruits.pop(); // 뒤부터 꺼내서 지움(사라진 배)
+    console.log(fruits);
+
+    fruits.unshift("자몽"); // 자몽 맨 앞 삽입
+    console.log(fruits);
+    fruits.shift(); // 앞부터 꺼내서 지움 (사라진 자몽)
+    console.log(fruits);
+
+    let x = 10;
+    let y = x;
+    console.log(x, y);
+    y = 20;
+    console.log(x, y);
+    
+    let aArr = [1, 2, 3, 4, 5];
+    let bArr = aArr;
+    console.log(aArr);
+    console.log(bArr);
+
+    bArr.pop(); // 둘 다 5 사라짐
+    console.log(aArr);
+    console.log(bArr);
+</script>
+</html>
