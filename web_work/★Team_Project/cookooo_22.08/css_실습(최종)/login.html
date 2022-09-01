@@ -199,8 +199,8 @@
     <div class="login-wrapper">
         <h2>Cookooo</h2>
         <form method="post" id="login-form">
-            <input type="text" name="userName" placeholder="아이디를 입력해주세요.">
-            <input type="password" name="userPassword" placeholder="비밀번호를 입력해주세요.">
+            <input type="text" name="userName" id="id" placeholder="아이디를 입력해주세요.">
+            <input type="password" name="userPassword" id="password" placeholder="비밀번호를 입력해주세요.">
             <label for="remember-check">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -208,7 +208,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;아이디 저장하기&nbsp;<input type="checkbox"
                     id="remember-check">
             </label>
-            <input type="button" id="ab" value="로그인" onClick="location.href='login_after.html'">
+            <input type="button" id="ab" value="로그인" onclick="idc()">
             <input type="button" id="abc" value="회원가입" onClick="location.href='회원가입1.html'">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span id="txt">아이디 찾기</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="txt">비밀번호 찾기</span>
@@ -237,7 +237,32 @@
 
 <!-- script -->
 <script>
+    let id1 = "yun";
+    let pw1 = "1234";
 
+    function idc(){
+        let i = id.value;
+        let p = password.value;
+        
+        if (i == ""){ 
+            alert("id를 입력하세요.");
+            return; 
+        }
+        if (p == ""){ 
+            alert("pw를 입력하세요.");
+            return; 
+        }
+
+        if ((i == id1) && (p == pw1)){
+            location.href="condition.html";
+        }else if (i != id1){
+            alert("ID 다시 입력");
+        }else if (p != pw1){
+            alert("PW 다시 입력");
+        }else if((i == id1) && (p == pw1)){
+            alert("ID, PW 다시 입력");
+        }
+    }
 </script>
 
 </html>
