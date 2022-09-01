@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.09.01">
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+    <!-- 로그인 화면 만들기 -->
+    <!-- 1. 스크립트 코드에 임의의 맞는 ID, PW 작성 후 입력값과 맞는지 비교 -->
+    <!-- 2. 맞으면 메인페이지로, 틀리면 경고창 띄우기 -->
+    <h2>Login</h2>
+    <input type="text" id="id" placeholder="ID">
+    <br>
+    <input type="text" id="password" placeholder="PW">
+    <br>
+    <button onclick="idc()">입력</button>
+</body>
+
+<!-- script -->
+<script>
+    // let id = document.getElementById("id");
+    // let pw = document.getElementById("pw");
+
+    let id1 = "yun";
+    let pw1 = "1234";
+
+    function idc(){
+        let i = id.value;
+        let p = password.value;
+        
+        if (i == ""){ 
+            alert("id를 입력하세요.");
+            return; 
+        }
+        if (p == ""){ 
+            alert("pw를 입력하세요.");
+            return; 
+        }
+
+        if ((i == id1) && (p == pw1)){
+            location.href="condition.html";
+        }else if (i != id1){
+            alert("ID 다시 입력");
+        }else if (p != pw1){
+            alert("PW 다시 입력");
+        }else if((i == id1) && (p == pw1)){
+            alert("ID, PW 다시 입력");
+        }
+    }
+
+</script>
+</html>
