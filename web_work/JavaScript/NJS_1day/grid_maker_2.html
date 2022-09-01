@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="KJB">
+   <meta name="date" content="2022.">
+   <link rel="shortcut icon" href="../Css-8day/image/파비콘.ico">
+   <title></title>
+   <style>
+        span{
+            display:inline-block;
+            width:40px;
+            height:40px;
+            margin:5px;
+            border:2px solid gray;
+        }
+        .ch{
+            /* background-color: aquamarine; */
+        }
+        #space{
+            width:auto;
+            padding:10px;
+            border:2px solid gray;
+            display:none;
+        }
+   </style>
+</head>
+
+<!-- body -->
+<body>
+    <h2>좌석 배치도 만들기</h2>
+    <p>총 줄수 : <input type="number" id="rows"></p>
+    <p>줄별 칸수 : <input type="number" id="cols"></p>
+    <button onclick="maker()">생성</button>
+    <div id="space"></div>
+</body>
+
+<!-- script -->
+<script>
+    const rows=document.getElementById("rows");
+    const cols=document.getElementById("cols");
+    const space=document.getElementById("space");
+    function maker(){
+        space.style.display="block";
+        let r=rows.value;
+        let c=cols.value;
+        let chair="";
+        let x=1;
+        for(let i=1; i<=r; i++){
+            for(let j=1; j<=c; j++){
+                chair+=`<span class="ch" onclick="cli()">${x}</span>`
+                space.innerHTML=chair;
+                x++;
+            }
+            chair+="<br>"
+        }
+    }
