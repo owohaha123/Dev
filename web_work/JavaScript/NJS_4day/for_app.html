@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.09.02">
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+</body>
+
+<!-- script -->
+<script>
+    let arr = ["apple" , "banana" , "pear" , "peach"];
+
+    // for in
+    for(let i in arr){
+        //console.log(i);
+    }
+
+    // for of
+    for(let v in arr){
+        //console.log(v);
+    }
+    for(let i = 0; i < arr.length; i++){
+        let v = arr[i];
+        //console.log(v);
+    }
+
+    // forEach()
+    let new_arr = arr.forEach(function(item, idx, array){
+        console.log(item);
+        console.log(idx);
+        console.log(array);
+    });
+    // item, idx, array는 변수이름 (쓰고싶은 거 쓰셈)
+    // 함수의 '('와 ')' 사이에 들어가는 것을 [매개변수]라고 함
+    // 매개변수 (= 인자, 인수, 파라미터)
+    arr.forEach(function(item){
+        console.log(`${idx}번째 값은 ${item}이다`);
+    })
+
+    let person = {
+        "이름" : "홍길동" ,
+        "나이" : 20 ,
+        "주소" : "인천시 미추홀구"
+    };
+    
+    for(let key in person){
+       // console.log(key); 
+       // console.log(person[key]);
+    }
+    
+
+</script>
+</html>
