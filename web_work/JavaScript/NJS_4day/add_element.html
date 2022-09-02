@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.09.02">
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+        <button>추가</button>
+        <button>합산</button>
+        <div id="space"></div>
+</body>
+
+<!-- script -->
+<script>
+    // 태그 이름으로 요소를 불러옴 (같은 이름의 태그 '모두' 가져와서 배열로 저장)
+    const btns = document.getElementsByTagName("button");
+    console.log(btns);
+
+    const sp = document.getElementById("space");
+
+
+    // addEventListener : 자바스크립트로 요소의 이벤트 처리
+    // btns[0].addEventListener("click") = <button onclick>
+
+    btns[0].addEventListener("click" , function(){
+        // alert("추가 버튼을 눌렀습니다.");
+
+        // 자바스크립트로 html 요소 추가
+        // 1. 요소 생성(createElement)
+        // 2. 부모 요소에 생성한 요소를 자식 요소로 추가(appendChild)
+        // 3. 요소에 글자내용을 넣을 경우 [TextNode]를 생성하여 추가(createTextNode)
+        let ptag = document.createElement("p");
+        let tn = document.createTextNode("값 입력 : ");
+        let itag = document.createElement("input");
+        itag.type = "number";
+        itag.className = "nin";
+        
+        ptag.appendChild(tn);
+        ptag.appendChild(itag);
+        sp.appendChild(ptag);
+    }); 
+
+
+    // 합산 버튼 처리
+    btns[1].addEventListener("click", function(){
+        const inputs = document.querySelectorAll(".nin");
+        console.log(inputs);
+
+        let sum = 0; // 합산 값 저장
+        for(let v of inputs){
+            sum += Number(v.value);
+        }
+        console.log(sum);
+    });
+</script>
+</html>
