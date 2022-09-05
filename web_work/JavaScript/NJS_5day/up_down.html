@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>UP & DOWN</title>
+</head>
+<body>
+    <h2>Up & Down 게임</h2>
+    <p>숫자를 입력하세요.(1 ~ 100 사이)<br>
+        입력값보다 생성된 값이 크면 UP<br>
+        입력값보다 생성된 값이 작으면 DOWN이 출력됩니다.
+    </p>
+    <p>입력 <input type="number" id="input"></p>
+    <p><button onclick="cur()">
+            <img src="bo.png" width="50">
+        </button></p>
+    <p>결과 : <span id="res"></span></p>
+</body>
+<script>
+    const input = document.getElementById("input");
+    const res = document.getElementById("res");
+    
+    //난수 저장 변수
+    //의사 난수(Pseudo Random Number)
+    //Math.floor : 소수점 밑은 버리고 자연수만 남김.
+    //랜덤 공식 : Math.floor(Math.random() * 범위) + 시작값
+    let comNum = Math.floor(Math.random() * 100) + 1;
+    //버튼이 눌리기 전에 이미 맞춰야할 값은 생성되어 있어야 한다.
+    console.log(comNum);
+
+    let count = 0;
+
+    function cur(){
+        count++;//시도 횟수 증가
+        let i = input.value;
+        if(comNum > i){
+            res.innerHTML = "UP";
+            input.value = "";
+        }
+        else if(comNum < i){
+            res.innerHTML = "DOWN";
+            input.value = "";
+        }
+        else {
+            res.innerHTML = `정답! - 시도횟수 ${count}`;
+            input.value = "";
+        }
+    }
+</script>
+</html>

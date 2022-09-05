@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.09.05">
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+    <h2>계산기</h2>
+    <p>N1 : <input type="number"></p>
+    <p>N2 : <input type="number"></p>
+    <button>+</button> <button>-</button>
+    <button>*</button> <button>/</button>
+    <p>결과: <span></span></p>
+</body>
+
+<!-- script -->
+<script>
+    const inputs = document.querySelectorAll("input");
+    const btns = document.querySelectorAll("button");
+    const sp = document.querySelector("span");
+
+    // param o , return o
+    btns[0].addEventListener("click", function(){
+        let n1 = inputs[0].value;
+        let n2 = inputs[1].value;
+        let result = add(n1, n2);
+        sp.innerHTML = result;
+        inputs[0].value = "";
+        inputs[1].value = "";
+    })
+
+    // param o 
+    btns[1].addEventListener("click", function(){
+        let n1 = inputs[0].value;
+        let n2 = inputs[1].value;
+        sub(n1, n2)
+        inputs[0].value = "";
+        inputs[1].value = "";
+    })
+
+    // return o
+    btns[2].addEventListener("click", function(){
+        let result = mul();
+        sp.innerHTML = result;
+        inputs[0].value = "";
+        inputs[1].value = "";
+    })
+
+    // param x , return x
+    btns[3].addEventListener("click", function(){
+        div();
+        inputs[0].value = "";
+        inputs[1].value = "";
+    })
+
+//---------------------------------------------------
+
+    let r = add(1,2); //함수 호출
+    console.log(r);
+
+//---------------------------------------------------
+
+    // 1번 유형 함수 선언 (param o , return o)
+    function add(num1, num2){
+        //let res = Number(num1) + Number(num2);
+        //return res;
+        return res = Number(num1) + Number(num2);
+    }
+
+    // 2번 유형 함수 선언 (param o)
+    function sub(num1, num2){
+        //let res = num1 - num2;
+        //sp.innerHTML = res;
+        sp.innerHTML = (res = num1 - num2);
+    }
+
+    // 3번 유형 함수 선언 (return o)
+    function mul(){
+        let num1 = inputs[0].value;
+        let num2 = inputs[1].value;
+        let res = num1 * num2;
+        return res;
+    }
+
+    // 4번 유형 함수 선언 (param x , return x)
+    function div(){
+        let num1 = inputs[0].value;
+        let num2 = inputs[1].value;
+        let res = num1 / num2;
+        sp.innerHTML = res;
+    }
+</script>
+</html>

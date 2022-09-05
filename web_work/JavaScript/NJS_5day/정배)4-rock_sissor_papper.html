@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="KJB">
+   <meta name="date" content="2022.09.05">
+   <title>가위바위보게임</title>
+   <style>
+    img{
+        width:100px;
+        height:100px;
+    }
+    #com1>button{
+        display:none;
+    }
+   </style>
+</head>
+
+<!-- body -->
+<body>
+    <h2>가위바위보게임</h2>
+    <button value="1" onclick="sissor()"><img src="가위.jpg"></button>
+    <button value="2" onclick="rock()"><img src="바위.jpg"></button>
+    <button value="3" onclick="paper()"><img src="보.jpg"></button>
+    <p id="res"></p>
+    <p id="com1">
+        <button id="bt1" value="1" onclick="sissor()"><img src="가위.jpg"></button>
+        <button id="bt2" value="2" onclick="rock()"><img src="바위.jpg"></button>
+        <button id="bt3" value="3" onclick="paper()"><img src="보.jpg"></button>
+    </p>
+</body>
+
+<!-- script -->
+<script>
+    const btn=document.querySelectorAll("button");
+    const bt1=document.querySelector("#bt1");
+    const bt2=document.querySelector("#bt2");
+    const bt3=document.querySelector("#bt3");
+    const b1_v=btn[0].value;
+    const b2_v=btn[1].value;
+    const b3_v=btn[2].value;
+    const res=document.getElementById("res");
+    //const com2=document.getElementById("")
+    let com=Math.floor(Math.random()*3+1);
+    
+    const com1=document.createElement("p")
+
+    function sissor(){
+        if(com==1){
+            res.innerHTML="비겼습니다";
+            bt1.style.display="inline";
+            bt2.style.display="none";
+            bt3.style.display="none";
+        }else if(com==2){
+            res.innerHTML="졌습니다."
+            bt1.style.display="none";
+            bt3.style.display="none";
+            bt2.style.display="inline"
+        }else{
+            res.innerHTML="이겼습니다."
+            bt3.style.display="inline"
+            bt1.style.display="none";
+            bt2.style.display="none";
+        }
+        com=Math.floor(Math.random()*3+1)
+    }
+    function rock(){
+        if(com==1){
+            res.innerHTML="이겼습니다"
+            bt1.style.display="inline"
+            bt2.style.display="none";
+            bt3.style.display="none";
+        }else if(com==2){
+            res.innerHTML="비겼습니다."
+            bt2.style.display="inline"
+            bt1.style.display="none";
+            bt3.style.display="none";
+        }else{
+            res.innerHTML="졌습니다."
+            bt3.style.display="inline"
+            bt1.style.display="none";
+            bt2.style.display="none";
+        }
+        com=Math.floor(Math.random()*3+1)
+    }
+    function paper(){
+        if(com==1){
+            res.innerHTML="졌습니다"
+            bt1.style.display="inline"
+            bt2.style.display="none";
+            bt3.style.display="none";
+        }else if(com==2){ 
+            res.innerHTML="이겼습니다."
+            bt2.style.display="inline"
+            bt1.style.display="none";
+            bt3.style.display="none";
+        }else{
+            res.innerHTML="비겼습니다."
+            bt3.style.display="inline"
+            bt1.style.display="none";
+            bt2.style.display="none";
+        }
+        com=Math.floor(Math.random()*3+1)
+    }
+    
+</script>
+</html>

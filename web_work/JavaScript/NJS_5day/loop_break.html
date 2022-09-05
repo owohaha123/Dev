@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button>시작</button>
+</body>
+<script>
+    const btn = document.querySelector("button");
+    btn.addEventListener("click", function(){
+        let m = 0;
+        let sum = 0;
+        let i = 0;
+
+        while(true){  //무한 루프
+            m = prompt("3이 아닌 값을 입력하세요!")
+            if (m == 3){
+                //break;
+                continue;
+            }if (sum >= 50){
+                break;
+            }
+            sum += Number(m);
+            console.log(m);
+            i++;
+        }
+        document.write(`입력한 값의 총합은 ${sum}입니다!`);
+        document.write(`실행 횟수는 ${i}번`);
+    });
+
+    let ss = 0 ;
+    for(let j = 0; j < 100; j++){
+        if(j % 4 == 0){
+            continue;
+        }
+        ss += j;
+    }
+    console.log(ss);
+
+    //while과 break 조합
+    // let sum = 0;
+    // let v = 0;
+    // while(sum <= 1000){
+    //     v++;
+    //     if(v > 30){
+    //         break;
+    //     }
+    //     sum += v;
+    // }
+    // console.log(sum);
+    // console.log(v);
+
+
+</script>
+</html>

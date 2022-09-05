@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="yunusss">
+    <meta name="date" content="2022.09.05">
+    <title></title>
+</head>
+
+<!-- body -->
+
+<body>
+    <h1>가위! 바위! 보!</h1>
+    <button id="sics"><img src="가위.jpg"></button>
+    <button id="rock"><img src="바위.jpg"></button>
+    <button id="paper"><img src="보.jpg"></button>
+    <p>컴퓨터 : <span id="com"></span></p>
+    <p>결과 : <span id="res"></span></p>
+</body>
+
+<!-- script -->
+<script>
+    let sics = document.getElementById("sics"); //1
+    let rock = document.getElementById("rock"); //2
+    let paper = document.getElementById("paper"); //3
+    const res = document.getElementById("res");
+    const com = document.getElementById("com");
+
+    let comNum = Math.floor(Math.random() * 3) + 1;
+
+    sics.addEventListener("click", function () {
+        if (comNum == 1) {
+            res.innerHTML = "비겼다!";
+            com.innerHTML = `${comNum}`;
+        }
+        else if (comNum == 2) {
+            res.innerHTML = "졌다!";
+            com.innerHTML = `${comNum}`;
+        }
+        else {
+            res.innerHTML = "이겼다!";
+            com.innerHTML = `${comNum}`;
+        } console.log(comNum);
+    });
+
+    rock.addEventListener("click", function () {
+        if (comNum == 1) {
+            res.innerHTML = "이겼다!";
+            com.innerHTML = `${comNum}`;
+        }
+        else if (comNum == 2) {
+            res.innerHTML = "비겼다!";
+            com.innerHTML = `${comNum}`;
+        }
+        else {
+            res.innerHTML = "졌다!";
+            com.innerHTML = `${comNum}`;
+        } console.log(comNum);
+    })
+
+    paper.addEventListener("click", function () {
+        if (comNum == 1) {
+            res.innerHTML = "졌다!";
+            com.innerHTML = `${comNum}`;
+        }
+        else if (comNum == 2) {
+            res.innerHTML = "이겼다!";
+            com.innerHTML = `${comNum}`;
+        }
+        else {
+            res.innerHTML = "비겼다!";
+            com.innerHTML = `${comNum}`;
+        } console.log(comNum);
+    })
+
+
+
+
+</script>
+
+</html>
