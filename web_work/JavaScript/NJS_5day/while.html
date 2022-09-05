@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button>시작</button>
+</body>
+<script>
+    const btn = document.querySelector("button");
+    btn.addEventListener("click", run);
+
+    let sum;
+    function run(){
+        sum = 0;//버튼 누를 때마다 새롭게 시작.
+        // let val = prompt("숫자를 입력하세요. 누적을 중지할 경우 취소버튼을 누르세요.");
+
+        // while(val != null){
+        //     sum += Number(val);
+        //     val = prompt("숫자를 입력하세요. 누적을 중지할 경우 취소버튼을 누르세요.");
+        // }
+        let val;
+        do{
+            val = prompt("숫자를 입력하세요. 누적을 중지할 경우 취소버튼을 누르세요.");
+            sum += Number(val);
+        }while(val != null);
+
+        alert(`입력한 값들의 총합은 ${sum}입니다.`);
+    }
+
+
+    /* 대화창 예제
+    function run(){
+        //대화창(경고창, 확인창, 입력창)
+        //경고창 : alert("문자열");
+        //확인창 : confirm("문자열");
+        //입력창 : prompt("문자열");
+        // let val = confirm("확인을 누르세요");
+        // console.log(val);
+        // if(val){
+        //     alert("확인을 눌렀습니다.");
+        // }
+        // else {
+        //     alert("취소를 눌렀습니다.");
+        // }
+        let val = prompt("값을 입력하세요.");
+        console.log(val);
+        if(val == ""){
+            alert("값을 입력해야 뭔가를 합니다!");
+        }
+        else if(val == null){
+            alert("취소하셨습니다.");
+        }
+        else {
+            alert(`입력한 값은 ${val}입니다.`);
+        }
+    }*/
+
+</script>
+</html>
