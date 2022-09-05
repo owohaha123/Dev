@@ -27,6 +27,7 @@
     const sp = document.getElementById("space");
     const stu = document.getElementById("student");
    
+
     btns[0].addEventListener("click" , function(){
 
         let s_num = stu.value
@@ -53,11 +54,14 @@
         console.log(inputs);
 
         let sum = 0; // 합산 값
-        let avg = 0; // 평균 값
+        //let avg = 0; // 평균 값
         for(let v of inputs){
             sum += Number(v.value);
-            avg = Number(sum /stu.value)
+           
         }
+
+        const avg = Number(sum /stu.value)
+
         alert (`총점은 ${sum}, 평균은 ${avg} 입니다!`)
         //console.log(sum);
         //console.log(avg);
