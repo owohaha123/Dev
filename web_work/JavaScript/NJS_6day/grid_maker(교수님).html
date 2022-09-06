@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .items {
+            width: 50px;
+            height: 50px;
+            background-color: gray;
+            border: 1px solid;
+            text-align: center;
+            line-height: 50px;
+            margin: 5px;
+            display: inline-block;
+            box-sizing: border-box;
+        }
+        #space {
+            padding: 10px;
+            width: 600px;
+            border: 1px solid blue;
+        }
+        .items:hover {
+            background-color: red;
+        }
+        .itch {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h2>좌석 배치도 만들기</h2>
+    <p>총 줄수 : <input type="number" id="rows"></p>
+    <p>한줄별 칸수 : <input type="number" id="cols"></p>
+    <button onclick="maker()">생성</button>
+    <button onclick="reset()">초기화</button>
+    <div id="space"></div>
+</body>
+<script>
+    const r = document.getElementById("rows");
+    const c = document.getElementById("cols");
+    const sp = document.getElementById("space");
+    let a = 0;
+    function maker(){
+        if(a != 0){
+            alert("이미 생성하였습니다.");
+            return;
+        }
+        let rv = r.value;//줄수
+        let cv = c.value;//칸수
+
+        let str = "";
+
+        for(let j = 0; j < rv; j++){
+            str += "<div>";
+            for(let i = 0; i < cv; i++){
+                //칸요소 생성
+                let s = "" + j + i;
+                str += `<div class='items' onclick='ch(this)'>${s}</div>`;
+            }
+            str += "</div>";
+        }
+        
+        sp.innerHTML = str;
+        a++;
+    }
+
+    function ch(em){
+        em.classList.toggle("itch");
+    }
+
+    function reset(){
+        if(a == 0){
+            return;
+        }
+        alert("초기화합니다.");
+        location.reload();
+    }
+</script>
+</html>
