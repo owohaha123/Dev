@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.09.06">
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+
+</body>
+
+<!-- script -->
+<script>
+    // 함수 선언
+    function add(){
+        let sum = 1;
+        return sum;
+    };
+
+    // 함수 [선언] 중간에 [호출]되더라도 [선언]이 먼저 처리 (호이스팅)
+    // let n1 = add();
+
+    // 함수의 이름은 같은 것으로 만들 수 있음!
+    // but 제일 마지막에 작성된 것만 작동됨
+    function add(x){ // overloading 가능
+        let sum = x + 1;
+        return sum;
+    };
+    
+    function add(x, y){ // 
+        let sum = x + y;
+        return sum;
+        console.log(typeof sum);
+    };
+
+
+    // 함수 호출
+    let n1 = add();
+    let n2 = add(5);
+    let n3 = add(4, 3);
+    document.write(`함수 호출 인자 없음 : ${n1}<br>`); // NaN
+    document.write(`함수 호출 인자 1 개 : ${n2}<br>`); // NaN (문자+숫자)
+    document.write(`함수 호출 인자 1 개 : ${n3}<br>`); // 7 
+
+// ---------------------------------------------------------------------
+    function add2(){
+        let sum = 0;
+        for (let i of arguments) { // for(let i = 0; i < arguments.length; i++)
+            sum += i ;
+        }
+        return sum;
+    }
+
+    let r1 = add2();
+    let r2 = add2(2);
+    let r3 = add2(5, 8);
+    let r4 = add2(1,2,3,4,5,6,7,8,9,10);
+    document.write(`함수 호출 결과: ${r1}<br>`); // 0
+    document.write(`함수 호출 결과: ${r2}<br>`); // 2
+    document.write(`함수 호출 결과: ${r3}<br>`); // 13
+    document.write(`함수 호출 결과: ${r4}<br>`); // 55
+</script>
+</html>
