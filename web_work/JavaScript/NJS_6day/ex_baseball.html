@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.09.06">
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+    <button id="strike">Strike</button>
+    <button id="ball">Ball</button>
+    <button id="restart" style="display:none">
+        재시작
+    </button>
+    <br/>
+    B:<b id="b">0</b><br/>
+    S:<b id="s">0</b><br/>
+    O:<b id="o">0</b><br/>
+</body>
+
+<!-- script -->
+<script>
+    // 버튼
+    const btnst = document.getElementById("strike");
+    const btnba = document.getElementById("ball");
+    const btnre = document.getElementById("restart");
+    // 전광판
+    const ball  = document.getElementById("b");
+    const strike  = document.getElementById("s");
+    const out  = document.getElementById("o");
+    // 각 수치 카운트 변수
+    let ba = 0, st = 0, ou = 0;
+
+    // 스트라이크 버튼 이벤트
+    btnst.addEventListener("click", function () {
+        st++;
+        strike.innerHTML = st;
+        if(st >= 3){
+            alert("스트라이크 아웃!!");;
+            ou++;
+            out.innerHTML = ou;
+            init();
+        }
+
+        if(ou >= 3){
+            alert("3 아웃 게임 오버!!");;
+            btnre.style.display = "inline";
+            btnst.disabled = true;
+            btnba.disabled = true;
+        }
+    });
+
+    // 볼 버튼 이벤트
+    btnba.addEventListener("click" , function(){
+        ba++;
+        ball.innerHTML = ba;
+        if(ba >= 4){
+            alert("4 볼!!");
+            init();
+        }
+    });
+
+    // 재시작 버튼 이벤트
+    btnre.addEventListener("click", function(){
+        ou = 0;
+        out.innerHTML = ou;
+        init();
+        btnst.disabled = false; // 활성화
+        btnba.disabled = false;
+        btnre.style.display = "none";
+    });
+
+    // 스트라이크, 볼 카운트 초기화 함수
+    function init(){
+        st = 0;
+        ba = 0;
+        strike.innerHTML = st;
+        ball.innerHTML = ba;
+    }
+</script>
+</html>
