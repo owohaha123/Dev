@@ -1,0 +1,99 @@
+* 함수
+ - 특수한 한가지 목적을 가진 명령어를 묶어놓은 것. (결과는 하나!)
+ - 유형
+   1) 파라미터 반환값
+   2) 파라미터
+   3) 반환값
+   4) 파라미터, 반환값 모두 없는 유형
+    -> HTML 요소를 제어하는 것이 목적.
+    -> 요소에 발생하는 이벤트(클릭, 키보드 조작 등)를 처리하는 경우가 많아,
+       2번, 4번 유형 많이 사용.
+
+ - return
+   1) 함수의 종료
+   2) 함수 내부에서 처리된 결과값을 넘기는데 사용
+
+    참고) this 키워드
+         - 요소 자신!
+         - 이벤트 처리 속성에서 this를 매개변수로 사용하면 함수에서 요소를 가져와서 처리 가능
+
+
+* classList
+ - HTML 요소의 class 속성에 저장된 값을 제어하는 키워드
+ - 주요함수
+   1) add(string) : 새로운 'string' 값을 class 속성에 추가
+   2) remove(string) : 'string' 값을 class 속성에서 제거
+   3) toggle(string) : add와 remove가 합쳐진 상태
+   4) contains(string) : 'string' 이 class 속성에 있는지 여부 확부. (들어가 있으면 t / 없으면 f)
+   5) replace(str, str) : class 속성에 str1 이 있으면 str2로 변경
+
+* 함수 인자의 처리
+ - 같은 이름의 함수를 여러개 만들 수 있지만, 문서 순서 상 아랫쪽(마지막) 함수만 실행!
+ - 인자(param)의 개수가 다른 여러 함수를 사용할 수 없음.
+ - 한 함수로 다양한 parameter 개수를 대응하기 위한 방법을 제공
+   : arguments 배열을 활용 (arguments: 인자)
+
+   예제) 야구전광판
+       1. 버튼에 클릭 이벤트 부여
+       2. 3스트라이크 시 아웃 1 증가(alert)
+          스트라이크와 볼 카운트 초기화
+       3. 4볼일 때(alert) 스트라이크와 볼 카운트 초기화
+       4. 3아웃 일 때(alert) 재시작 버튼 보이기
+          스트라이크와 볼 버튼 비활성화
+       5. 재시작 버튼 클릭 시 스트라이크, 볼, 아웃 카운트 초기화
+          (재시작버튼 숨기고 스트라이크, 볼 버튼 활성화)
+        * 비활성화 방법: btn.disabled = true;
+        * 활성화 방법: btn.disabled = false;
+        * 숨기는 방법: btn.style.display = "none";
+        * 버튼 보이게 하는 방법: btn.style.disabled = "inline";
+
+* 객체(Object)
+ - 클래스에서 정의한 것을 토대로 메모리(실제 저장공간)에 할당된 것.
+   프로그램에서 사용되는 데이터 또는 식별자에 의해 참조되는 공간을 의미하며
+   변수, 자료 구조, 함수 또는 메소드가 될 수 있다. 
+ - 프로그램을 단순히 데이터와 처리 방법으로 나누는 것이 아니라,
+   프로그램을 수많은 '객체(object)'라는 기본 단위로 나누고 이들의 상호작용으로 서술하는 방식.
+ - 객체란 하나의 역할을 수행하는 '메소드와 변수(데이터)'의 묶음으로 봐야 한다.
+
+ - 메소드(method) : 객체(Object) 내부에 정의된 함수
+
+  1) HTML 요소를 자바스크립트에서 사용
+  2) 정보를 처리하는 단위로 사용
+
+* 객체 지향 프로그래밍(Object Oriented Programming)
+ - 문제 해결을 위한 코드(명령어)를 객체 단위로 작성
+
+* 문서 객체 모델 (Document Object Model (DOM))
+ - 문서 상 모든 요소는 화면에 출력되기 전 객체화하여 저장 (by.브라우저)
+ - HTML 문서의 요소를 객체화하여 사용하는 방식
+ - getElementById, querySelector 등 사용하여 HTML 요소를 가져오게 되면
+   Javascript에서 객체가 되어 사용할 수 있다
+ - DOM을 사용한 요소의 속성값 변경
+  1) 객체변수.속성 = '속성값';
+        <img src="xxx.png" width="600" height="400">
+         이미지의 너비/ 높이 변경
+        const img = document.getElementById("image");
+        img.width = 400;
+        img.height = 300;
+  2) 객체변수.setAttribute("속성명", "바꿀 속성값");
+         이미지 파일을 변경
+        img.setAttribute("src", "yyy.jpg");
+        img.setAttribute("style", "border: 1px solid;");
+         -> <img src="..." style="border: 1px solid;">
+         => img.style.border = "1px solid";
+
+* HTML 요소 선택자
+ 1) getElementById : 요소의 id 속성값으로 선택
+ 2) getElementByTagName : 요소의 태그명으로 선택
+                          (같은 태그의 요소를 한꺼번에 같이 선택. 무조건  요소의 배열로 처리)
+ 3) getElementByClassName : 요소의 class 속성값으로 선택
+                            (같은 class 요소를 한꺼번에 같이 선택. 무조건 요소의 배열로 처리)
+     -> TagName이나 ClassName으로 한 요소를 선택하여 제어할 경우,
+        반드시 객체변수[0].ooo 이렇게 사용
+ 4) querySelector : 요소 선택 키워드를 css 방식으로 처리
+                    (태그명은 그대로 작성 / id일 경우 '#' / class일 경우 '.' 을 앞에 붙임)
+                    다수의 요소가 같은 class일 경우, 무조건 첫번째 요소만 선택
+ 5) querySelectorAll : 요소 선택 키워드를 css 방식으로 처리
+                       같은 태그, 클래스 속성인 요소를 한꺼번에 배열로 묶어서 선택
+ 
+
