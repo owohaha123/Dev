@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.09.06">
+   <title> class변경 </title>
+   <style>
+    div {
+        width: 200px;
+        height: 100px;
+    }
+    .st1 {
+        border: 1px solid;
+    }
+    .st2{
+        border: 3px dashed;
+        background-color: pink;
+    }
+   </style>
+</head>
+
+<!-- body -->
+<body>
+    <div>BOX</div>
+    <button>toggle</button>
+    <button>change</button>
+</body>
+
+<!-- script -->
+<script>
+    const box = document.querySelector("div");
+    box.classList.add("st1");
+    const btn = document.querySelectorAll("button");
+    btn[0].addEventListener("click", function(){
+        // if(box.classList.contains("st1")){
+        //     box.classList.remove("st1");
+        // }else{
+        //     box.classList.add("st1");
+        // }
+        box.classList.toggle("st1");
+        if(box.classList.contains("st2")){
+            box.classList.remove("st2");
+        }
+    });
+    btn[1].addEventListener("click", function(){
+        box.classList.replace("st1","st2"); 
+    });
+</script>
+</html>
