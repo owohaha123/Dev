@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.09.07">
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+    <h2>현재시간</h2>
+    <h3 id="ti"></h3>
+</body>
+
+<!-- script -->
+<script>
+    // 예제) Date 객체를 활용하여 1초 단위로 시간을 출력하는 시계 만들기
+    const ti = document.getElementById("ti");
+
+    getTime();
+
+    function getTime(){
+        const now = new Date(); // 날짜와 시간을 가져오는 객체
+
+        let h = String(now.getHours()).padStart(2, "0"); // <-> Number
+        let m = String(now.getMinutes()).padStart(2, "0");
+        let s = String(now.getSeconds()).padStart(2, "0");
+
+        ti.innerHTML = `${h}:${m}:${s}`;
+    }
+
+    let inter = setInterval(getTime, 1000);
+</script>
+</html>

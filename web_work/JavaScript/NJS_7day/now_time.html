@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.09.07">
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+    <button onclick="time1()">time1</button>
+    <h1 id="result"></h1>
+</body>
+
+<!-- script -->
+<script>
+     function time1(){
+        var today = new Date();
+
+        var hh = today.getHours();
+        var mi = today.getMinutes();
+        var ss = today.getSeconds();
+
+        hh = checkTime(hh);
+        mi = checkTime(mi);
+        ss = checkTime(ss);
+
+        document.getElementById("result").innerHTML =
+        hh + "시" + mi + "분" + ss + "초";
+
+        setTimeout( time1, 500 ); 
+    }
+
+    function checkTime(i){
+        if (i<10) {
+            i = "0" + i;
+        }
+        return i ;
+    }
+</script>
+</html>
