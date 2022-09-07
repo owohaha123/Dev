@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.09.07">
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+    <h2>주기적인 처리</h2>
+    <p><b id="num">0</b></p>
+    <p>
+        <button onclick="inter(this)">시작</button>
+        <button onclick="stop()">중지</button>
+    </p>
+    <p>
+        <button onclick="timeout(this)">설정</button>
+        <button onclick="clear()">제거</button>
+    </p>
+</body>
+
+<!-- script -->
+<script>
+    const num = document.getElementById("num");
+    let n = 0;
+
+    // interval 생성
+    let myInter;
+    let startbtn;
+    function inter(elm){
+        startbtn = elm; // 중지버튼에서 활성화하기 위해 전역변수에 버튼 저장
+        elm.disabled = true;
+        myInter = setInterval(function(){
+            n++;
+            num.innerHTML = n;
+        }, 500);
+    }
+    console.log(elm);
+    function stop(){
+        startbtn.disabled = false;
+        clearInterval(myInter)
+            n = 0;
+            //num.innerHTML = n;
+    }
+
+    let to ;
+    function timeout(em){
+        em.disabled = true;
+        to = setTimeout(function(){
+            alert("3초 경과");
+            em.disabled = false;
+        },3000);
+    }
+    function clr(){
+        clearTimeout(to);
+    }
+</script>
+</html>
