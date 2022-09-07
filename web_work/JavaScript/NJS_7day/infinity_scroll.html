@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.09.07">
+   <title>무한 스크롤</title>
+   <style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    .header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+        background-color: rgb(175, 234, 161);
+    }
+    .section>.box {
+        height: 500px;
+
+    }
+    .section>.box>p {
+        padding: 80px 20px;
+    }
+    .section>.box:nth-child(odd){
+        background-color: pink;
+        color: black;
+    }
+    .section>.box:nth-child(even){
+        background-color: rgb(252, 218, 81);
+    }
+   </style>
+</head>
+
+<!-- body -->
+<body>
+    <div class="header">
+        <h1>무한 스크롤</h1>
+    </div>
+    <div class="section">
+        <div class="box">
+            <p>1번 영역</p>
+        </div>
+        <div class="box">
+            <p>2번 영역</p>
+        </div>
+    </div>
+</body>
+
+<!-- script -->
+<script>
+    let count = 2; // 영역번호
+    const s_area = document.querySelector(".section");
+
+    window.onscroll = function(e){
+        if(count >= 10){ // 스크롤 영역 생성 제한(10개까지만!)
+            return;
+        }
+
+        let wih = window.innerHeight;
+        let wsy = window.scrollY;
+        let bo = document.body.offsetHeight;
+        console.log(wih, wsy, bo);
+
+        if((wih + wsy) >= bo){
+            let addElem = document.createElement("div");
+            addElem.classList.add("box");
+            addElem.innerHTML = `<p>${++count}번째 영역</p>`;
+            s_area.appendChild(addElem);
+        }
+    
+    }
+
+</script>
+</html>
