@@ -69,13 +69,13 @@
  - getElementById, querySelector 등 사용하여 HTML 요소를 가져오게 되면
    Javascript에서 객체가 되어 사용할 수 있다
  - DOM을 사용한 요소의 속성값 변경
-  1) 객체변수.속성 = '속성값';
+   1) 객체변수.속성 = '속성값';
         <img src="xxx.png" width="600" height="400">
          이미지의 너비/ 높이 변경
         const img = document.getElementById("image");
         img.width = 400;
         img.height = 300;
-  2) 객체변수.setAttribute("속성명", "바꿀 속성값");
+   2) 객체변수.setAttribute("속성명", "바꿀 속성값");
          이미지 파일을 변경
         img.setAttribute("src", "yyy.jpg");
         img.setAttribute("style", "border: 1px solid;");
