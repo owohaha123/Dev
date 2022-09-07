@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.09.07">
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+    <p>모니터 사이즈: <span id="scr"></span></p>
+    <p>브라우저 사이즈: <span id="bws"></span></p>
+    <p>유효영역(작업표시줄 제외): <span id="avl"></span></p>
+    <p>페이지 사이즈: <span id="page"></span></p>
+</body>
+
+<!-- script -->
+<script>
+    const scr = document.getElementById("scr");
+    const bws = document.getElementById("bws");
+    const avl = document.getElementById("avl");
+    const page = document.getElementById("page");
+
+    let sw = screen.width;
+    let sh = screen.height;
+    scr.innerHTML = `${sw} X ${sh}`;
+
+    let aw = screen.availWidth;
+    let ah = screen.availHeight;
+    avl.innerHTML = `${aw} X ${ah}`;
+
+    let ww = window.innerWidth;
+    let wh = window.innerHeight;
+    bws.innerHTML = `${ww} X ${wh}`;
+
+    let pw = document.body.clientWidth;
+    let ph = document.body.clientHeight;
+    page.innerHTML = `${pw} X ${ph}`;
+</script>
+</html>
