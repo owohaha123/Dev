@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.09.07">
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+    <p>현재 페이지: <span id="curr"></span></p>
+    <p>
+        <button onclick="goBack()">뒤로가기</button>
+        <button onclick="goForward()">앞으로가기</button>
+    </p>
+    <hr>
+    <p>주소: <input type="text" id="urlstr">
+        <button onclick="go()">이동</button>
+    </p>
+</body>
+
+<!-- script -->
+<script>
+    // 페이지 이동 처리
+    const urlstr = document.getElementById("urlstr");
+
+    function go(){
+        let u = urlstr.value;
+        location.href = `http://${u}`;
+        // location.href는 현재의 페이지정보(경로 포함 파일명)
+        // 저장하고 있는 변수 -> 이 변수의 값을 바꾸면 페이지를 변경할 수 있음
+    }
+
+
+    //const curr = document.getElementById("curr");
+    //curr.innerHTML = window.location.href;
+    document.getElementById("curr").innerHTML = location.href;
+
+    function goBack(){
+        window.history.back();
+    }
+    function goForward(){
+        history.forward();
+    }
+</script>
+</html>
