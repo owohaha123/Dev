@@ -1,0 +1,87 @@
+* 객체
+ - 자바스크립트 객체 = 변수 + 함수(메소드)
+ - 객체의 유형
+   1) 정보를 저장(또는 전달)하기 위한 객체 (변수만 포함)
+   2) 특정 기능들을 묶어두기 위한 객체 (메소드만 포함)
+   3) 기본 객체 (변수, 메소드 모두 포함)
+ - 빈 객체 선언 방법
+   1) let myObj = {};
+   2) let myObj = new Object();
+    -> 빈 객체를 생성한 후 멤버(변수, 함수)를 추가
+    -> 변수 추가 : myObj.value1 = 0;
+       메소드(함수) 추가 : myObj.function1 = function() { 문장들;... }
+
+* DOM (Document Object Model)
+ - HTML의 요소와 1:1 로 매칭되는 자바스크립트 객체
+ - 요소 선택자
+   1) getElementByTagName
+   2) getElementByClassName
+   3) getElementById
+   4) querySelector
+   5) querySelectorAll
+
+* BOM (Browser Object Model)
+ - 브라우저 객체 모델
+ - 브라우저의 기능을 자바스크립트로 제어하는데 사용하는 객체 묶음
+ - 브라우저의 기능
+   1) 화면의 크기 관련 객체
+   2) 히스토리 (이동한 페이지를 임시 저장), 페이지 위치
+   3) 대화창 (경고창, 확인창, 입력창)
+   4) 타이밍
+      - interval : 주기적으로 처리
+         setInterval() : 특정 시간 간격 설정
+         clearInterval() : interval을 제거
+      - timeout : 일정 시간 이후 일회성
+         setTimeout() : 특정 시간 간격 설정(일회성)
+         clearTimeout() : timeout을 제거
+      - 단위: millisecond(1/1000초)
+
+* URL (Uniform Resource Locator)
+ - 통합(전세계 공통의) 자원(웹페이지, 이미지 등) 위치정보
+   즉, 웹페이지가 서버의 어디에 저장되어 있는지의 경로
+
+   참고) 인터넷 환경
+        서버(Server) / 클라이언트(Client)
+        클라이언트가 서버에 자원을 요청(request)
+         -> 서버는 요청된 자원을 지정위치에서 찾아서 클라이언트로 응답(response)
+
+* 변수의 범위(scope)에 따른 구분
+  1. 전역변수 : 페이지의 모든 영역에서 사용가능한 변수 (함수 밖에 작성)
+  2. 지역변수 : 함수 안에서만 사용가능한 변수 (함수 안에 작성)
+     
+     ※ 범위(scope)는 '{', '}'로 둘러싸여 있는 영역을 말함
+
+
+예제) Date 객체를 활용하여 1초 단위로 시간을 출력하는 시계 만들기
+     ※ Date 객체의 메소드
+        1) 연도 : getFullYear()
+        2) 월 : getMonth() - 1년 몇 월
+        3) 일 : getDate() - 1달 중 몇번째 일
+                getDay() - 1주 중 몇번째 일(일요일:0, 토요일:6)
+        4) 시 : getHours() - 0~23(24시간 주기)
+        5) 분 : getMinutes() - 0~59
+        6) 초 : getSeconds() - 0~59
+        7) 밀리초 : getMillisecond() - 0~999
+
+     ※ string(문자열) 관련 함수
+       : padStart(n, "str");
+         > n : 숫자, 자릴수
+         > str : 공백 대신 들어갈 글자
+         > 2자리수로 출력하되, 1자리면 앞자리 0 출력
+           ->> padStart(2 , "0");
+
+예제) 슬라이더를 자동으로 움직이게 하기
+
+예제) 부드러운 영역이동
+     - window.scrollTo(xpos, ypos)
+       window.scrollTo({top:x, left:y, behavior:"이동시효과"})
+       ※ behavior : auto(기본값. 내부설정) / smooth(부드럽게 이동)
+     - offset : 요소의 위치정보
+       요소객체.offsetWidth : 요소의 너비
+       요소객체.offsetHeight : 요소의 높이
+       요소객체.offsetLeft : 요소의 왼쪽으로부터 얼마나 떨어져 있는지
+       요소객체.offsetTop : 요소가 위로부터 얼마나 떨어져 있는지
+
+예제) 무한 스크롤 페이지 만들기
+     - onscroll : 스크롤 이벤트를 처리하는 속성
+     
