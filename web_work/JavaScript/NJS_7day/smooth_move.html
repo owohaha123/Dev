@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.09.07">
+   <title></title>
+   <style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    .nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: rgb(237, 129, 147);
+        color: white;
+    }
+    .nav>span{
+        cursor: pointer;
+    }
+    .nav>span:hover{
+        border-bottom: 2px solid;
+    }
+    .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    div:nth-child(2){
+        background-color: rgb(114, 165, 227) ;
+    }
+    div:nth-child(3){
+        background-color: rgb(252, 218, 81) ;
+    }
+    div:nth-child(4){
+        background-color: rgb(175, 234, 161)  ;
+    }
+   </style>
+</head>
+
+<!-- body -->
+<body>
+    <div class="nav">
+        <span>나는 누구?</span>
+        <span>좋아하는 것?</span>
+        <span>하는 일?</span>
+    </div>
+    <div class="content">oo입니다</div>
+    <div class="content">새를 좋아합니다.</div>
+    <div class="content">숨을 쉽니다.</div>
+</body>
+
+<!-- script -->
+<script>
+    let dh = window.innerHeight; // 창이 열렸을 때의 세로길이
+
+    const navs = document.querySelectorAll("span");
+    const contents = document.querySelectorAll(".content");
+
+
+    // 보이는 화면 크기로 content 크기를 조절
+    // CSS.content의 height를 지워주세요!
+    for(let i = 0; i < contents.length; i++){
+        contents[i].style.height = `${dh}px`;
+    }
+
+    const c1top = contents[0].offsetTop;
+    const c2top = contents[1].offsetTop;
+    const c3top = contents[2].offsetTop;
+
+
+    navs[0].onclick = function(){
+        window.scrollTo({top: c1top, behavior:"auto"});
+    }
+    navs[1].onclick = function(){
+        window.scrollTo({top: c2top, behavior:"auto"});
+    }
+    navs[2].onclick = function(){
+        window.scrollTo({top: c3top, behavior:"smooth"});
+    }
+</script>
+</html>
