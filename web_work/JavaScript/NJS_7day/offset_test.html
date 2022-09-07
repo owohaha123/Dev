@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="">
+   <link rel="shortcut icon" href="피카냥.ico">
+   <title></title>
+   <style>
+    div {
+        width: 300px;
+        height: 200px;
+        border: 1px solid;
+        margin : 10px;
+    }
+   </style>
+</head>
+
+<!-- body -->
+<body>
+    <div></div>
+    <div></div>
+</body>
+
+<!-- script -->
+<script>
+    const divs = document.getElementsByTagName("div");
+
+    console.log(divs[0].offsetWidth);
+    console.log(divs[0].offsetHeight);
+    console.log(divs[0].offsetLeft);
+    console.log(divs[0].offsetTop);
+</script>
+</html>
