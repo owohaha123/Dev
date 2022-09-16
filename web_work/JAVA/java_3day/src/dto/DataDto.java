@@ -29,5 +29,4 @@ public class DataDto {
         this.str = str;
     }
 
-
 }
