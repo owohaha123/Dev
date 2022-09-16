@@ -12,7 +12,7 @@ public class ControllerClass {
     ArrayList<DataDto> datas = new ArrayList<>();
 
     public void run(){
-//        DataDto d = new DataDto();
+//        DataDto dd = new DataDto();
 //        // dd.number = 100; // private
 //        dd.setNumber(100);
 
@@ -49,11 +49,11 @@ public class ControllerClass {
     }// run end
 
     // 입력 처리용 메소드
-    void inputData(){
+    private void inputData(){
         System.out.println("⭐ 입력(숫자 입력) ⭐");
         System.out.println("--------------------");
-        //System.out.print("값 입력: ");
-        //String inValue = scan.nextLine();
+        // System.out.print("값 입력: ");
+        // String inValue = scan.nextLine();
 
         String inValue = null;
         int num = 0;
@@ -64,28 +64,31 @@ public class ControllerClass {
         // try - catch 로 오류 처리
         try{
             data = new DataDto(); // 담을 통 만들기
+
             System.out.print("정수 입력 : ");
             inValue = scan.nextLine();
             num = Integer.parseInt(inValue);
             data.setNumber(num); // 담기
+
             System.out.print("문자열 입력  : ");
             inValue = scan.nextLine();
             data.setStr(inValue); // 담기2
+
             System.out.print("실수 입력  : ");
             inValue = scan.nextLine();
             fnum = Float.parseFloat(inValue);
             data.setFnumber(fnum); // 담기3
+
         }catch (NumberFormatException nfe){
             System.out.println("숫자를 입력하세요.");
             return;
         }
 
         // ArrayList 에 값 추가 : add()
-        //nums.add(num); // push 와 같은 일을 하는 메소드
-        datas.add(data);
+        datas.add(data); // push 와 같은 일을 하는 메소드
         System.out.println("입력 완료. 이전 메뉴로 돌아갑니다.");
     }
-    void outputData(){
+    private void outputData(){
         System.out.println("⭐ 전체 출력 ⭐");
         System.out.println("---------------");
 
@@ -96,12 +99,15 @@ public class ControllerClass {
         }
         int sum = 0;
         for(DataDto d : datas){
-            System.out.println(d.getNumber()+","
-            +d.getStr()+","+d.getFnumber());
+//            System.out.println(d.getNumber()+","
+//            +d.getStr()+","+d.getFnumber());
             System.out.println("정수 : " + d.getNumber());
             System.out.println("문자열 : " + d.getStr());
             System.out.println("실수 : " + d.getFnumber());
+
+            // 입력된 getNumber 를 누적하여 총합
             sum += d.getNumber();
+
             System.out.println("------------------------");
         }
         System.out.println("총합 : " + sum);
