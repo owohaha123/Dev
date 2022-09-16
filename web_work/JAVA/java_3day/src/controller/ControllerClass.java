@@ -8,13 +8,13 @@ import java.util.Scanner;
 public class ControllerClass {
     // 멤버로 Scanner 작성
     Scanner scan = new Scanner(System.in);
-    // 데이터 저장 공간 (ArrayList) - 정수배열
-    ArrayList<Integer> nums = new ArrayList<>();
+    // 데이터 저장 공간 (ArrayList) - DTO 배열
+    ArrayList<DataDto> datas = new ArrayList<>();
 
     public void run(){
-        DataDto dd = new DataDto();
-        // dd.number = 100; // private
-        dd.setNumber(100);
+//        DataDto d = new DataDto();
+//        // dd.number = 100; // private
+//        dd.setNumber(100);
 
         // 지역변수는 초기화를 가급적 하자!
         // String(객체)은 null 로 처리
@@ -52,21 +52,37 @@ public class ControllerClass {
     void inputData(){
         System.out.println("⭐ 입력(숫자 입력) ⭐");
         System.out.println("--------------------");
-        System.out.print("값 입력: ");
-        String inValue = scan.nextLine();
+        //System.out.print("값 입력: ");
+        //String inValue = scan.nextLine();
+
+        String inValue = null;
         int num = 0;
+        float fnum = 0.0f;
+        DataDto data = null;
 
         // 사용자가 숫자가 아닌 값을 입력한다면?
         // try - catch 로 오류 처리
         try{
+            data = new DataDto(); // 담을 통 만들기
+            System.out.print("정수 입력 : ");
+            inValue = scan.nextLine();
             num = Integer.parseInt(inValue);
+            data.setNumber(num); // 담기
+            System.out.print("문자열 입력  : ");
+            inValue = scan.nextLine();
+            data.setStr(inValue); // 담기2
+            System.out.print("실수 입력  : ");
+            inValue = scan.nextLine();
+            fnum = Float.parseFloat(inValue);
+            data.setFnumber(fnum); // 담기3
         }catch (NumberFormatException nfe){
             System.out.println("숫자를 입력하세요.");
             return;
         }
 
         // ArrayList 에 값 추가 : add()
-        nums.add(num); // push 와 같은 일을 하는 메소드
+        //nums.add(num); // push 와 같은 일을 하는 메소드
+        datas.add(data);
         System.out.println("입력 완료. 이전 메뉴로 돌아갑니다.");
     }
     void outputData(){
@@ -74,14 +90,19 @@ public class ControllerClass {
         System.out.println("---------------");
 
         // 데이터의 유무 확인하여 없을 경우 메소드를 종료한다
-        if(nums.size() == 0){
+        if(datas.size() == 0){
             System.out.println("데이터가 없습니다.");
             return;
         }
         int sum = 0;
-        for(int n : nums){
-            System.out.println(n);
-            sum += n;
+        for(DataDto d : datas){
+            System.out.println(d.getNumber()+","
+            +d.getStr()+","+d.getFnumber());
+            System.out.println("정수 : " + d.getNumber());
+            System.out.println("문자열 : " + d.getStr());
+            System.out.println("실수 : " + d.getFnumber());
+            sum += d.getNumber();
+            System.out.println("------------------------");
         }
         System.out.println("총합 : " + sum);
         System.out.println("출력 완료. 이전 메뉴로 돌아갑니다");
