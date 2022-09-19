@@ -41,14 +41,17 @@ public class PhoneController {
                     searchData();
                     break;
                 case 4: // 수정 메소드 실행
+                    updateData();
                     break;
                 case 5: // 삭제 메소드 실행
+                    deleteData();
                     break;
                 default:
                     io.twoPrint("0~5번까지 입력하세요");
             }
         }// while end
     }// run end
+
 
 
     // 메뉴 출력 메소드
@@ -113,7 +116,7 @@ public class PhoneController {
                 io.twoPrint("생일 : " + p.getBirth());
                 io.twoPrint("나이 : " + p.getAge());
                 io.twoPrint("검색 완료 \n");
-                return;
+                return; // method 를 멈춤
             }
         }
         // 다음 문장은 검색결과가 없을 경우에만 실행
@@ -121,6 +124,92 @@ public class PhoneController {
     }
 
     // 4. 수정 메소드
+    private void updateData() {
+        if(book.size() == 0){
+            io.twoPrint("정보가 없습니다 \n");
+            return; // 메소드 종료
+        }
+        io.twoPrint("--- 연락처 수정 ---");
+        io.twoPrint("-----------------");
+
+        // 수정할 데이터 검색
+        String sname = io.inStr("수정할 이름 : ");
+        int i; // 일부러 바깥쪽에서 선언
+        PhoneInfo p = null;
+        for(i = 0; i<book.size(); i++){
+            p = book.get(i); //get: ArrayList 복사하여 에서 꺼내오는 메소드
+            if(sname.equals(p.getName())){
+                io.twoPrint("이름 : " + p.getName());
+                io.twoPrint("연락처 : " + p.getPhone());
+                io.twoPrint("생일 : " + p.getBirth());
+                io.twoPrint("나이 : " + p.getAge());
+                break; // for(루프)만 멈춤
+            }// if end
+        }// for end
+        // 검색 결과가 없을 경우의 처리
+        if(i == book.size()){
+            io.twoPrint("검색 결과가 없습니다.");
+            return; // 메소드 종료
+        }
+
+        // 검색 결과의 연락처 수정 (연락처, 생일, 나이)
+        // 통상적으로 이름은 수정하지 않음
+        // 아무것도 입력하지 않고 '엔터'를 치면 수정 안 함
+        io.twoPrint("수정할 내용이 없으면 엔터를 누르시오");
+        String ustr = io.inStr("연락처 : ");
+        if(!ustr.equals("")){ // 수정할 값을 입력했는가?
+            p.setPhone(ustr); // 지정(검색한) 연락처 변경
+        }
+        ustr = io.inStr("생일 : ");
+        if(!ustr.equals("")) {
+            p.setBirth(ustr);
+        }
+        int a = io.inNum("나이 : ");
+        if(a != -1){
+            p.setAge(a);
+        }
+
+        io.twoPrint("수정 완료 \n");
+    } // updateData end
 
     // 5. 삭제 메소드
+    private void deleteData() {
+        if(book.size() == 0){
+            io.twoPrint("정보가 없습니다 \n");
+            return; // 메소드 종료
+        }
+        io.twoPrint("--- 연락처 삭제 ---");
+        io.twoPrint("-----------------");
+
+        String sname = io.inStr("삭제할 이름 : ");
+        int i; // 일부러 바깥쪽에서 선언
+        PhoneInfo p = null;
+        for(i = 0; i<book.size(); i++){
+            p = book.get(i); //get: ArrayList 복사하여 에서 꺼내오는 메소드
+            if(sname.equals(p.getName())){
+                io.twoPrint("이름 : " + p.getName());
+                io.twoPrint("연락처 : " + p.getPhone());
+                io.twoPrint("생일 : " + p.getBirth());
+                io.twoPrint("나이 : " + p.getAge());
+                break; // for(루프)만 멈춤
+            }// if end
+        }// for end
+        // 검색 결과가 없을 경우의 처리
+        if(i == book.size()){
+            io.twoPrint("검색 결과가 없습니다.");
+            return; // 메소드 종료
+        }
+
+        // 삭제할 연락처를 검색 성공
+        String yn = io.inStr("삭제할까요?(y)");
+
+        if(yn.equals("y")){ // 입력값이 "y"라면
+            book.remove(p); // i 를 넣어도 됨
+            io.twoPrint("삭제 완료 \n");
+            return;
+        }
+        // 입력값이 "y"가 아니라면
+        io.twoPrint("삭제 취소 \n");
+    }
+
 }
