@@ -68,12 +68,19 @@ public class PhoneController {
     private void inputData(){
         io.twoPrint("---연락처 입력---");
         io.twoPrint("----------------");
+        // 생성자를 사용할 경우 먼저 입력을 모두 받아둔다
+        String name = io.inStr("이름 : ");
+        String phone = io.inStr("연락처 : ");
+        String birth = io.inStr("생일 : ");
+        int age = io.inNum("나이 : ");
+
         // 한명분의 연락처 생성
-        PhoneInfo pInfo = new PhoneInfo();
-        pInfo.setName(io.inStr("이름 : "));
-        pInfo.setPhone(io.inStr("연락처 : "));
-        pInfo.setBirth(io.inStr("생일(mm-dd) : "));
-        pInfo.setAge(io.inNum("나이 : "));
+        PhoneInfo pInfo = new PhoneInfo(name, phone, birth, age);
+
+//        pInfo.setName(io.inStr("이름 : "));
+//        pInfo.setPhone(io.inStr("연락처 : "));
+//        pInfo.setBirth(io.inStr("생일(mm-dd) : "));
+//        pInfo.setAge(io.inNum("나이 : "));
 
         // 연락처 목록에 연락처 추가
         book.add(pInfo);
@@ -90,10 +97,11 @@ public class PhoneController {
         io.twoPrint("--- 연락처 출력 ---");
         io.twoPrint("------------------");
         for(PhoneInfo p : book){
-            io.twoPrint("이름 : " + p.getName());
-            io.twoPrint("연락처 : " + p.getPhone());
-            io.twoPrint("생일 : " + p.getBirth());
-            io.twoPrint("나이 : " + p.getAge());
+//            io.twoPrint("이름 : " + p.getName());
+//            io.twoPrint("연락처 : " + p.getPhone());
+//            io.twoPrint("생일 : " + p.getBirth());
+//            io.twoPrint("나이 : " + p.getAge());
+            io.twoPrint(p.toString());
             io.twoPrint("------------------------");
         }
         io.twoPrint("출력 완료 \n");
@@ -111,10 +119,11 @@ public class PhoneController {
         // 2. 목록에서 입력받은 키워드와 같은 데이터를 비교
         for(PhoneInfo p : book){
             if(sname.equals(p.getName())){
-                io.twoPrint("이름 : " + p.getName());
-                io.twoPrint("연락처 : " + p.getPhone());
-                io.twoPrint("생일 : " + p.getBirth());
-                io.twoPrint("나이 : " + p.getAge());
+//                io.twoPrint("이름 : " + p.getName());
+//                io.twoPrint("연락처 : " + p.getPhone());
+//                io.twoPrint("생일 : " + p.getBirth());
+//                io.twoPrint("나이 : " + p.getAge());
+                io.twoPrint(p.toString());
                 io.twoPrint("검색 완료 \n");
                 return; // method 를 멈춤
             }
@@ -139,10 +148,11 @@ public class PhoneController {
         for(i = 0; i<book.size(); i++){
             p = book.get(i); //get: ArrayList 복사하여 에서 꺼내오는 메소드
             if(sname.equals(p.getName())){
-                io.twoPrint("이름 : " + p.getName());
-                io.twoPrint("연락처 : " + p.getPhone());
-                io.twoPrint("생일 : " + p.getBirth());
-                io.twoPrint("나이 : " + p.getAge());
+//                io.twoPrint("이름 : " + p.getName());
+//                io.twoPrint("연락처 : " + p.getPhone());
+//                io.twoPrint("생일 : " + p.getBirth());
+//                io.twoPrint("나이 : " + p.getAge());
+                io.twoPrint(p.toString());
                 break; // for(루프)만 멈춤
             }// if end
         }// for end
@@ -187,10 +197,11 @@ public class PhoneController {
         for(i = 0; i<book.size(); i++){
             p = book.get(i); //get: ArrayList 복사하여 에서 꺼내오는 메소드
             if(sname.equals(p.getName())){
-                io.twoPrint("이름 : " + p.getName());
-                io.twoPrint("연락처 : " + p.getPhone());
-                io.twoPrint("생일 : " + p.getBirth());
-                io.twoPrint("나이 : " + p.getAge());
+//                io.twoPrint("이름 : " + p.getName());
+//                io.twoPrint("연락처 : " + p.getPhone());
+//                io.twoPrint("생일 : " + p.getBirth());
+//                io.twoPrint("나이 : " + p.getAge());
+                io.twoPrint(p.toString());
                 break; // for(루프)만 멈춤
             }// if end
         }// for end
