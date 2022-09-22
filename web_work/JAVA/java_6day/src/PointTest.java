@@ -5,23 +5,24 @@ public class PointTest {
         p1.x = 10;
         p1.y = 20;
         p1.color = "red";
-        p1.showPoint();
+        p1.showPoint(); // x : 10, y : 20, color : red
         //p1.z = 22;
 
         p31.x = 30;
         p31.y = 50;
         p31.z = 25;
         p31.color = "blue";
-        p31.showPoint();
-        System.out.println(p31);
+        p31.showPoint(); // x : 30, y : 50, z : 25, color : blue
+        System.out.println(p31); // x :30 y :50, z :25 (toString)
 
         System.out.println(p1.pattern); // 어떤 모양
         p1.pattern = "물결";
         System.out.println(p1.pattern);  // 물결
-        System.out.println(p31.pattern); // null
+        System.out.println(p31.pattern); // null (p1의 변수와 이름은 같으나 다른 변수 취급)
         p31.pattern = "구름";
         System.out.println(p31.pattern); // 구름
-        p31.showPattern();
+        p31.showPattern(); // 부모의 pattern : 어떤 모양
+                           // 자식의 pattern : 구름
     }
 }
 
@@ -72,7 +73,7 @@ class Point3d extends Point{ // 3D 그래프용 점 객체
 
     public void showPattern(){
         System.out.println("부모의 pattern : " + super.pattern); // 구분을 위해 super. 사용
-        System.out.println("pattern : " + pattern);
+        System.out.println("자식의 pattern : " + pattern);
     }
 }
 
