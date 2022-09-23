@@ -90,17 +90,12 @@
    9) substring(st, ed) : st 부터 ed 의 직전까지의 문자열 추출
 
  - StringBuffer
-   : 임시 저장고. 문자열 수정 및 변경 등의 작업의 효율성을 높이는 보조 객체
-    1) append(str) : 버퍼에 새 문자열 추가 (뒤에 붙인다)
-    2) capacity() : 용량. 버퍼의 크기
-    3) length() : 문자열의 길이
-    4) delete(st, ed) : 지정된 범위의 문자열 삭제
-    5) insert(idx, str) : 지정된 위치(idx)에 str 삽입
-    6) replace(st, ed, str) : 지정된 범위의 문자열을 str 로 변경
-    7) reverse() : 문자열의 순서를 역순으로 정렬
-    8) charAt(idx) : 지정된 위치의 문자를 가져온다
-    9) setCharAt(idx, char) : 지정된 위치에 문자를 변경한다
+
+ - 날짜와 시간 (Calender class)
+
+   > Calendar
+
+   > 싱글톤 패턴?
 
  - 파일(File)
 
- - 날짜와 시간
