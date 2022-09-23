@@ -67,7 +67,7 @@ public class OldCalendar {
 		//--------------------------------------------------------------
 
 		System.out.println();
-		System.out.println(year + "년\t\t\t\t\t\t" + month + "월");
+		System.out.println(year + "년\t\t\t\t\t" + month + "월");
 		System.out.println("===========================");
 		System.out.println("일\t월\t화\t수\t목\t금\t토");
 		System.out.println("===========================");
