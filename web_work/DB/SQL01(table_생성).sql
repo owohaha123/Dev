@@ -17,7 +17,7 @@
 */
 
 -- 사용 DB 공간 지정 명령어
-USE devdb; 
+USE devdb_1; 
 -- 또는 그냥 탐색창에서 해당 DB 더블클릭
 
 /* 
@@ -30,54 +30,8 @@ CREATE TABLE {테이블명} (
 );
 */
 
-CREATE TABLE testTb1 (
+CREATE TABLE testTbl (
 	t_id VARCHAR(20),
 	t_name VARCHAR(10),
 	t_age INT
-);
-
--- 회원, 상품, 제조회사, 주문, 게시글 테이블 만들어보기
-
-CREATE TABLE memberTb (
-	m_id VARCHAR(20),
-	m_pwd VARCHAR(20),
-	m_name VARCHAR(10).
-    m_age INT,
-    m_job VARCHAR(20),
-    m_grade VARCHAR(10),
-    m_point INT
-);
-
-CREATE TABLE boardTb (
-	b_no INT,
-    m_id VARCHAR(20),
-	b_date DATE,
-	b_title VARCHAR(20),
-    b_content VARCHAR(200)
-);
-
-CREATE TABLE orderTb (
-	o_no INT,
-    m_id VARCHAR(20),
-    p_no INT,
-	o_amount INT,
-	o_loc VARCHAR(50),
-    o_date DATE
-);
-
-CREATE TABLE productTb (
-	p_no INT,
-    c_name VARCHAR(20),
-    p_name VARCHAR(20),
-    p_amount INT,
-	p_price INT,
-    cp_date DATE,
-	cp_amount INT
-);
-
-CREATE TABLE companyTb (
-	c_name VARCHAR(20),
-	c_manager VARCHAR(20),
-    c_loc VARCHAR(50),
-	c_phone VARCHAR(15)
 );
