@@ -64,21 +64,6 @@ CONSTRAINT 키워드 : 특정 컬럼에 제약조건을 설정하기 위한 명�
 DROP TABLE member;
 -- 회원테이블 생성(제약조건 추가)
 CREATE TABLE member (
-m_id VARCHAR(20) PRIMARY KEY,
-m_pwd VARCHAR(20) NOT NULL,
-m_name VARCHAR(10) NOT NULL,
-m_age INT,
-m_job VARCHAR(20),
-m_grade VARCHAR(10) DEFAULT 'silver', -- DEFAULT : 비어있다면 'silver'를 넣자
--- 따라서 NOT NULL은 DEFAULT와 굳이 같이 쓰진 않음
-m_point INT DEFAULT 0
-);
-
--- 테이블 삭제 : DROP TABLE {테이블명};
-DROP TABLE member;
-
--- 회원테이블 생성(제약조건 추가)
-CREATE TABLE member (
 	m_id VARCHAR(20) PRIMARY KEY,
 	m_pwd VARCHAR(20) NOT NULL,
 	m_name VARCHAR(10) NOT NULL,
@@ -99,7 +84,6 @@ SELECT * FROM member; -- 테이블 내용 보기
 
 /*
 CONSTRAINT를 사용한 제약조건 처리
-
 1. unique
 CONSTRAINT 제약조건명 UNIQUE (컬럼명)
 2. primary key
@@ -111,75 +95,6 @@ REFERENCE 테이블명 (컬럼명)
 해당 제약조건을 나중에 변경하거나 제거할 때 구분하기 위해 사용
 보통 테이블명과 컬럼명, 제약조건의 단어를 조합하여 작명
 예) MEMBER 테이블의 기본키 : m_id_pk -- pk: PRIMARY KEY 약자
-*/
-
--- 제조회사 테이블
-CREATE TABLE company (
-c_name VARCHAR(20),
-c_manager VARCHAR(20) NOT NULL,
-c_loc VARCHAR(50) NOT NULL,
-c_phone VARCHAR(15) NOT NULL,
-CONSTRAINT c_n_pk PRIMARY KEY (c_name)
-);
--- 상품 테이블
-CREATE TABLE product (
-p_no INT PRIMARY KEY,
-p_cname VARCHAR(20) NOT NULL,
-p_name VARCHAR(20) NOT NULL,
-p_amount INT DEFAULT 0,
-p_price INT NOT NULL,
-cp_date DATE,
-cp_amount INT,
-CONSTRAINT p_c_fk FOREIGN KEY (p_cname)
-REFERENCES company (c_name)
-);
--- 주문 테이블
--- CREATE TABLE ordertbl (
--- o_no INT PRIMARY KEY,
--- o_mid VARCHAR(20) NOT NULL,
--- o_pno INT NOT NULL,
--- o_amount INT NOT NULL,
--- o_loc VARCHAR(50) NOT NULL,
--- o_date DATE
--- CONSTRAINT o_m_fk FOREIGN KEY (o_mid)
--- REFERENCES member (m_id),
--- CONSTRAINT o_p_fk FOREIGN KEY (o_pno)
--- REFERENCES product (p_no)
--- ON UPDATE CASCADE ON DELETE CASCADE
--- -- 상품테이블의 상품번호를 수정/삭제하면,
--- -- 그 번호를 사용하는 주문의 정보도 같이 수정/삭제 한다
--- );
-
-/*
-ON DELETE
-
-- 참조되는 테이블의 값이 삭제될 경우
-, ON UPDATE
-- 참조되는 테이블의 값이 수정될 경우
-설정 동작
-1. CASCADE : 참조하는 테이블의 값도 같이 처리
-2. SET NULL : 참조하는 테이블의 값을 NULL로 변경
-3. NO ACTION : 참조하는 테이블의 값에 아무 변경 안 함
-4. SET DEFAULT : 참조하는 테이블의 값을 기본값으로 변경
-5. RESTRICT : 참조되는 테이블의 값이 변경 불가
-
-예) 참조되는 테이블 : member (기본키를 제공하는 테이블)
-참조하는 테이블 : ordertbl (외래키가 있는 테이블)
--- ---------------------------------------------
-
-/*
-CONSTRAINT를 사용한 제약조건 처리
-1. unique
-   CONSTRAINT 제약조건명 UNIQUE (컬럼명)
-2. primary key
-   CONSTRAINT 제약조건명 PRIMARY KEY (컬럼명)
-3. Foreign key
-   CONSTRAINT 제약조건명 FOREIGN KEY (컬럼명)
-   REFERENCE 테이블명 (컬럼명)
-제약조건명 : 제약조건을 따로 관리가 가능하면
-		  해당 제약조건을 나중에 변경하거나 제거할 때 구분하기 위해 사용
-          보통 테이블명과 컬럼명, 제약조건의 단어를 조합하여 작명
-          예) MEMBER 테이블의 기본키 : m_id_pk -- pk: PRIMARY KEY 약자
 */
 
 -- 제조회사 테이블
