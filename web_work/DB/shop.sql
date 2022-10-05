@@ -117,6 +117,7 @@ WHERE pc_condition = '정상'
 GROUP BY P.pr_name;
 
 
+
 select * from membertbl;
 select * from producttbl;
 select * from buytbl;
