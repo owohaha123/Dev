@@ -79,7 +79,7 @@ public class DataView {
         if (data == null){
           ioc.twoPrint("검색 결과 없음");
         } else {
-                ioc.twoPrint("code : " + data.getM_code()); // String.valueOf(d.getM_code()) = d.getM_code()+""
+                ioc.twoPrint("code : " + data.getM_code());
                 ioc.twoPrint("string : " + data.getM_str());
                 ioc.twoPrint("integer : " + data.getM_int());
                 ioc.twoPrint("date : " + data.getM_date());
