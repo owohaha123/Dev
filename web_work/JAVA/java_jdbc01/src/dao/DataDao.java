@@ -33,6 +33,6 @@ public class DataDao {
             } catch (SQLException e) {
                 // 이곳엔 아무것도 작성하지 않는다
             }
-        }
-        }
+            }
+    }
 }
