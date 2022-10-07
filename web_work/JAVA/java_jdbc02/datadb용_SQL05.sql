@@ -9,10 +9,13 @@ CREATE TABLE datatbl(
     m_date DATE NOT NULL
 );
 
--- SELECT * FROM datatbl;
+SELECT * FROM datatbl;
 
 SELECT * FROM datatbl WHERE m_code = 1;
 
 UPDATE datatbl
 SET m_str = ?, m_int = ?, m_date = ?
 WHERE m_code = ?;
+
+DELETE FROM datatbl;
+COMMIT;
