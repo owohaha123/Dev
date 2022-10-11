@@ -1,0 +1,21 @@
+* MVC 패턴을 활용한 JDBC 프로그램
+ 0. 외부 라이브러리 포함
+   1) connector J (MySQL 드라이버 라이브러리)
+   2) lombok (setter/getter 자동 생성 라이브러리)
+
+ 1. 패키지 작성 (com) -> 주 class 들 작성
+   1) main - MainClass (main 메소드)
+   2) controller - DataController
+   3) dto - DataDto
+   4) dao - DataDao
+   5) service - DataService
+   6) view - DataView (+ InOutClass)
+
+ 2. 프로세스 설계
+   (controller) > view > controller > service > dao > DB
+   DB > dao > service > controller > view
+   데이터 보관 : dto
+
+ 3. DTO 작성 유의사항
+   - DB 테이블과 동일한 구조로 작성
+
