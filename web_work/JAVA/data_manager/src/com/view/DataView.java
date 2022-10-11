@@ -64,4 +64,52 @@ public class DataView {
             ioc.twoPrint("----------------");
         }
     }
+
+    public int searchCode(String str) {
+        int code = 0;
+        //서브 타이틀 출력
+        subTitle(str);
+
+        code = ioc.inNum("CODE : ");
+
+        return code;
+    }
+
+    public void outData(DataDto data) {
+        subTitle("Select Data");
+
+        if(data == null){
+            printMsg("No Data.");
+            return;
+        }
+
+        ioc.twoPrint(data.toString());
+        ioc.twoPrint("------------------");
+    }
+
+    public void updateInput(DataDto data) {
+        subTitle("Update Data");
+
+        //변경을 하는 값만 받아서 저장.
+        String str = null;
+        int num = 0;
+
+        str = ioc.inStr("STR : ");
+        if(!str.equals("")){//변경할 값을 입력한 상태
+            data.setM_str(str);
+        }
+        num = ioc.inNum("INT : ");
+        if(num != -1){//변경할 숫자가 입력된 경우
+            data.setM_int(num);
+        }
+        str = ioc.inStr("DATE(yyyy-mm-dd) : ");
+        if(!str.equals("")){//변경할 날짜가 입력된 경우
+            data.setM_date(str);
+        }
+    }
+
+    public String isDelete() {
+        String yn = ioc.inStr("Delete Ok? (Y/N)");
+        return yn;
+    }
 }// class end

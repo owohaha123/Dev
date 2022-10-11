@@ -89,4 +89,80 @@ public class DataDao {
         // service 로 목록 전달 (데이터가 없을 경우 null 전달)
         return dList;
     }
+
+    public DataDto selectData(int code) {
+        DataDto data = null;
+
+        String query = "SELECT * FROM datatbl WHERE m_code = ?";
+
+        try {
+            conn = DriverManager.getConnection(url,user,pass);
+
+            pstmt = conn.prepareStatement(query);
+            pstmt.setInt(1, code);
+            rs = pstmt.executeQuery();
+
+            if(rs.next()){
+                data = new DataDto();
+                data.setM_code(rs.getInt(1));
+                data.setM_str(rs.getString(2));
+                data.setM_int(rs.getInt(3));
+                data.setM_date(rs.getString(4));
+            }
+        } catch (SQLException e) {
+            //e.printStackTrace();
+            data = null;
+        } finally {
+            close();
+        }
+
+        return data;
+    }
+
+    public int updateData(DataDto data) {
+        int result = 0;
+
+        String query = "UPDATE datatbl "
+                + "SET m_str = ?, m_int = ?, m_date = ? "
+                + "WHERE m_code = ?";
+
+        try {
+            conn = DriverManager.getConnection(url,user,pass);
+            pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, data.getM_str());
+            pstmt.setInt(2, data.getM_int());
+            pstmt.setDate(3, Date.valueOf(data.getM_date()));
+            pstmt.setInt(4, data.getM_code());
+
+            result = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            //e.printStackTrace();
+            result = 0;
+        } finally {
+            close();
+        }
+
+        return result;
+    }
+
+    public int deleteData(int code) {
+        int result = 0;
+
+        String query = "DELETE FROM datatbl WHERE m_code = ?";
+
+        try {
+            conn = DriverManager.getConnection(url, user, pass);
+            pstmt = conn.prepareStatement(query);
+            pstmt.setInt(1, code);
+
+            result = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            //e.printStackTrace();
+            result = 0;
+        }finally {
+            close();
+        }
+
+        return result;
+    }
 }
