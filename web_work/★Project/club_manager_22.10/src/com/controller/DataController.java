@@ -80,6 +80,7 @@ public class DataController {
         }// while end
     }// run end
 
+<<<<<<< Updated upstream
     // ---------------------------------------------------------------------------동수-----------------------
     private void joinClub() { // case 1 -> 동호회 가입 하기
         int submenu = -1;
@@ -168,6 +169,15 @@ public class DataController {
             }
         }
     }
+=======
+//    private void joinClub() {
+//        JoinDto data = new JoinDto();
+//        dView.joinClub(data);
+//        String msg = dServ.joinClub(data);
+//        dView.printMsg(msg);
+//    }
+
+>>>>>>> Stashed changes
 
     private void insertClub() {
         // 3가지 데이터를 입력 받는다 (str, int, date)

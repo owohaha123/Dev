@@ -87,7 +87,7 @@ public class DataController {
         //검색 값을 입력 받는다. -> view
         //현재 테이블의 기본키를 검색으로 활용. -> 정수(int)
         int code = dView.searchCode("Data Search");
-        //검색 값 service로 전달하여 해당 데이터 가져오기. -> service
+        //검색 값 service 로 전달하여 해당 데이터 가져오기. -> service
         DataDto data = dServ.getData(code);
         //해당 데이터를 화면에 출력 -> view
         dView.outData(data);

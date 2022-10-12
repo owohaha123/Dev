@@ -91,6 +91,10 @@ public class DataView {
     public void insertClub(ClubDto data) {
         // 기능 타이틀 출력
         subTitle("동호회 개설");
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         // 데이터 입력
         data.setCb_name(ioc.inStr("동호회 명 : "));
         data.setCb_content(ioc.inStr("소개 : "));
@@ -113,6 +117,7 @@ public class DataView {
 
         int deleteNo = ioc.inNum("번호입력 > ");
 
+<<<<<<< Updated upstream
         return data.get(deleteNo-1);
     }
 
@@ -187,5 +192,10 @@ public class DataView {
             ioc.onePrint(data.toString());
             ioc.twoPrint("--------------");
         }
+=======
+    }
+    public void joinClub(JoinDto data) {
+
+>>>>>>> Stashed changes
     }
 }// class end
