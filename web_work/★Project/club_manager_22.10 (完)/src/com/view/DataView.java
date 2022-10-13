@@ -1,5 +1,6 @@
 package com.view;
 
+import com.dao.DataDao;
 import com.dto.ClubDto;
 import com.dto.JoinDto;
 import com.dto.MemberDto;
@@ -9,6 +10,8 @@ import java.util.List;
 // 프로그램의 입출력을 담당하는 클래스
 public class DataView {
     private InOutClass ioc = new InOutClass();
+    private DataDao dDao = new DataDao();
+
 
     // 메인 화면(로그인 및 회원가입)
     public int showMain() {
@@ -16,7 +19,7 @@ public class DataView {
         // 타이틀 출력
         ioc.twoPrint("");
         ioc.twoPrint("<<동호회 관리 프로그램>>");
-        ioc.twoPrint("---------------------------");
+        ioc.twoPrint("------------------------------");
         // 메뉴 출력
         ioc.twoPrint("1. 로그인");
         ioc.twoPrint("2. 회원가입");
@@ -37,7 +40,7 @@ public class DataView {
         ioc.twoPrint("3. 동호회 목록 보기");
         ioc.twoPrint("4. 동호회 멤버 보기");
         ioc.twoPrint("5. 내 정보 관리");
-        ioc.twoPrint("6. 동아리 탈퇴");
+        ioc.twoPrint("6. 동호회 탈퇴");
         ioc.twoPrint("0. 종료");
         // 메뉴 번호 입력
         menu = ioc.inNum("번호입력 > ");
@@ -53,7 +56,84 @@ public class DataView {
 
     public void subTitle(String str){
         ioc.twoPrint("<" + str + ">");
-        ioc.twoPrint("----------------");
+        ioc.twoPrint("------------------------------");
+    }
+
+    // ---------------------------------------------------------------------------은서-----------------------
+
+    public void JoinView2(MemberDto data) {
+        subTitle("회원가입");
+
+        data.setM_id(ioc.inStr("ID : "));
+        String mid = data.getM_id();
+        boolean checkId = dDao.idCheck2(mid);
+
+
+        if (!checkId) {
+            data.setM_pwd(ioc.inStr("PWD : "));
+            data.setM_name(ioc.inStr("NAME : "));
+            data.setM_phone(ioc.inStr("PHONE : "));
+            data.setM_birth(ioc.inStr("BIRTH(yyyy-mm-dd) : "));
+
+            int res = dDao.JoinDao(data);
+
+            if (res == 0) {
+                ioc.twoPrint("회원가입 실패");
+            } else {
+                ioc.twoPrint("회원가입 성공");
+            }
+        } else {
+            ioc.twoPrint("ID가 중복되었습니다.");
+        }
+    }
+
+//    public String searchId2(String str) {
+//        String id;
+//
+//        subTitle(str);
+//
+//        id = ioc.inStr("ID : ");
+//
+//        return id;
+//    }
+
+    public void updateMember(MemberDto data) {
+        subTitle("Update Data");
+
+        //변경을 하는 값만 받아서 저장.
+        String pwd, name, phone, birth;
+
+        pwd = ioc.inStr("PWD : ");
+        if(!pwd.equals("")) { // 변경할 값을 입력한 상태
+            data.setM_pwd(pwd);
+        }
+
+        name = ioc.inStr("NAME : ");
+        if(!name.equals("")) {
+            data.setM_name(name);
+        }
+
+        phone = ioc.inStr("PHONE : ");
+        if(!phone.equals("")) {
+            data.setM_phone(phone);
+        }
+
+        birth = ioc.inStr("BIRTH(yyyy-mm-dd) : ");
+        if(!birth.equals("")) {
+            data.setM_birth(birth);
+        }
+    }
+
+    public void outMember(MemberDto data) {
+        ioc.twoPrint("------------------------------");
+
+        if(data == null){
+            printMsg("No Data.");
+            return;
+        }
+
+        ioc.onePrint(data.toString());
+        ioc.twoPrint("------------------------------");
     }
 
     // ---------------------------------------------------------------------------윤주-----------------------
@@ -91,10 +171,6 @@ public class DataView {
     public void insertClub(ClubDto data) {
         // 기능 타이틀 출력
         subTitle("동호회 개설");
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
         // 데이터 입력
         data.setCb_name(ioc.inStr("동호회 명 : "));
         data.setCb_content(ioc.inStr("소개 : "));
@@ -111,13 +187,12 @@ public class DataView {
         for(ClubDto item : data){
             ioc.twoPrint(String.valueOf(index));
             ioc.twoPrint(item.toString());
-            ioc.twoPrint("----------------");
+            ioc.twoPrint("------------------------------");
             index++;
         }
 
         int deleteNo = ioc.inNum("번호입력 > ");
 
-<<<<<<< Updated upstream
         return data.get(deleteNo-1);
     }
 
@@ -126,43 +201,8 @@ public class DataView {
         return yn;
     }
 
+
     // ---------------------------------------------------------------------------동수-----------------------
-    public int clubMenu() {
-        int submenu = -1;
-        ioc.twoPrint("1. 야구 동호회");
-        ioc.twoPrint("2. 독서 동호회");
-        ioc.twoPrint("3. 고양이 동호회");
-        ioc.twoPrint("0. 이전 화면으로");
-        submenu = ioc.inNum("입력 > ");
-        return submenu;
-    }
-
-    public void ballClub(JoinDto data) {
-        // 기능 타이틀 출력
-        subTitle("야구 동호회 가입");
-        // 데이터 입력
-        data.setJm_id(ioc.inStr("ID : "));
-        data.setJcb_no(ioc.inNum("동호회 번호 : "));
-        data.setJ_date(ioc.inStr("가입 날짜 : "));
-    }
-
-    public void bookClub(JoinDto data) {
-        // 기능 타이틀 출력
-        subTitle("독서 동호회 가입");
-        // 데이터 입력
-        data.setJm_id(ioc.inStr("ID : "));
-        data.setJcb_no(ioc.inNum("동호회 번호 : "));
-        data.setJ_date(ioc.inStr("가입 날짜 : "));
-    }
-
-    public void catClub(JoinDto data) {
-        // 기능 타이틀 출력
-        subTitle("고양이 동호회 가입");
-        // 데이터 입력
-        data.setJm_id(ioc.inStr("ID : "));
-        data.setJcb_no(ioc.inNum("동호회 번호 : "));
-        data.setJ_date(ioc.inStr("가입 날짜 : "));
-    }
 
     public void clubList1(List<ClubDto> cList) {
         // 서브 타이틀 출력
@@ -177,6 +217,7 @@ public class DataView {
             ioc.onePrint(data.toString2());
             ioc.twoPrint("--------------");
         }
+
     }
 
     public void clubMemberList(List<JoinDto> jList) {
@@ -192,10 +233,17 @@ public class DataView {
             ioc.onePrint(data.toString());
             ioc.twoPrint("--------------");
         }
-=======
     }
-    public void joinClub(JoinDto data) {
 
->>>>>>> Stashed changes
+    public void clubEnter(JoinDto data) {
+        // 서브 타이틀 출력
+        ioc.twoPrint("가입을 환영합니다.");
+        ioc.twoPrint("--------------");
+
+        // 데이터 입력
+        data.setJm_id(ioc.inStr("가입할 회원의 ID : "));
+        data.setJcb_no(ioc.inNum("가입할 동호회 번호 : "));
+        data.setJ_date(ioc.inStr("가입 날짜 : "));
     }
+
 }// class end

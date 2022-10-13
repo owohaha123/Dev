@@ -11,6 +11,29 @@ public class DataService {
     // dao 를 사용하여 DB 에 data 를 저장하고 결과를 controller 에게 알림
     private DataDao dDao = new DataDao();
 
+    // ---------------------------------------------------------------------------은서-----------------------
+    public MemberDto getId2(String mid) {
+        MemberDto data;
+        data = dDao.selectId2(mid);
+
+        return data;
+    }
+
+    public String updateResult(MemberDto data) {
+        String msg;
+
+        int res = dDao.updateMember(data);
+
+        if(res > 0){
+            msg = "Update Success.";
+        }
+        else {
+            msg = "Update Failed.";
+        }
+
+        return msg;
+    }
+
     // ---------------------------------------------------------------------------윤주-----------------------
     public String login(String id, String pw) {
         MemberDto data = getMemberById(id);
@@ -76,51 +99,6 @@ public class DataService {
     }
 
     // ---------------------------------------------------------------------------동수-----------------------
-    public String insertClub2(JoinDto data) { // 야구 동호회 가입
-        String msg = null;
-
-        // Dao를 사용하여 저장
-        int res = dDao.insertClub2(data);
-
-        if(res == 0){
-            msg = "Insert Failed";
-        }else{
-            msg = "Insert Success";
-        }
-
-        return msg;
-    }
-
-    public String insertClub3(JoinDto data) { // 독서 동호회 가입
-        String msg = null;
-
-        // Dao를 사용하여 저장
-        int res = dDao.insertClub3(data);
-
-        if(res == 0){
-            msg = "Insert Failed";
-        }else{
-            msg = "Insert Success";
-        }
-
-        return msg;
-    }
-
-    public String insertClub4(JoinDto data) { // 고양이 동호회 가입
-        String msg = null;
-
-        // Dao를 사용하여 저장
-        int res = dDao.insertClub4(data);
-
-        if(res == 0){
-            msg = "Insert Failed";
-        }else{
-            msg = "Insert Success";
-        }
-
-        return msg;
-    }
-
     public List<ClubDto> getList() { // case 3 method
         // Dao에게 DB로부터 데이터를 검색하여 목록을 가져오게 시킴.
         List<ClubDto> gList = dDao.selectClubList();
@@ -137,6 +115,22 @@ public class DataService {
         // 받은 목록을 controller에게 전달.
         return jList;
     }
+
+    public String insertClub5(JoinDto data) {
+        String msg = null;
+
+        // Dao를 사용하여 저장
+        int res = dDao.insertClub6(data);
+
+        if(res == 0){
+            msg = "동호회 가입에 실패";
+        }else{
+            msg = "동호회 가입에 성공";
+        }
+
+        return msg;
+    }
+
 }
 
 

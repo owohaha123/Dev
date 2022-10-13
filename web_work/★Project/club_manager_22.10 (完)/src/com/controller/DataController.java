@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.dao.DataDao;
 import com.dto.ClubDto;
 import com.dto.JoinDto;
 import com.dto.MemberDto;
@@ -11,6 +12,8 @@ import java.util.List;
 public class DataController {
     private DataView dView = new DataView();
     private DataService dServ = new DataService();
+
+    private DataDao dDao = new DataDao();
     private MemberDto userData;
     private boolean loginStatus = false;
     // 프로그램 전체 제어 메소드
@@ -32,7 +35,7 @@ public class DataController {
                   loginData();
                     break;
                 case 2:
-                  //signUpData();
+                  signUpData();
                     break;
                 default:
                     dView.printMsg("0~2의 숫자만 입력하세요");
@@ -68,7 +71,7 @@ public class DataController {
                     memberList();
                     break;
                 case 5:
-                    //updateMyData();
+                    updateMyData();
                     break;
                 case 6:
                     outClub();
@@ -80,68 +83,42 @@ public class DataController {
         }// while end
     }// run end
 
-<<<<<<< Updated upstream
-    // ---------------------------------------------------------------------------동수-----------------------
-    private void joinClub() { // case 1 -> 동호회 가입 하기
-        int submenu = -1;
-        // 서브타이틀 출력
-        dView.printMsg("<< 동호회 선택 >>");
+    // ---------------------------------------------------------------------------은서-----------------------
+    private void updateMyData() {
+        String mid = userData.getM_id();
+        MemberDto data = dDao.selectId2(mid);
+        dView.outMember(data);
 
-        while (true) {
-            submenu = dView.clubMenu();
+        if(data != null) {
+            dView.updateMember(data);
 
-            if (submenu == 0){
-                dView.printMsg("이전 화면으로 돌아갑니다.");
-                break;
-            }
+            String msg = dServ.updateResult(data);
 
-            switch (submenu){
-                case 1:
-                    ballClub();
-                    break;
-                case 2:
-                    bookClub();
-                    break;
-                case 3:
-                    catClub();
-                    break;
-                default:
-                    dView.printMsg("0~3번까지만 입력하세요.");
-            }
+            dView.printMsg(msg);
         }
     }
-    private void ballClub() {
-        // 데이터를 입력 받는다.
+
+    private void signUpData() {
+        MemberDto data = new MemberDto();
+        dView.JoinView2(data);
+    }
+
+
+    // ---------------------------------------------------------------------------동수-----------------------
+    private void joinClub() { // case 1 -> 동호희 가입
+        // service에게 전체 목록을 가져오도록 위임.
+        List<ClubDto> cList = dServ.getList();
+        // 목록을 view가 출력하도록 넘김.
+        dView.clubList1(cList);
+        // 출력한 후 입력값을 받는다.
         JoinDto data = new JoinDto();
-        // view에서 입력 처리.
-        dView.ballClub(data);
+        dView.clubEnter(data);
         // DB에 저장 -> service로 전달
-        String msg = dServ.insertClub2(data);
-        // 메세지 출력 -> view
+        String msg = dServ.insertClub5(data);
+        // 메시지 출력 -> view
         dView.printMsg(msg);
     }
 
-    private void bookClub() {
-        // 데이터를 입력 받는다.
-        JoinDto data = new JoinDto();
-        // view에서 입력 처리.
-        dView.bookClub(data);
-        // DB에 저장 -> service로 전달
-        String msg = dServ.insertClub3(data);
-        // 메세지 출력 -> view
-        dView.printMsg(msg);
-    }
-
-    private void catClub() {
-        // 데이터를 입력 받는다.
-        JoinDto data = new JoinDto();
-        // view에서 입력 처리.
-        dView.catClub(data);
-        // DB에 저장 -> service로 전달
-        String msg = dServ.insertClub4(data);
-        // 메세지 출력 -> view
-        dView.printMsg(msg);
-    }
     private void clubList() { // case 3 -> 동호희 목록 보기
         // service에게 전체 목록을 가져오도록 위임.
         List<ClubDto> cList = dServ.getList();
@@ -157,6 +134,7 @@ public class DataController {
     }
 
     // ---------------------------------------------------------------------------윤주-----------------------
+
     private void outClub() {
         List<ClubDto> data = dServ.getData(userData.getM_id());
         ClubDto deleteData = dView.outData(data);
@@ -169,15 +147,6 @@ public class DataController {
             }
         }
     }
-=======
-//    private void joinClub() {
-//        JoinDto data = new JoinDto();
-//        dView.joinClub(data);
-//        String msg = dServ.joinClub(data);
-//        dView.printMsg(msg);
-//    }
-
->>>>>>> Stashed changes
 
     private void insertClub() {
         // 3가지 데이터를 입력 받는다 (str, int, date)

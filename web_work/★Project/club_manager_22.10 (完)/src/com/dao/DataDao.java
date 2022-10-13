@@ -20,6 +20,9 @@ public class DataDao {
     private PreparedStatement pstmt; // SQL 을 전달하는 매개체
     private ResultSet rs;
 
+    private boolean check; // 아이디 중복 체크 변수
+
+
     // 드라이버 로드 (생성자로 처리)
     public DataDao(){
         try {
@@ -175,6 +178,29 @@ public class DataDao {
         // service로 목록 전달(데이터가 없을 경우 null 전달)
         return jList;
     }
+    public int insertClub6(JoinDto data) {
+        int result = 0;
+
+        String query = "INSERT INTO jointbl VALUES "
+                + "(?,?,?)";
+
+        try {
+            conn = DriverManager.getConnection(url, user, pass);
+            pstmt = conn.prepareStatement(query);
+            // 쿼리문의 '?'부분 채우기
+            pstmt.setString(1, data.getJm_id());
+            pstmt.setInt(2, data.getJcb_no());
+            pstmt.setString(3, data.getJ_date());
+            // 쿼리문 실행 및 실행 결과 받기
+            result = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            result = 0; // 삽입 실패
+        } finally {
+            close();
+        }
+
+        return result;
+    }
 
     // ---------------------------------------------------------------------------윤주-----------------------
     public MemberDto selectId(String id) {
@@ -308,7 +334,7 @@ public class DataDao {
     public int deleteData(ClubDto data, String id) {
         int result = 0;
 
-        String query = "DELETE FROM jointbl WHERE jcb_no = ? and m_id = ?";
+        String query = "DELETE FROM jointbl WHERE jcb_no = ? and jm_id = ?";
 
         try {
             conn = DriverManager.getConnection(url, user, pass);
@@ -321,6 +347,107 @@ public class DataDao {
             //e.printStackTrace();
             result = 0;
         }finally {
+            close();
+        }
+
+        return result;
+    }
+
+    // ---------------------------------------------------------------------------은서-----------------------
+
+    public int JoinDao(MemberDto data) {
+        int res = 0;
+
+        String query = "INSERT INTO membertbl VALUES (?,?,?,?,?)";
+
+        try {
+            conn = DriverManager.getConnection(url, user, pass);
+            pstmt = conn.prepareStatement(query);
+
+            pstmt.setString(1, data.getM_id());
+            pstmt.setString(2, data.getM_pwd());
+            pstmt.setString(3, data.getM_name());
+            pstmt.setString(4, data.getM_phone());
+            pstmt.setDate(5, Date.valueOf(data.getM_birth()));
+
+            res = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            res = 0;//삽입 실패
+        } finally {
+            close();
+        }
+        return res;
+    }
+
+    public boolean idCheck2(String id) {
+        String query = "SELECT * FROM membertbl WHERE m_id = ?";
+
+        try {
+            conn = DriverManager.getConnection(url, user, pass);
+            pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, id);
+            rs = pstmt.executeQuery();
+
+            check = rs.next();
+
+        } catch(Exception e) {
+            //
+        } finally {
+            close();
+        }
+
+        return check;
+    }
+
+    public MemberDto selectId2(String mid) {
+        MemberDto data = null;
+
+        String query = "SELECT * FROM membertbl WHERE m_id = ?";
+
+        try {
+            conn = DriverManager.getConnection(url,user,pass);
+
+            pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, mid);
+            rs = pstmt.executeQuery();
+
+            if(rs.next()){
+                data = new MemberDto();
+                data.setM_id(rs.getString(1));
+                data.setM_pwd(rs.getString(2));
+                data.setM_name(rs.getString(3));
+                data.setM_phone(rs.getString(4));
+                data.setM_birth(rs.getString(5));
+            }
+        } catch (SQLException e) {
+            //e.printStackTrace();
+            data = null;
+        } finally {
+            close();
+        }
+        return data;
+    }
+
+    public int updateMember(MemberDto data) {
+        int result = 0;
+
+        String query = "UPDATE membertbl SET m_pwd = ?, m_name = ?, m_phone = ?, m_birth = ? "
+                + "WHERE m_id = ?";
+
+        try {
+            conn = DriverManager.getConnection(url, user, pass);
+            pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, data.getM_pwd());
+            pstmt.setString(2, data.getM_name());
+            pstmt.setString(3, data.getM_phone());
+            pstmt.setDate(4, Date.valueOf(data.getM_birth()));
+            pstmt.setString(5, data.getM_id());
+
+            result = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            result = 0;
+        } finally {
             close();
         }
 

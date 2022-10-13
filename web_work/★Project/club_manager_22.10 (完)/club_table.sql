@@ -38,7 +38,6 @@ INSERT INTO jointbl VALUES('catlover', 3, '2022-10-12');
 
 select * from membertbl;
 select * from clubtbl;
-<<<<<<< Updated upstream
 select * from jointbl;
 
 -- select * from membertbl where m_id = 'catlover';
@@ -46,6 +45,3 @@ select * from jointbl;
 
 -- select C.cb_no, C.cb_name from jointbl J join clubtbl C on J.jcb_no = C.cb_no where J.jm_id = 'catlover';
 -- delete from jointbl where m_id = 'catlover' and cb_no = 1;
-=======
-select * from jointbl;
->>>>>>> Stashed changes
