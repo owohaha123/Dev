@@ -67,7 +67,7 @@ public class DataService {
         if(res == 0){
             msg = "Insert Failed";
         }else{
-            int club_no = dDao.getClubByName(data.getCb_name());
+            int club_no = dDao.getClubByName(data.getCb_name());// 내가 생성한 동호회 번호를 찾는 메소드
             dDao.insertUserToClub(m_id,club_no);
             msg = "Insert Success";
         }
