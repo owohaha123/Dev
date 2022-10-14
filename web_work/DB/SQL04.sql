@@ -218,7 +218,7 @@ FROM emp e JOIN ( -- 서브쿼리 삽입 후 별칭(d) 부여
 
 -- [외부 조인] (LEFT/RIGHT OUTER JOIN)
 -- 소속된 사원이 없는 부서를 조회
-SELECT * FROM emp;
+departmentsSELECT * FROM emp;
 SELECT * FROM dept;
 
 SELECT DISTINCT d.deptno 부서, e.deptno 사원

@@ -2,19 +2,19 @@ USE shopdb;
 
 -- 회원 테이블
 CREATE TABLE membertbl (
-m_id VARCHAR(20) NOT NULL PRIMARY KEY,
-m_pwd VARCHAR(20) NOT NULL,
-m_name VARCHAR(10) NOT NULL,
-m_address VARCHAR(20) NOT NULL,
-m_charge INT DEFAULT 0 NOT NULL
+	m_id VARCHAR(20) NOT NULL PRIMARY KEY,
+	m_pwd VARCHAR(20) NOT NULL,
+	m_name VARCHAR(10) NOT NULL,
+	m_address VARCHAR(20) NOT NULL,
+	m_charge INT DEFAULT 0 NOT NULL
 );
 
 -- 제품 테이블
 CREATE TABLE producttbl (
-pr_no INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-pr_name VARCHAR(20) NOT NULL,
-pr_price INT NOT NULL,
-pr_amount INT DEFAULT 0
+	pr_no INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	pr_name VARCHAR(20) NOT NULL,
+	pr_price INT NOT NULL,
+	pr_amount INT DEFAULT 0
 );
 
 -- 구매 테이블
