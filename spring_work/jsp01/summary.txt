@@ -1,0 +1,17 @@
+* JSP(front-end) + Spring boot(back-end)
+ - JSP = HTML + java
+
+* JSP 를 사용하기 위한 설정
+1. pom.xml 라이브러리 추가
+   - tomcat-embed-jasper : 내장형 웹 서버
+   - jstl : java 코드를 쉽게 처리하기 위한 라이브러리
+   - mvnrepository.com 에서 검색
+
+2. jsp 저장 폴더 생성
+   main > webapp > WEB-INF > views
+   (jsp 는 반드시 views 에서만 생성해야 한다)
+
+3. application.properties 작성
+   - jsp 설정
+   spring.mvc.view.prefix=/WEB-INF/views/
+   spring.mvc.view.suffix=.jsp
