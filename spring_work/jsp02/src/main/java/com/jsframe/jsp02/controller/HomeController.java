@@ -22,6 +22,7 @@ public class HomeController {
 
     @GetMapping("second")
     public String second(){
+        log.info("second");
         return "second";
     }
 }
