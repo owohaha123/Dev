@@ -11,6 +11,6 @@
     <title>second</title>
 </head>
 <body>
-
+<h1>두번째 페이지</h1>
 </body>
 </html>
