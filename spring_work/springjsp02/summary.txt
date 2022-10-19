@@ -1,0 +1,75 @@
+  3. (jsp -> )controller - [데이터] -> 페이지(jsp)
+     1) Model 객체를 사용하는 방법
+       - 보낼 데이터만 처리 -> Model
+       - 보낼 페이지 지정 -> String
+
+       - 데이터를 담는 명령어 : addAttribute("이름표", 데이터);
+         > 첫번째는 데이터의 이름표 값을 넣는다
+           두번째는 보낼 데이터를 넣는다
+         > DTO 객체(묶음 데이터)도 담을 수 있음
+
+     2) ModelAndView 객체를 사용하는 방법
+       - Model 과 페이지 지정 문자열을 합쳐서 처리하는 객체
+       - 기능에 대한 실제 처리를 담당하는 클래스는 Service
+         Service 클래스에서 처리된 데이터를 전송하는 형태가 적절(controller는 인수인계만)
+       - 데이터 입력용 메소드 : addObject("이름표", 데이터);
+
+
+* url mapping 용 annotation
+  1. RequestMapping (기본 어노테이션)
+     - 작성법 : @RequestMapping(value="url" , method=Request.GET)
+                (GET 일 땐 다 생략하고 url 만 적음)
+       value : 매핑될 url 작성
+       method : 전송 방식을 지정(get/post)
+                get 방식일 경우 method 생략 가능
+             @RequestMapping("url") <- get 방식
+       컨트롤러 클래스 전체에 하나의 url 을 매핑할 수 있음
+
+       http://www.naver.com/news/finantial
+       http://www.naver.com/news/life
+       -> 컨트롤러 클래스에 @RequestMapping("news")작성
+          해당 메소드에 @RequestMapping("financial")작성
+          다른 메소드에 @RequestMapping("life")
+       http://www.naver.com/sports/football
+       http://www.naver.com/sports/baseball
+  2. GetMapping / PostMapping
+
+
+* JSP(Java Sever Page)
+  - 문서의 구성
+    1) Directive(지시자)
+      - jsp 페이지에 대한 설정 정보를 지정할 때 사용
+        > page : 기본적으로 필요한 지시자. 문서 타입이나 라이브러리 포함용
+        > taglib : jstl 을 사용하기 위한 지시자
+        > include : 다른 jsp 페이지를 포함하여 하나의 페이지를 만드는 지시자
+    2) Scriptlet (스크립트릿) : 자바코드 작성 영역
+    3) Declaration(선언부) : 메소드 선언용 영역
+    4) Expression(표현식) :  웹 페이지에 출력 (<%=%>)
+    5) EL(Expression Language, 표현언어) : Expression 대신 사용 (${})
+      : 데이터의 출력에 보편적으로 사용하는 방식
+    6) JSTL (Java server page Standard Rag Library)
+      : taglib 지시자와 함께 사용.
+        java 의 제어문(if, for 등)을 태그 형태로 제공하는 라이브러리
+  - spring boot 에선 2~4 는 안 씀
+
+
+* EL (Expression Language)
+  - JSP 의 표현식 대신에 사용하는 출력용 방식
+  - 문법: ${변수|연산식}
+  - EL 내에서의 연산자 활용
+    : 산술, 비교, 논리, 조건 연산자 사용 가능
+      +) 엠티 연산자 : empty
+         전송 데이터가 비어 있음(없음)에 대한 처리를 위한 연산자
+         비어있음(없음) : true
+   - EL 은 자바스크립트에서도 사용가능.
+   - 단, EL 은 출력용 도구
+
+
+  참고) 인터넷 서비스 관련 객체
+      1) request : 사용자의 요청을 저장하여 서버로 전달하는 객체
+                   url 값, 입력데이터 등을 포함하게 됨
+      2) response : 서버에서 처리된 결과를 사용자에게 전달하는 객체
+                    사용자의 위치 정보
+      3) session : 한 사용자가 한 서버에 접속한 시점부터 접속을 종료한 시점까지 유지되는 객체
+                   로그인 정보를 저장하거나 view 로 전달할 데이터가 있을 때 활용
+
