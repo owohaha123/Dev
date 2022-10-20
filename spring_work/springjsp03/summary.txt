@@ -1,0 +1,115 @@
+* Action tag
+  - XML 태그 형태로 코드를 기술하는 문법
+    1) 표준 액션 - include, forward(사용불가) 등
+    2) 커스텀 액션 - JSTL (해당 라이브러리를 추가해야 사용가능)
+
+  참고) Forward 와 Redirect
+       - spring 에서 사용하진 않음
+        1) Forward : '전달하다'라는 의미
+           - 기존에 만들어져있는 request 를 재사용
+           - 데이터를 저장(attribute)하고 전송하는 방식
+           - 주소칸에 보이는 url 이 변경되지 않는다
+        2) Redirect : '변경하다'라는 의미
+           - 기본적으로 페이지를 변경하는 방식
+           - 페이지 간 데이터 전달이 되지 않는다
+           - <a> 태그, 자바스크립트 location.href 방식
+           - <form> 태그 submit 방식
+           - 페이지 전환 시 새로운 request 가 생성되는 방식
+           - 주소칸에 보이는 url 이 변경됨
+
+  참고) 페이지 전환
+       : 기존 페이지에서 새 페이로 변경을 요청하는 request 를 서버에 보내는 것
+
+  참고) request 객체 내부에는 저장 공간이 2가지가 있음
+        1) Parameter : get/post 방식으로 전송할 때 사용하는 공간
+                       form 태그로 전송하는 데이터를 저장
+        2) Attribute : model 객체에서 사용하는 공간
+
+  참고) get 전송 방식의 형태(Parameter 전송 방식)
+         http://jsframe.com/news?date=20&time=09
+         date 와 time 변수에 들어간 값을 전달받는다
+         <form>
+               <input type="text" name="date" value"20">
+               <input type="text" name="time" value"09">
+         </form>
+
+* JSTL (JSP Standard Tag Library)
+  - 간단한 프로그램 로직 구현(변수 활용, 제어문 등)
+  - 다른 jsp 페이지 포함(<c:import>)
+  - 날짜, 시간, 숫자의 포맷(출력 형식 지정)
+  - 문자열 처리 함수 제공
+  - 라이브러리 구성
+    1) 코어(core) : 접두어는 c.
+                   url- http://java.sun.com/jsp/jstl/core
+    2) 포맷(format) : 접두어는 fmt
+                     url- http://java.sun.com/jsp/jstl/fmt
+    3) 함수(function) : 접두어는 fn
+                       url- http://java.sun.com/jsp/jstl/function
+  - 라이브러리 처리 (페이지에 포함시키는 방법)
+    : taglib 지시자를 사용하여 접두어와 url 작성
+      ex) 코어 사용 시
+         : <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+   1. Core 태그
+      1) set : 페이지에서 사용하는 변수를 생성하는 태그
+             : EL 을 사용하여 출력 및 활용 가능
+      2) remove : set 으로 생성한 변수를 제거하는 태그
+                : <c:remove var = num1>
+      3) if : 자바의 if 문에 해당하는 태그 (else 에 해당하는 태그는 없음)
+              주요 속성)
+              - test : 조건식을 작성하는 속성. 이 속성에 설정한 조건식이 true 인 경우 실행
+      4) choose, when, otherwise : 자바의 switch(case, default)에 해당하는 태그
+                                    - choose 태그는 grouping 용도로 사용
+                                    - when 태그로 분기를 처리. test 속성으로 조건 실행
+                                    - otherwise 태그는 switch 문의 default 와 같은 역할
+      5) forEach : 자바의 for 문에 해당하는 태그
+            주요 속성)
+            - var : 일종의 count 변수 생성
+            - begin : count 변수의 시작값을 지정
+            - end : count 변수에 들어가는 마지막 값 지정
+                    반복 시 end 에 지정한 값 이하까지 반복
+            - step : count 변수 값의 증가 폭을 지정
+                     생략할 경우 count 는 1씩 증가
+            - items : 배열 구조(ArrayList 등)의 데이터를 지정
+                      var 과 함께 사용할 경우 items 에 집어넣은 배열구조의 첫번째 값부터
+                      순서대로 꺼내와서 var 에 지정한 변수에 넣어주며, 배열 구조의 마지막 값까지 반복을 수행
+            - varStatus : 반복 상태를 알 수 있는 변수를 지정
+                        index - 사용하는 항목의 순번. 0부터 시작
+                        count - 반복하는 항목이 몇 번째 항목인지를 나타냄. 1부터 시작
+                        first - 반복의 처음인가? 결과는 true/false
+                        last - 마지막 반복인가? 결과는 true/false
+                   예) <c:forEach var="a" items="list" varStatus="status">
+                            <p>${status.index}</p> -> 화면에 0이 찍힘
+                       </c:forEach>
+      6) import : include 지시자, jsp:include 표준 태그와 동일한 기능을 수행하는 태그
+                  다른 jsp 페이지를 포함시키는 태그
+
+   2. format 태그
+      형식 : <fmt:xxxxx>
+      1) formatDate : 날짜와 시간의 출력 형식 지정
+            주요 속성)
+            - value : 날짜 객체 저장
+            - type : 'date' 는 날짜, 'time' 은 시간 출력 (기본값 date)
+                     'both' 는 날짜와 시간을 모두 출력 (이 때 각 스타일은 따로 지정해줘야 함)
+            - xxxxStyle : 지정된 날짜/시간 형식 (full, long, medium, short 형태를 사용)
+            - pattern : 사용자 형식 지정 속성
+
+      2) formatNumber : 숫자 출력 형식 지정 (금액 표시, 소수점 표시 등)
+            주요 속성)
+            - value : 출력할 숫자 값 지정
+            - groupingused : 세자리마다 ',' 출력. true 값으로 ','
+            - pattern : 소수점 출력 형식 지정
+                    # - 자릿수 표현 기호
+                    0 - 자릿수 표현 기호. 빈 공간에 0 출력
+            - type : 출력 숫자에 대한 형식 지정
+              1) currency : 금액 출력 형식으로 지정. 기본 값으로
+                            기본 값으로 통화기호가 맨 앞에 출력됨 (국가에 따라 달라짐)
+              2) percent : value 가 소수점 값일 경우 퍼센트 값으로 변경하여 출력
+                            (ex_ 0.5 = 50%)
+            - currencySymbol : 통화 기호 변경 속성
+
+   3. function 태그
+
+
+
+* JQuery : 자바스크립트 DOM 을 편하게 사용하기 위한 보조 프레임워크
