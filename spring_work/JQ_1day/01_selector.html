@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="">
+   <!-- <link rel="shortcut icon" href="piy.png"> -->
+   <!-- JQuery 연동 -->
+   <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+    <h1>클래스가 없다.</h1>
+		<h1 class="cls">클래스가 있다.</h1>
+		<h2>클래스가 없다.</h2>
+		<h2 class="cls">클래스가 있다.</h2>
+
+		<p id="one"></p>
+		<p>태그만 있는 녀석</p>
+		<p>태그만 있는 녀석</p>		
+
+		<button id="idSel">아이디</button>
+		<button id="classSel">클래스</button>
+		<button id="tagSel">태그</button>
+</body>
+
+<!-- script -->
+<script>
+    $(function(){
+        $('#idSel').click(function(){
+            $('#one').html('무궁화 꽃이 피었습니다~');
+        });
+        $('#tagSel').click(function(){
+            $('p').css('color','pink');
+        });
+        $('#classSel').click(function(){
+            $('.cls').css('background-color','skyblue').css('color','white').html('test');
+            //$('.cls').css('color','yellow');
+        });
+
+    }); //read End
+</script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="">
+   <!-- <link rel="shortcut icon" href="piy.png"> -->
+   <!-- JQuery 연동 -->
+   <script src="https://code.jquery.com/jquery-3.6.1.js"></script>        
+   <title></title>
+   <style>
+    div#ex1 {
+        width: 300px;
+        height: 200px;
+        background-color: #59b1f6;
+    }
+
+    div#ex2 {
+        text-align: center;
+    }
+</style>
+</head>
+
+<!-- body -->
+<body>
+    <div id="ex1">
+        아이디 : <input id="userid" type="text" name="userid">
+        <br>
+        비밀번호 : <input id="userpw" type="text" name="userpass">
+        <button id="btn">로그인</button>
+        <div id="ex2">
+            <p></p>
+        </div>
+    </div>
+</body>
+
+<!-- script -->
+<script>
+    // $('').val().length
+    // 아이디가 없거나 길이가 4 미만 또는 10 이상일 때
+    // p 태그에 에러 메시지 띄울 것
+    $('div').hover(()=>$('p').html('로그인 해주세요'),
+                   ()=>$('p').html(''));
+    $('input').focus(function(){
+        $(this).css('background-color','#cccccc');
+    });
+    $('input').blur(function(){
+        $(this).css('background-color','#ffffff');
+    })
+
+
+    
+    $('#btn').click(function(){
+        if((4>$('#userid').val().length) || ($('#userid').val().length>=10)){
+            $('p').html('Error')
+        }else{
+            $('p').html('완료')
+        }   
+    });
+</script>
+</html>

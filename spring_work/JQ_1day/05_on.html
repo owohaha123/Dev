@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="">
+   <!-- <link rel="shortcut icon" href="piy.png"> -->
+   <!-- JQuery 연동 -->
+   <script src="https://code.jquery.com/jquery-3.6.1.js"></script>     
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+    <ul>
+        <li>aaa</li>
+        <li>bbb</li>
+        <li>ccc</li>
+        <li>ddd</li>
+    </ul>
+	 <div style="border:1px solid blue;width:100px;height:100px">  </div>
+    <button id="btn">on</button>
+    <p>동해물과 백두산이 마르고 닳도록.......</p>
+</body>
+
+<!-- script -->
+<script>
+    // 넓은선택자       //좁은선택자
+    $('ul').on('click','li',function(){
+        $('div').append('<button>click</button>');
+        $(this).css('color','red');
+    });
+
+    // 시점이 안맞음. on 버튼만 인식
+    // $('button').click(function(){
+    //     alert('button click');
+    // })
+
+    // 따라서 on을 사용하여 click 버튼의 생성 시점을 맞춰줘야 함
+    $('div').on('click','button',function(){
+        alert('button click');
+    })
+</script>
+</html>

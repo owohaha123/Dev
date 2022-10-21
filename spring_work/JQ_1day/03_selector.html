@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="">
+   <!-- <link rel="shortcut icon" href="piy.png"> -->
+   <!-- JQuery 연동 -->
+   <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+    <a href="http://www.w3schools.com"> 사이트 링크 A</a><br/>
+	<a href="http://www.w3schools.com"> 사이트 링크 B</a><br/>
+	<a href="http://www.w3schools.com" target="_blank"> 사이트 링크 C</a><br/>
+	<button id="link">링크 없애기</button>
+	<button id="link2">target='_blank'</button>
+	<button id="link3">target!='_blank'</button>
+	<button id="btn">버튼제어</button>
+	<input type="button" value="input 태그">
+		
+	<table border="1">
+		<tr>
+			<th>이름</th>
+			<th>생년월일</th>
+		</tr>
+		<tr>
+			<td>김길동</td>
+			<td>2015-00-00</td>
+		</tr>
+		<tr>
+			<td>이길동</td>
+			<td>2015-00-00</td>
+		</tr>
+		<tr>
+			<td>박길동</td>
+			<td>2015-00-00</td>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>2015-00-00</td>
+		</tr>
+		<tr>
+			<td>정길동</td>
+			<td>2015-00-00</td>
+		</tr>
+		</table>
+		<button id="odd">홀수선택</button>
+		<button id="even">짝수선택</button>
+</body>
+
+<!-- script -->
+<script>
+    function turnBack() {
+        setTimeout(function(){
+            $("*").show();
+        }, 1000);
+    };
+
+
+    // 링크 없애기 클릭 시
+    $('#link').click(function(){
+        $("a[target='_blank']").hide();
+        turnBack();
+    });
+
+
+    // target!='_blank' 클릭 시
+    $('#link3').click(function(){
+        $("a[target!='_blank']").hide();
+        turnBack();
+    });
+
+
+    // 버튼 제어 클릭 시
+    $('#btn').click(function(){
+        // :button - button 과 input button 모두 선택됨
+        $(":button").text('텍스트 변경').val('값 변경');
+        //$(":button").val('값 변경');
+        console.log($('[type=button]').val()); //파라미터 없으면 get, 넣으면 set 취급
+    });
+
+    
+    // 홀수선택 클릭 시
+    $('#odd').click(function(){
+        $('tr:odd').css('background-color','yellow');
+        $('tr:even').css('background-color','blue');//짝수
+    });
+</script>
+</html>

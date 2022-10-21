@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.10.21">
+   <!-- <link rel="shortcut icon" href="piy.png"> -->
+   <!-- JQuery 연동 -->
+   <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+    <div id="result"></div>
+    <button id="btn">추가</button>
+    <button id="btn2">새로쓰기</button>
+
+</body>
+
+<!-- script -->
+<script>
+    // js 객체 저장
+    let obj = document.getElementById('btn');
+    //console.log(obj);
+    console.dir(obj);
+
+    // jQ 객체 저장
+    let $obj = $('#btn'); // obj 앞 $ 는 구분을 위해 임의로 붙인 것. (안 붙여도 됨)
+    console.log($obj);
+    //console.log($obj[0]);
+    $(obj).click
+
+    //$(function(){ // script 를 위에 작성하면 써 주는 게 좋다! (아래면 굳이 안 써도 됨)
+        $('#btn').click(function(){
+            $('#result').append('내용 추가<br>');
+        });
+    //})
+        $('#btn2').click(function(){
+            $('#result').html('내용 새로 쓰기<br>');
+        });
+
+    $(document).ready(function(){ // (document).ready 생략 가능
+        alert('success!'); 
+    })
+
+
+</script>
+
+
+</html>

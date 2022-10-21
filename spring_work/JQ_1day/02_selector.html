@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="">
+   <!-- <link rel="shortcut icon" href="piy.png"> -->
+   <!-- JQuery 연동 -->
+   <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+    <h1>H1 태그...</h1>
+		<p>태그만 있는 녀석, 그리고 첫번째 p</p>	
+		<p class="cls">클래스 가 있는 녀석</p>
+		<p id="demo">아이디가 있는 녀석</p>		
+		<button id="none">다 없애라!!</button>
+		<button id="show">p.cls 없애라!!</button>
+		<button id="first">첫번째 p</button>
+		<p>List 1:</p>
+		<ul>
+			<li>Coffee</li>
+			<li>Milk</li>
+			<li>Tea</li>
+		</ul>
+
+		<p>List 2:</p>
+		<ul>
+			<li>Coffee</li>
+			<li>Milk</li>
+			<li>Tea</li>
+		</ul>
+		<button id="first_ul">ul의 첫번째 li</button>
+		<button id="all_ul">전체 ul의 첫번째 li</button>
+
+        <!-- input button -->
+        <input type="button" onclick="test(this)" value="this Test">
+</body>
+
+<!-- script -->
+<script>
+    $("#none").click(function () {
+        console.log($("*"));  // jQ = js객체 + jQ 메소드
+        $("*").hide(); // 자주 씀
+        turnBack();
+    });
+
+
+    $("#show").click(function () {
+        $("p.cls").hide();
+        turnBack();
+    });
+
+
+    // $("#first").click(function () {
+    //     $("p:odd").css('color','red'); // odd: 홀수번째
+    // });    
+
+    // $("#first").click(()=>{ // function 생략
+    //     $("p:even").css('color','blue'); // even: 짝수번째
+    // });  
+
+
+    // 화살표 함수 (java에선 람다식이 있다)
+    // this 에선 사용 불가.
+    $("#first").click(()=>$("p:even").css('color','purple'));
+    
+    $("#first").click((evt)=>{ // 2문장 이상일 땐 중괄호 써줘야 함
+        console.log(evt);
+        $("p:odd").css('color','orange')
+    });
+
+
+        function turnBack() {
+            // window.alert();
+            setTimeout(function () {
+                $("*").show(); //script까지 모두 포함해서 보인다.
+                $('script').hide(); //그래서 script태그를 hide한다.
+            }, 1000);
+        }
+
+ // -------------------------------------------------------------------
+    // this? 현재 작업 중인 객체의 참조 변수
+    function test(obj){
+        console.log(obj);  // 현재 작업 중인 input button
+        console.log(this); // js window 전역 객체
+    }
+    //test();
+
+    // 클릭하는 p 태그만 red 로 변경됨
+    $('p').click(function(){ // 화살표 사용 불가
+        console.log(this); // jQ 메소드에서는 this는 항상 현재 작업중인 객체만
+        $(this).css('color','red');
+    });
+
+</script>
+</html>

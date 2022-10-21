@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="">
+   <!-- <link rel="shortcut icon" href="piy.png"> -->
+   <!-- JQuery 연동 -->
+   <script src="https://code.jquery.com/jquery-3.6.1.js"></script>   
+   <title></title>
+   <style>
+    div {
+        width: 200px;
+        height: 200px;
+        margin-right: 7px;
+        text-align: center;
+    }
+    #mousezone {
+        background-color: #59b1f6;
+        float: left;
+    }
+    #overzone {
+        background-color: #ffb5b4;
+        float: left;
+    }
+   </style>
+</head>
+
+<!-- body -->
+<body>
+    <button id="btn">이벤트 제거</button>
+    <p id="1">클릭하면 글자 색상이 바뀌어요~!</p>
+    <p id="2">클릭하면 글자 색상이 바뀌어요~!</p>
+    <p id="3">클릭하면 글자 색상이 바뀌어요~!</p>
+    <p id="4">클릭하면 글자 색상이 바뀌어요~!</p>
+    <div id="mousezone">마우스 존</div>
+    <div id="overzone">H 오버 존</div>
+    <input type="text" placeholder="아이디">
+    <input type="password" placeholder="비밀번호">
+</body>
+
+<!-- script -->
+<script>
+    // $('#mousezone').mouseenter(function(){
+    //     $(this).html('마우스 오버!');
+    //     $(this).css('background-color','red');
+    // });
+
+    // $('#mousezone').mouseleave(function(){
+    //     $(this).html('마우스 아웃!');
+    //     $(this).css('background-color','yellow');
+    // });
+
+    // 이걸 하나로 묶으면
+    $('#mousezone').hover(function(){
+        $(this).html('마우스 오버!');
+        $(this).css('background-color','red');
+    }, function(){
+        $(this).html('마우스 아웃!');
+        $(this).css('background-color','yellow');
+    });   
+
+    // focus event
+    $('input').focus(function(){
+        $(this).css('background-color','skyblue');
+    });
+
+    // blur : focus 의 반대
+    $('input').blur(function(){
+        $(this).css('background-color','lightgray');
+    });
+
+</script>
+</html>
