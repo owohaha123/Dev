@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <p id="test1" class="aaa">문자열 1</p>
+    <p id="test2" >문자열 2</p>
+
+    <input id="txt" type="text" value="홍길동" >
+    
+    <input id="chk1" type="checkbox" value="music" checked>음악
+    <input id="chk2" type="checkbox" value="movie">영화
+    <a href="#">네이버</a>
+    <br>
+    <input type="button" onclick="check()" value="체크">
+    <button>버튼</button>
+</body>
+<script>
+    let a; // undefined
+    // checked, readonly, disabled (prop 메소드로 get, set)
+    $("#chk1").prop("checked", false); // 해제
+    $("#chk1").prop("checked", true); // 선택
+    // 체크박스에 실시간 체크 상태
+    // console.log($("#chk1").attr("checked")); // 실시간 반영 안 됨
+    console.log($("#chk1").prop("checked")); // 실시간 반영
+    console.log($("#chk1"));
+
+    console.log($("#test1")); // jQ 객체(js객체 + jQ 메소드)
+    console.log($("#test1")[0]); // js 객체
+    console.log($("#test1").get(0)); // js 객체
+</script>
+</html>

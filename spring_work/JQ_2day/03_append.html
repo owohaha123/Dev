@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <ol>
+        <li>List item 1</li>
+    </ol>
+    <button id="apnd">Append</button>
+    <button id="create">Create</button>
+</body>
+<script>
+    $("#create").click(function () {
+        let $elem = $("<br><input type = 'text'>"); // input elem 생성
+        // $elem.attr("type", "text"); => 타입을 따로 지정해주는 방법
+        // 기존에 존재한 elem를 가져오려면 "<elem>" 이 아닌 "elem"
+
+        $elem.val("hello").prop("readonly", true);
+        $elem.prop("disabled", true);
+
+        // $("body").append($elem);
+        $elem.appendTo("body");
+    });
+
+    let i = 1;
+    $("#apnd").click(function () {
+        i++;
+        // $("ol").append("<li>List item " + i + "</li>");
+        $("<li>List item " + i + "</li>").appendTo("ol");
+    });
+</script>
+
+</html>

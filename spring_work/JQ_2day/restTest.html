@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>주소</th>
+                    <th>전화번호</th>
+                    <th>사진</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+
+            <tfoot>
+            </tfoot>
+        </table>
+    </section>
+</body>
+<script>
+    let obj = {
+        id: "aaa",
+        pw: "1111",
+        age: 10
+    }; // js 객체
+
+    $.ajax({
+        url: "http://naver.com",
+        type: "get", // or post => 대부분 get
+        data: obj,
+
+        success: function (data) {
+            console.log(data);
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+</script>
+<script>
+    $.ajax({
+        type: 'get',
+        url: 'http://sample.bmaster.kro.kr/contacts?pageno=2&pagesize=5',
+        //url: 'http://sample.bmaster.kro.kr/contacts',
+        // data: {
+        //     pageno: 2,
+        //     pagesize: 5
+        // },
+        //dataType: 'json', //html,json,jsonp,xml
+        success: function (result) {
+            console.log(result);
+            $.each(result.contacts, function (idx, member) {
+                console.log("idx=", idx);
+                console.log("member=", member);
+
+                var $tr = $('<tr>').appendTo('tbody');
+                $('<td>').text(member.name).appendTo($tr);
+                $('<td>').text(member.address).appendTo($tr);
+                $('<td>').text(member.tel).appendTo($tr);
+                $('<img>').attr("alt", member.name + "의 사진").attr("src",
+                    member.photo).appendTo($('<td>').appendTo($tr));
+
+            }); //eachEnd
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    }); //ajax End
+</script>
+
+</html>
