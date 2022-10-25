@@ -1,0 +1,107 @@
+* jQuery
+  - Javascript를 쉽게 사용하기 위한 라이브러리
+  - 특히, DOW 및 이벤트 처리에 용이하다.
+  - 관련 사이트
+    https://jquery.com
+  - 사용 방법
+    1) 다운로드하여 프로젝트에 포함.
+       file > Setting > Languages & Frameworks >
+       JavaScript > Libraries > Add...
+       '+' > Attach Files... > jQuery 파일 선택
+    2) CDM 방식으로 사용.
+       CDN(Content Delivery Network)
+       - 지리적으로 분산된 여러개의 서버를 운영하여 하나의 서비스르 제공하는 것.
+       - 프로젝트의 활용할 수 있는 라이브러리(자바스크립트 등) 를 프로젝트에 직접 포함시키지 않고,
+         외부 제공 서버를 활용하여 사용하는 방식
+       - 활용 분야 : JS,CSS 등
+
+
+* jQuery 구문(작성법)
+  - HTML 요소를 '선택(Selecting)'하고, 그 요소에 '동작(Action)'을 수행하도록 한다.
+  - 기본 문법 : $(Selector). action();
+    > $ : jquery임을 나타내는 기호
+    > Selector(선택자) : HTML 요소를 찾기 위한 키워드
+    > action : 요소에 대해 수행할 작업(요소의 동작). 이벤트 처리 등
+      예) $("p").hide() - 모든 <p>를 안보이게 함.
+          기본 js - const pelem = document.getElementsByTagName("p");
+                    pelem.addListener("click", function(){
+                    this.style.display = none;
+                   });
+  - 선택자의 키워드는 CSS와 동일.
+    > 태그명 : 태그 이름 그대로 작성."p","h1",...
+    > class 명 : '.'과 클래스명. '.div01',...
+                <p class="div01">뭔가..</p>
+    > id 명 :'#'과 아이디명.'#d01',..
+             <p id="d01">뭔가..</p>
+
+
+* 문서의 준비 이벤트(Document Ready Event)
+  - 브라우저가 서버로 부터 html 문서를 받아서 화면에 출력하기까지의 과정 -> 렌더링
+    1) 브라우저 시작 - 웹페이지 방문, 주소칸에 url 입력하고 실행한 상태
+    2) 웹문서 읽기 - 서버에서 html 이 브라우저에 전달(도달??)
+    3) DOM 생성 - 이 때 문서의 준비 이벤트 발생
+    4) 페이지 로딩 완료 - 화면에 페이지 출력
+  - DOM 생성이 완료되어야 js가 정상 작동한다!
+  - 모든 js, jquery 는 다음 문장 안에서 작성.
+     $(document).ready(function({
+                ..여기에 js 작성
+      });
+  - 참조) </body>와 </html> 사이에 작성하는 js는
+          DOM 생성이 완료된 후에 실행되기 때문에,
+          $(document).ready() 안에서 작성하지 않아도 됨.
+  - 참조) $(document).ready(function(){...});
+          -> $(function(){...}); // 단축 표현.
+
+
+* selector(선택기, 선택자)
+  - 태그명, id 속성값(#), class 속성값(.)
+  - "*" : 모든 요소 선택
+  - this : 이벤트가 발생된 요소(버튼일 경우 클릭한 버튼 자체)
+           $(this).action(); // 문자열로 넣지 않는다
+
+  - 조합 선택기
+    태그명.클래스값 = 예. $("p.cls"): <p class="cls"></p>
+    태그명:first - 예 $("p.first") : 여러 p요소 중 첫번째
+
+  - 기타 선택기
+    [속성] - 예$("[href]") : href 속성이 있는 <a> 들
+    태그[속성='값'] - 예 $("s[target='_blank']")
+                    : <a target='_blank'>인 요소들
+    버튼 타입의 input 태그 : $(":button")
+    $("tr:even"): 테이블의 짝수 행
+    $("tr:odd"): 테이블의 홀수 행
+    CSS 의 선택기와 동일 : $("p:nth-child(3)")등
+
+    참고) jQuery 3.x 버전의 버그(bug)
+        $("*").show() <- 모든 요소를 선택하여 show()를 실행할 경우 js 페이지에 보이게 됨
+        => 2.x 버전에는 해당 버그가 없음
+        해결>
+        jQuery 사이트(http://jquery.com) blog 메뉴로 이동
+        2.1 검색 > 2.1.4 Released 게시글로 이동 후 다운로드
+
+  - 이벤트 처리
+    click() - 요소를 클릭할 때
+    dblclick() - 요소를 더블클릭할 때
+    mouseenter() - 요소 내부로 마우스포인터가 들어갔을 경우(hover)
+    mouseleave() - 요소 밖으로 마우스포인터가 나갈 경우
+    mousedown() - 마우스 버튼이 눌릴 경우
+    mouseup() - 눌린 마우스 버튼에서 손을 뗀 경우
+    hover() - mouseenter()와 같음
+    focus() - input 태그가 포커스를 가진 경우
+    blur() - input 태그의 포커스가 해제된 경우
+    on() - 요소에 이벤트를 추가(동적, 복합 이벤트 처리)
+
+
+* jQuery Effect
+  - 종류
+    1) hide/show : 요소 보임(display: none)/보임
+    2) fade : 서서히 나타나거나 사라지게 하는 효과
+    3) slide : 아래에서 위로 사라지거나 위에서 아래로 나타나게하는 효과
+    4) animate : 사용자 정의 애니메이션 효과를 요소에 추가
+    5) stop : 동작 중인 effect 를 중지시킴
+  - 모든 effect 에는 시간을 설정할 수 있음 - 밀리초 단위
+
+
+* callback(콜백)함수 : 작업 처리 후 호출하는 함수
+  - effect 함수는 모두 callback 함수를 정의하여 effect 처리가 종료되는 시점에
+    또다른 작업을 처리하도록 작성할 수 있다.
