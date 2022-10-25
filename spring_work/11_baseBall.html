@@ -1,0 +1,124 @@
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>야구 게임</title>
+        <style></style>
+    </head>
+    <body>
+        <button id="strike">Strike</button>
+        <button id="ball">Ball</button>
+        <button id="restart" style="display:none">
+            재시작
+        </button>
+        <br/>
+        B:<b id="b">0</b><br/>
+        S:<b id="s">0</b><br/>
+        O:<b id="o">0</b><br/>
+    </body>
+    <script>
+    //1. 버튼에 클릭 이벤트 부여
+    //2. 버튼 클릭시 정상 작동 여부
+    //3. 4볼일때 정상적으로 초기화 되는가?
+    //4. 3 스트라이크 일 때 정상적으로 초기화 되는가?(out +1)
+    //5. 3아웃을 때 게임이 종료 되는가?(재시작버튼 보임)
+    //6. 재시작 버튼 클릭시 초기화 되는가?
+        
+        //버튼 변수
+        // var btnStrike = document.getElementById("strike");
+        // var btnBall = document.getElementById("ball");
+        // var btnRe = document.getElementById("restart");
+        //전광판
+        // var ball = document.getElementById("b");
+        // var strike = document.getElementById("s");
+        // var out = document.getElementById("o");
+        //계산할 변수
+        var ba=0;
+        var st=0;
+        var ou=0;
+        //ball
+        // btnBall.addEventListener('click',function(){
+        //     ba++;
+        //     ball.innerHTML = ba;
+        //     if(ba >= 4){
+        //         alert('4 ball!');
+        //         init();
+        //     }
+        // });
+    $('#ball').click(function (){
+            ba++;
+            $('#b').html(ba);
+            if(ba >= 4){
+                alert('4 ball!');
+                init();
+            }
+    })
+        
+        //strike
+        // btnStrike.addEventListener('click', function(){
+        //     st++;
+        //     strike.innerHTML = st;
+        //     if(st >=3){
+        //         alert("스트라이크 아웃!!");
+        //         ou++;
+        //         out.innerHTML = ou;
+        //         init();
+        //     }
+        //     if(ou>=3){
+        //         alert('3 out 게임 오버');
+        //         btnRe.style.display="inline";
+        //         btnBall.disabled = true;
+        //         btnStrike.disabled = true;
+        //     }
+        // });
+        $('#strike').click(function (){
+                st++;
+                $('#s').html(st);
+                if(st >=3){
+                    alert("스트라이크 아웃!!");
+                    ou++;
+                    $('#o').html(ou);
+                    init();
+                }
+                if(ou>=3){
+                    alert('3 out 게임 오버');
+                    $('#restart').css("display" , "inline");
+                    $('#ball').css("disabled" , "true");
+                    $('#strike').css("disabled" , "true");
+                }
+        })
+        
+        // btnRe.addEventListener('click', function(){
+        //     ou = 0;
+        //     out.innerHTML = ou;
+        //     init();
+        //     btnBall.disabled = false;
+        //     btnStrike.disabled = false;
+        //     btnRe.style.display="none";
+        // });
+    $('#restart').click(function (){
+            ou = 0;
+            $('#o').html(ou);
+            init();
+            $('#ball').css("disabled" , "false");
+            $('#strike').css("disabled" , "false");
+            $('#restart').css("display" , "none");
+    })
+        
+        function init(){
+            ba = 0;
+            st = 0;
+            $('#b').html(ba);
+            $('#s').html(st);
+        }
+        
+        
+    </script>
+</html>
+
+
+
+
+
+
