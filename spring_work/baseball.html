@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+
+</head>
+<body>
+    <button id="strike">Strike</button>
+    <button id="ball">Ball</button>
+    <button id="restart" style="display:none">
+        재시작
+    </button>
+    <br>
+    B:<b id="b">0</b><br>
+    S:<b id="s">0</b><br>
+    O:<b id="o">0</b><br>
+</body>
+<script>
+    //버튼
+    // const btnst = document.getElementById("strike");
+    // const btnba = document.getElementById("ball");
+    // const btnre = document.getElementById("restart");
+    // //전광판
+    // const ball = document.getElementById("b");
+    // const strike = document.getElementById("s");
+    // const out = document.getElementById("o");
+    //각 수치 카운트 변수
+    let ba = 0, st = 0, ou = 0;
+
+    //버튼이벤트 처리
+    // btnst.addEventListener("click", function(){
+    //     st++;
+    //     strike.innerHTML = st;
+    //     if(st >= 3) {
+    //         alert("스트라이크 아웃!!");
+    //         ou++;
+    //         out.innerHTML = ou;
+    //         init();
+    //     }
+
+    //     if(ou >= 3){
+    //         alert("3 아웃 게임 오버!");
+    //         btnre.style.display = "inline";
+    //         btnst.disabled = true;
+    //         btnba.disabled = true;
+    //     }
+    // });
+    $("#strike").click(function(){
+        st++;
+        $("#s").html(st);
+        if(st >= 3) {
+            alert("스트라이크 아웃!!");
+            ou++;
+            $("#o").html(ou);
+            init();
+        }
+
+        if(ou >= 3){
+            alert("3 아웃 게임 오버!");
+            $("#restart").show();
+            $("#strike").attr("disabled" ,true);
+            $("#ball").attr("disabled" ,true);
+        }
+    })
+
+    //볼버튼 이벤트 처리
+    // btnba.addEventListener("click", function(){
+    //     ba++;
+    //     ball.innerHTML = ba;
+    //     if(ba >= 4){
+    //         alert("4 볼!!");
+    //         init();
+    //     }
+    // });
+    $("#ball").click(function(){
+        ba++;
+        $("#b").html(ba);
+        if(ba >= 4){
+            alert("4 볼!!");
+            init();
+        }
+    });
+
+    // btnre.addEventListener("click", function(){
+    //     ou = 0;
+    //     out.innerHTML = ou;
+    //     init();
+    //     btnst.disabled = false;
+    //     btnba.disabled = false;
+    //     btnre.style.display = "none";
+    // });
+    $("#restart").click(function(){
+        ou = 0;
+        $("#o").html(ou);
+        init();
+        $("#strike").attr("disabled" , false);
+        $("#ball").attr("disabled" ,false);
+        $("#restart").hide();
+    });
+
+    // function init(){//스트라이크, 볼 카운트 초기화 함수
+    //     st = 0;
+    //     ba = 0;
+    //     strike.innerHTML = st;
+    //     ball.innerHTML = ba;
+    // }
+        function init(){//스트라이크, 볼 카운트 초기화 함수
+        st = 0;
+        ba = 0;
+        $("#s").html(st);
+        $("#b").html(ba);
+    }
+</script>
+</html>

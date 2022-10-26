@@ -83,9 +83,9 @@
                 }
                 if(ou>=3){
                     alert('3 out 게임 오버');
-                    $('#restart').css("display" , "inline");
-                    $('#ball').css("disabled" , "true");
-                    $('#strike').css("disabled" , "true");
+                    $('#restart').show();
+                    $('#ball').attr("disabled" , true);
+                    $('#strike').attr("disabled" , true);
                 }
         })
         
@@ -101,9 +101,9 @@
             ou = 0;
             $('#o').html(ou);
             init();
-            $('#ball').css("disabled" , "false");
-            $('#strike').css("disabled" , "false");
-            $('#restart').css("display" , "none");
+            $('#ball').attr("disabled" , false);
+            $('#strike').attr("disabled" , false);
+            $('#restart').hide();
     })
         
         function init(){
