@@ -1,0 +1,67 @@
+* jQuery CDN 방식 활용 방법
+  - jQuery 사이트(http://jquery.com)다운로드 페이지 >
+    CDN 방식 안내 페이지(http://code.jquery.com)로 이동 >
+    해당 태그 복사 및 jsp 붙여넣기 >
+    해당 태그의 url 부분에서 download library 처리
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"></script>
+  - 보조 속성은 삭제해줘도 무방
+    integrity : 두 서버로 나뉘어있는 자바스크립트 코드(jquery 코드와 개발자가 작성한 코드)를
+                병합할 때 사용하는 암호화 키 값 지정
+    crossorigin : 두 서버를 사용하여 하나의 서비스를 제공하는 것을 허용하기 위한 속성
+
+  참고) CORS(Cross Origin Resource Sharing, 교차 자원 공유)
+       두 개 이상의 서버로 하나의 서비스를 제공하는 방식(또는 정책)
+       jquery 코드는 jquery.com 에서, 나머지 서비스 코드는 내 서버에서...
+       오픈 API 를 활용한 소셜 로그인(카카오 네이버 구글 등)이나 react 와 spring 연동 등
+
+
+* jQuery effect
+  2. Fade In & Out
+    1) fadeIn() : 서서히 나타나는 효과
+    2) fadeOut() : 서서히 사라지는 효과
+    3) fadeToggle() : In + Out
+    4) fadeTo() : 투명도 조정
+    - speed : slow, fast 또는 밀리초
+  3. Slide Up & Down
+    1) slideDown(speed, callback) : 요소가 위에서 아래로 커지며 나타남
+    2) slideUp(speed, callback) : 요소가 아래에서 위로 작아지며 사라짐
+    3) slideToggle(speed, callback) : up & down 토글
+  4. Animate
+    : animate({params}, speed, callback)
+      - params : CSS 의 다양한 속성(색상, 크기, 위치 등)
+  - Method Chaining 기법
+    : 기능들이 연결된 것처럼 물고 물려서 연속적으로 일어남
+    : $(selector).css("color" , "red").slideUp(2000).slideDown(2000);
+      -> const sel = $(selector);
+         sel.css("color" , "red");
+         sel.slideUp(2000);
+         sel.slideDown(2000);
+
+
+* 요소의 속성 값 읽어오기/지정(변경)하기
+  1) attr() : 선택한 요소의 속성을 처리하기 위한 메소드
+              읽어오기 - let s = $(selector).attr("attribute");
+              지정하기 - $(selector).attr("attribute" , "변경값");
+  2) val() : input 태그의 입력값을 처리하기 위한 메소드
+             읽어오기 - let s = $(selector).val();
+             지정하기 - $(selector).val("값");
+  3) text() : innerText 와 같은 메소드 (내부 태그 미포함)
+              읽어오기 - let s = $(selector).text();
+              지정하기 - $(selector).text("값");
+  4) html() : innerHtml 과 같은 메소드 (내부 태그 포함)
+              읽어오기 - let s = $(selector).html();
+              지정하기 - $(selector).html("값");
+
+ 참고) front-end <-> Back-end
+      동기 통신 : url 이 변경됨(페이지 변경) - get/post
+      비동기 통신 : 페이지 내 일부를 변경 - XMLHttpRequest(XHR), AJAX
+
+ 참고) 야구 전광판 페이지 jQuery 로 구현하기
+    - 요소의 disabled 속성 처리
+      비활성화 $(selector).attr("disabled" , true);
+      활성화 $(selector).attr("disabled" , false);
+    - 요소의 숨김/보임 처리 : hide(),show()
+
