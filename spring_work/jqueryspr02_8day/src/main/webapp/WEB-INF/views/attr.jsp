@@ -8,6 +8,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+<a href="baseball">야구전광판 이동</a>
 <h2>속성 읽기 (내용은 콘솔에서 확인)</h2>
 <p>문자가 쓰여진 <b>강조된</b> 영역</p>
 <span id="text"></span><br>
