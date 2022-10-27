@@ -18,4 +18,10 @@ public class HomeController {
         log.info("attr()");
         return "attr";
     }
+
+    @GetMapping("baseball")
+    public String baseball(){
+        log.info("baseball()");
+        return "baseball";
+    }
 }
