@@ -1,0 +1,60 @@
+* jQuery Style(CSS) 변경
+  1) $(selector).css("css 속성","속성값")
+  2) class 로 변경
+     클래스 추가 : $(selector).addClass("클래스속성값");
+     클래스 삭제 : $(selector).removeClass("클래스속성값");
+     클래스 토글 : $(selector).toggleClass("클래스속성값");
+
+
+* (동적인) 요소의 추가 삭제 (정적요소는 변경 안 됨)
+  1. 추가
+    1) 밑에 추가 : $(selector).append("추가요소")
+    2) 위에 추가 : $(selector).prepend("추가요소")
+    3) 특정요소 밑에 추가 : $(selector).after("추가요소")
+    4) 특정요소 위에 추가 : $(selector).before("추가요소")
+  2. 삭제
+    1) 요소 및 하위요소 삭제 : $(selector).remove();
+    2) 하위요소만 삭제 : $(selector).empty();
+
+
+* 요소의 관계로 요소를 선택하는 방법
+  1. 상위 요소 선택
+    1) 한단계 위의 요소(부모) : $(selector).parent();
+    2) 윗 단계의 모든 요소(조상) : $(selector).parents();
+    3) 선택요소와 지정요소 사이의 조상 : $(selector).parentsUntil(other_selector);
+  2. 하위 요소 선택
+    1) 한단계 하위 요소(자식) : $(selector).children();
+    2) 자손 요소 : $(selector).find("filter");
+  3. 형제 요소 선택
+    1) 모든 형제 요소 : $(selector).siblings();
+    2) 다음 요소 : $(selector).next();
+    3) 다음 위치의 모든 요소 : $(selector).nextAll();
+    4) 다음 요소부터 특정 요소까지 : $(selector).nextUntil(other_selector);
+    5) 이전 요소 : $(selector).prev();
+    6) 이전 모든 요소 : $(selector).prevAll();
+    7) 이전 요소부터 특정 요소까지 : $(selector).prevUntil(other_selector);
+  4. 필터링
+    1) 선택한 요소들 중 첫번째 : $(selector).first();
+    2) 선택한 요소들 중 마지막 : $(selector).last();
+    3) n번째 요소 : $(selector).eq(n); -> n : 숫자
+    4) 선택한 요소들 중 재선택 : $(selector).filter(other_selector);
+    5) 선택한 요소들 중 특정 요소만 제외하고 선택 : $(selector).not(other_selector);
+
+
+
+* 동적 이벤트 바인딩 처리 (추가된 요소의 이벤트 처리)
+  - 새로운 요소가 렌더링 후에 생성되었기 때문에, 다시 문서를 분석하여 이벤트를 처리하도록 작성
+  - on() 메서드를 사용할 때 선택대상은 문서이며,
+    처리할 이벤트와 이벤트가 발생되는 요소를 on() 메소드에 함께 작성
+  - 문법
+    $(document).on("event" , "selector" , function(){ ... });
+
+
+예제) 방명록 페이지 만들기
+     작성자, 날짜-시간, 내용을 입력하면 화면에 추가
+예제) 방명록을 활용한 페이지 만들기
+     학점 등록 페이지 작성
+     테이블을 활용한다
+
+참고) jQuery(js)에서 날짜 구하기
+      Date 객체를 활용
