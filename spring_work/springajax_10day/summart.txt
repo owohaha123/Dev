@@ -1,0 +1,61 @@
+* fe(html, jsp, js)와 be(Spring Framework) 간 통신
+  1. 동기(Synchronous) 통신
+    - 페이지 자체가 변경. 새로운 jsp, 새로고침(reload)
+    - html , js 부분 모두에서 처리가 가능
+    - <a href="..."> , <form action="..."> , location href="..."
+  2. 비동기(ASynchronous) 통신
+    - 같은 페이지에서 특정 부분을 변경
+    - js 에서만 처리할 수 있음
+    - XMLHttpRequest(순수 js), ajax(jQuery)로 처리
+
+
+* AJAX (ASynchronous Javascript And Xml)
+  - 자바스크립트에서 제공하는 비동기 통신용 객체인 XMLHttpRequest 를
+    간편하게 사용하도록 작성된 jQuery 객체
+    (XML ? web 에서 사용하는 데이터를 주고받기 위한 문서 형식)
+  - 원래는 XML 로 전송했으나 무겁고 처리에 오랜 시간이 소요되는 등의 문제로,
+    현재는 JSON (JavaScript Object Notation) 활용
+  - Ajax 에서 백엔드로 데이터를 보낼 때는 반드시 json 형식으로 작성하여 보내야 함
+    {"변수명":"데이터"}
+     > 변수명 : java 메소드의 매개변수명
+  - Ajax 문법
+     let dt = {"num1":10 , "num2":20}; // ajax 문법은 아니나 참고를 위해 작성
+     $.ajax({
+         url : "전송할 url", // 컨트롤러까지 도달할 매핑된 url
+         type : "post",     // 전송방식 (get/post)
+         dataType : "json", // content-type 이 json 일 때만 작성 (그 외 생략)
+         data : dt,         // 변수 삽입
+         success : function(result_data){}, // 전송(request) & 응답(response) 모두 성공 시 실행
+         error : function(error){} // 전송 or 응답이 실패했을 때 실행
+     });
+
+     참고) serialize()
+          - jQuery 에서 제공하는 직렬화 메소드
+          - form 태그 소속 input 태그의 name 과 value 를 직렬화해주는 메소드.
+          - DTO 와 연동 되도록 각 input 태그의 name 속성의 값과
+          - DTO 내 변수의 이름을 똑같이(대소문자까지...) 작성한다.
+
+
+     참고) REST(REpresentational State Transfer) 방식
+          - 비동기 통신 방식
+          - uri(url)를 통해 자원(데이터)을 명시하고 method(get/post)를 사용하여
+            해당 자원의 CRUD 를 적용하는 방식
+          - REST 전송을 jQuery 에서 구현한 것이 Ajax
+          - Spring 에서 REST 방식을 처리하는 Controller 설정
+            1) 일반 Controller 에서는 해당 매핑 메소드에 @ResponseBody 를 사용
+            2) @RestController 어노테이션 사용
+          - REST 처리 메소드의 return 문에 작성하는 문자열은 결과값이다!
+            (view(jsp)의 이름이 아님! view 안 찾음)
+
+     참고) 작성 형식?
+         1. JSON (한 사람에 대한 정보)
+           {"name" : "홍길동" , "age" : 20 , "addr" : "인천시 미추홀구"}
+         2. XML (태그 처리에 대한 문서(DTD)가 추가적으로 필요)
+           <person>
+              <name>홍길동</name>
+              <age>20</age>
+              <addr>인천시 미추홀구</addr>
+           </person>
+
+     예제) 예약 처리 페이지, 회원가입 페이지, 로그인 페이지 등을
+           ajax 로 처리하는 예를 구현
