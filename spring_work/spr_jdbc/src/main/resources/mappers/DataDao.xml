@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jsframe.spr_jdbc.dao.DataDao">
+    <insert id="insertData" parameterType="DataDto">
+        INSERT INTO datatbl VALUES (null , #{m_str}, #{m_int}, #{m_date})
+    </insert>
+    <select id="getCount" resultType="java.lang.Integer">
+        SELECT count(*) FROM datatbl
+    </select>
+    <select id="selectList" resultType="Datadto">
+        SELECT * FROM datatbl
+    </select>
+</mapper>
