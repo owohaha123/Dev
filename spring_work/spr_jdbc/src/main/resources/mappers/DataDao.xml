@@ -7,7 +7,7 @@
     <select id="getCount" resultType="java.lang.Integer">
         SELECT count(*) FROM datatbl
     </select>
-    <select id="selectList" resultType="Datadto">
+    <select id="selectList" resultType="DataDto">
         SELECT * FROM datatbl
     </select>
 </mapper>
