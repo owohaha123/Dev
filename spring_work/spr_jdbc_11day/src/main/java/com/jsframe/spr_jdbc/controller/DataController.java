@@ -38,7 +38,6 @@ public class DataController {
         return "redirect:/"; // 입력 완료 후 첫 페이지로 이동
     }
 
-
     @GetMapping("dataList")
     public ModelAndView dataList(){
         log.info("dataList()");
