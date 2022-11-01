@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jsframe.spr_jdbc2_12day.dao.DataDao">
+    <insert id="insertData" parameterType="DataDto">
+        INSERT INTO datatbl VALUES (NULL , #{m_str},#{m_int},#{m_date})
+    </insert>
+    <select id="selectList" resultType="DataDto">
+        SELECT * FROM datatbl
+    </select>
+    <select id="selectData" resultType="DataDto" parameterType="integer">
+        SELECT * FROM datatbl WHERE m_code = #{code}
+    </select>
+    <update id="updateData" parameterType="DataDto">
+        UPDATE datatbl SET m_str=#{m_str}, m_int=#{m_int}, m_date=#{m_date}
+        WHERE m_code=#{m_code}
+    </update>
+    <delete id="deleteData" >
+        DELETE FROM datatbl WHERE m_code=#{code}
+    </delete>
+</mapper>
