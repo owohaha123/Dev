@@ -7,7 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @Log
@@ -34,5 +37,30 @@ public class MemberController {
         log.info("regProc()");
         String view = mServ.regMember(member, rttr);
         return view;
+    }
+
+    @PostMapping("loginProc")
+    public String loginProc(MemberDto member , HttpSession session , RedirectAttributes rttr){
+        log.info("loginProc()");
+        String view = mServ.loginProc(member, session, rttr);
+        return view;
+    }
+
+    @GetMapping("main")
+    public ModelAndView main(){
+        log.info("main()");
+        ModelAndView mv = new ModelAndView();
+        // 여기에 데이터를 담아준다...
+        mv.setViewName("main");
+        return mv;
+    }
+
+    @GetMapping("logoutProc")
+    public String logoutProc(HttpSession session){
+        log.info("logoutProc()");
+        //session.removeAttribute("mem");
+        session.invalidate();
+        // 세션 제거 후 첫 페이지로
+        return "redirect:/";
     }
 }

@@ -17,7 +17,7 @@
                 <h6>로그인 하세요</h6>
             </div>
             <div class="login-form">
-                <form action="" method="post">
+                <form action="loginProc" method="post">
                     <div class="control-group">
                         <input type="text" class="login-field" placeholder="아이디를 입력하세요" name="m_id">
                     </div>

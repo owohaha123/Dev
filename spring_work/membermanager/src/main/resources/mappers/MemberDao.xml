@@ -4,4 +4,11 @@
     <insert id="insertMember" parameterType="MemberDto">
         INSERT INTO membertbl VALUES (#{m_id}, #{m_pwd}, #{m_name}, #{m_birth}, #{m_phone})
     </insert>
+    <select id="selectPwd" resultType="String" parameterType="string"> -- parameterType 은 생략가능
+        SELECT m_pwd FROM membertbl WHERE m_id=#{m_id}
+    </select>
+    <select id="selectMember" resultType="MemberDto" parameterType="string">
+        SELECT m_id, m_name, m_birth , m_phone FROM membertbl
+        WHERE m_id=#{mid}
+    </select>
 </mapper>
