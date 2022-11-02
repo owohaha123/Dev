@@ -1,0 +1,80 @@
+@CHARSET "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Josefin+Slab);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+
+#board-header {
+	margin-top: 10px;
+}
+
+#title {
+	margin-top: 50px;
+	text-align: center;
+	font-family: 'Josefin Slab', serif;
+	font-size: 35px;
+}
+
+body {
+	padding: 50px;
+}
+
+.box {
+	float: left;
+	margin: 12px;
+	font-size: 14px;
+	text-align: justify;
+	background: #EAEAEA;
+}
+
+.box:HOVER {
+	border: 2px solid pink;
+	margin: 10px;
+}
+.box-underimage{
+	margin: 10px;
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+.box-itemname{
+	padding-top: 5px;
+	text-align: left;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.box-itemprice{
+	text-align: right;
+	padding-bottom: 10px;
+}
+
+.btn_submit {
+	float: right;
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+.helloId {
+	border-bottom: 1px solid #999;
+	padding: 0px 0 7px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: right;
+	font-size: 12px;
+}
+
+ a {
+ 	font-size: 12px;
+ 	text-decoration: none;
+ }
+ 
+ table {
+  	border-collapse: collapse;
+  	border-left: none;
+  	border-right: none;
+ }
+ 
+ td {
+ 	text-align: center;
+ 	font-size: 14px;
+ 	height: 30px;
+ }
