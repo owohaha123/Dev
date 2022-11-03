@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf Home</title>
+</head>
+<body>
+<h1>Thymeleaf 첫 페이지</h1>
+<p th:text="${d1}"></p>
+<p>[[${d2}]]</p> <!--동일-->
+<p th:utext="${d1}"></p>
+<p>[(${d1})]</p>
+<hr>
+<h2>인적 정보</h2>
+<p> 이름 : <span th:text="${pe.p_name}"></span></p>
+<p> 이름 : [[${pe.p_name}]]</p>
+<p th:text="'이름 : ' + ${pe.p_name}"></p>
+<p> 나이 : [[${pe.p_age}]]</p>
+<p> 연락처 : [[${pe.getP_phone()}]]</p>
+<hr>
+<a th:href="@{second}">[두번째 페이지]</a>
+</body>
+</html>
