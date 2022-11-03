@@ -11,4 +11,12 @@
         SELECT m_id, m_name, m_birth , m_phone FROM membertbl
         WHERE m_id=#{mid}
     </select>
+    <update id="updateMember" parameterType="MemberDto">
+        UPDATE membertbl
+        SET m_name=#{m_name}, m_birth=#{m_birth}, m_phone=#{m_phone}
+        WHERE m_id=#{m_id}
+    </update>
+    <delete id="deleteMember" parameterType="String">
+        DELETE FROM membertbl WHERE m_id=#{mid}
+    </delete>
 </mapper>

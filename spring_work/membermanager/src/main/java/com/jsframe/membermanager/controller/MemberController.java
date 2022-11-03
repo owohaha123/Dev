@@ -63,4 +63,18 @@ public class MemberController {
         // 세션 제거 후 첫 페이지로
         return "redirect:/";
     }
+
+    @PostMapping("updateProc")
+    public String updateProc(MemberDto member, HttpSession session, RedirectAttributes rttr){
+        log.info("updateProc()");
+        String view = mServ.updateMember(member, session, rttr);
+        return view;
+    }
+    @GetMapping("resignProc")
+    public String resignProc(HttpSession session, RedirectAttributes rttr){
+        log.info("resignProc()");
+        String view = mServ.resignMember(session, rttr);
+        return view;
+    }
+
 }

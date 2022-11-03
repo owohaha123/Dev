@@ -70,4 +70,49 @@ public class MemberService {
         rttr.addFlashAttribute("msg" , msg);
         return view;
     }
+
+    public String updateMember(MemberDto member, HttpSession session , RedirectAttributes rttr){
+        //회원정보를 수정하고, 세션에 로그인 정보 변경
+        log.info("updateMember()");
+        String msg = null;
+        String view = null;
+
+        try{
+            mDao.updateMember(member);
+            // 수정 시 세션에도 반영되어야 함
+            session.setAttribute("mem", mDao.selectMember(member.getM_id()));
+            msg = "수정 성공";
+            view = "redirect:main";
+        }catch (Exception e){
+            //e.printStackTrace();
+            msg = "수정 실패";
+            view = "redirect:main";
+        }
+        rttr.addFlashAttribute("msg" , msg);
+        return view;
+    }
+
+    // 회원 삭제용 메소드 (삭제+로그아웃)
+    public String resignMember(HttpSession session, RedirectAttributes rttr){
+        log.info("resignMember()");
+        String msg = null;
+        String view = null;
+        // 세션에 저장된 로그인정보로부터 사용자의 id를 가져온다.
+        MemberDto member = (MemberDto) session.getAttribute("mem");
+        String mId = member.getM_id();
+
+        try {
+            mDao.deleteMember(mId);
+            // 삭제 성공 후 로그아웃 처리
+            session.invalidate();
+            msg = "탈퇴 되었습니다";
+            view = "redirect:/";
+        }catch (Exception e){
+            //e.printStackTrace();
+            msg = "탈퇴 실패";
+            view = "redirect:main";
+        }
+        rttr.addFlashAttribute("msg" , msg);
+        return view;
+    }
 }
