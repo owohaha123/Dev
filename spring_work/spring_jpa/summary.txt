@@ -1,0 +1,91 @@
+* JPA(Java Persistence API)
+  - 자바 프로그램에서 관계형 DB 를 사용하는 방식을 정의한 인터페이스 API. (MyBatis 대용)
+  - Hibernate : JPA 구현객체
+    (JPA 는 interface, Hibernate 는 구현 class)
+     > Spring Data JPA
+       : JPA 와 Hibernate 를 사용하기 쉽게 만든 spring 라이브러리 (이것만 쓰면 됨)
+     > Entity(DTO) class 를 구현하면 해당 클래스에서 지정한 테이블 이름 및 컬럼 이름으로
+       DB 테이블을 자동으로 생성하고, CRUD 작업에 대한 메소드를 제공하고 있다
+  - 프로젝트 생성 시 선택 라이브러리
+    : Lombok , Spring Web , Thymeleaf , Spring Data JPA , DB Driver
+
+
+* JPA 초기화 전략 관련 설정 (application.properties)
+  1) spring.jpa.generate-ddl
+     - DDL 생성 시 데이터베이스의 고유 기능 사용 유무 설정
+     - true 설정 시, 관련 데이터 기반으로 서버가 시작할 때 DDL 문을 생성하여 DB에 적용
+       서버가 시작할 때마다 수행되기 때문에 false 로 설정
+  2) spring.jpa.hibernate.ddl-auto
+     - DDL 실행에 대한 설정
+       > none : 아무런 작업도 하지 않음 (DB 테이블은 따로 직접 생성)
+       > create : SessionFactory 가 시작될 때 (서버가 시작될 때) 기존 테이블을 drop 하고 새 테이블을 생성(재생성)
+       > create-drop : 서버 시작 시 테이블 Drop 및 생성, 서버 종료 시 Drop
+       > update : 기존 테이블에 해당하는 Entity 클래스가 변경되면
+                  기존 테이블을 Drop 하고 새로운 Entity 클래스가 반영된 테이블을 생성
+                  (해야 하는데 Drop 은 안하고 변경된 컬럼을 추가하는 경우도 있음)
+       > validate : Entity 와 테이블이 잘 매핑되어 있는지 확인하여 안되어 있을 경우(다를 경우) 프로그램 종료
+  3) spring.jpa.database : DBMS (MySQL , Oracle , MariaDB 등)
+  4) spring.jap.database-platform : Dialect(방언) 설정
+     Dialect ?  데이터베이스 작업은 기본적으로 공통적인 SQL 을 사용하나, 각 DBMS 별로 조금씩 상이.
+                이처럼 상이한 부분을 Dialect 라고 함
+
+
+* 사용할 테이블 정의
+  - 테이블명 : producttbl
+  - 컬럼 (jpa 할 때 컬럼명엔 _ 안 넣는게 좋음)
+    > pnum : primary key, auto_increment
+    > pname : not null, 45자
+    > price : not null
+    > amount : not null
+    > rdate : 등록시간, default 입력시간
+
+
+* 관련 어노테이션
+  1) @Entity : 해당 클래스를 entity 로 사용하겠다고 선언. 이 클래스는 jpa가 관리
+  2) @Table(name = "테이블명") : Entity 클래스를 테이블로 설정(매핑). 테이블명 지정 가능. 기본값은 클래스명
+  3) @Id : 필드 변수와 연결되는 컬럼을 기본키로 설정(생성)
+  4) @GeneratedValue : 자동으로 값을 생성하는 컬럼으로 설정
+                       MySQL 의 auto-increment 설정
+                       - strategy = GenerationType.IDENTITY 로 설정
+  5) @Column : 필드 변수를 기반으로 테이블의 컬럼을 생성하기 위한 설정
+     > name = "컬럼명" - 기본값은 변수명
+     > nullable = true/false - false 일 경우 null 허용 안 함
+     > length = 길이값(정수) - 컬럼의 크기 지정
+  6) @CreationTimestamp : Insert 시점의 일시를 저장하도록 설정
+  7) @UpdateTimestamp : Update 시점의 일시를 저장하도록 설정
+
+
+* Entity 클래스
+  - DTO 겸, 테이블 생성용 클래스
+  - 필드 변수명 작성 시 유의사항 : SQL 예약어 사용 금지
+    (insert, update, delete, select 등)
+
+
+* Jpa CrudRepository 인터페이스
+  - CRUD 처리를 위한 인터페이스.
+  - 테이블의 생성은 Entity 로 하고, DML 에 해당하는 select, insert, update, delete 관련
+    처리를 위하여 사용하는 인터페이스
+    (MyBatis 는 SQL 을 작성해줘야 하나, JPA 는 SQL 쿼리문마저 자동으로 생성)
+
+
+* Repository 인터페이스에서 제공하는 CRUD 메소드들
+  1) long count() - select count(*) from table
+  2) save(entity) - insert, update 처리
+  3) delete(entity) - delete 처리
+                      deleteById(long id) - primary key 로 delete
+  4) findBy...() - select 처리
+                   findById(long id) - primary key 로 select
+
+  @Query : 순수 SQL 을 작성하여 활용
+   활용 예)
+        @Query(value = "SELECT price FROM producttbl WHERE amount >= 10" ,
+               nativeQuery = true)
+        public int selectPrice();
+
+
+* 목록 가져오기 : findAll() - Repository 인터페이스에서 제공하는 기본 메소드
+  - 테이블의 모든 데이터를 가져오는 메소드
+  - Iterable 객체를 주기 때문에 List 로 변환하는 작업이 필요함
+
+    Iterable(Iterator) ? 비순차렬 데이터 집합을 순차적으로 처리하도록 도와주는 객체
+    DB 데이터는 대표적인 비순차형 데이터 집합. 반면 List 객체는 순차적인 데이터 집합
