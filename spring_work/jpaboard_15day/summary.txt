@@ -1,0 +1,61 @@
+New Project>
+    Name : jpaboard
+    Group : com.jsframe
+    Java : 11
+    Packaging : Jar
+    Dependence >
+      Spring Boot DevTools
+      Lombok
+      Spring Web
+      Thymeleaf
+      Spring Data JPA
+      MySQL Driver
+
+
+* board 테이블 컬럼 설계
+  - 게시글 번호 : bnum long primary key, a.i
+  - 게시글 제목 : btitle String(45) not null
+  - 작성자 이름 : bwriter String(20) not null
+  - 비밀번호 : bpwd String(20) not null
+  - 게시글 내용 : bcontent String not null
+  - 작성 시간 : rdate Timestamp (@CreationTimestamp 사용)
+
+
+* Log(로그)
+  - 총 7단계로 구성 -> 5단계만 사용
+    1. off - 로그를 찍지 않는다.
+    2. debug - 디버그 모드(개발 시)일 경우
+    3. info - 정보로서 확인이 필요한 데이터
+    4. warn - 경고(warning)로 출력(무시해도 되는 에러)
+    5. error - 에러로 출력
+    6. fatal - 심각한 에러
+    7. all - 항상 모든 로그를 찍는다.
+  - xml(설정 파일. logback.xml)에 level 속성으로 변경할 수 있다.
+    ex) level 속성을 warn 으로 설정하면 log.info(), log.debug() 메소드를 사용한 로그는 출력되지 않는다.
+  - S/W는 Debug 와 Release 모드가 있음.
+    Debug 는 개발 중일 때, Release 는 배포용 (배포용에는 대부분의 로그를 제거)
+
+
+* 글 작성 및 파일 업로드와 다운로드
+  - Multi-part
+    : 한 웹 문서 안에 문자와 바이너리 데이터(이미지, 동영상, 오디오 및 다양한 형식 파일)가 같이 포함되어 있는 형태
+    : ※ multiple 과 multi-part 는 관계 없음!
+  - application.properties에 multi-part 관련 설정.
+     > 업로드 파일의 최대 크기 : max-file-size
+     > 요청 객체에 담을 수 있는 최대 크기 : max-request-size
+
+
+* input 태그 file
+  - 파일 전송을 위한 입력 태그.
+  - 단일 전송(single)과 다중 전송(multiple)을 설정 (기본값은 단일 전송)
+  - 파일 태그는 디자인 변경이 용이하지 않기 때문에 label 태그를 사용하여 CSS 처리 (이 때 파일 태그는 숨김 처리함)
+    대신 선택한 파일명을 보이기 위해서 javascript 로 파일명을 또 다른 입력 태그에 출력하도록 함.
+     > 파일 1개 일 경우 : 파일명을 그대로 출력
+     > 파일이 2개 이상일 경우 : '첫번째-파일명 외 00개' 로 출력
+  - 파일의 저장 위치
+    : DB에 내용과 함께 저장 vs. DB 에는 내용만, 파일은 따로 저장.
+  - 업로드 파일의 정보
+     > 업로드 파일 번호 : 자동증가
+     > 게시글 번호 : 게시글 테이블의 pk. -> 외래키
+     > 파일 저장 이름 : 서버에 저장하는 실제 파일 이름.(시간 - 밀리초 값을 사용)
+     > 파일 원래 이름 : 다운로드 시 원래 이름을 사용.
