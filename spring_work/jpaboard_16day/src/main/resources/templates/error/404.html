@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>페이지 없음</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<th:block th:include="header.html"></th:block>
+<div class="content">
+    <div class="write-form">
+        <h2 class="login-header">요청하신 페이지가 없습니다.</h2>
+        <p th:text="${'경로 : ' + path}"></p>
+        <p th:text="${'상태 : ' + status}"></p>
+        <p th:text="${'발생시간 : ' + timestamp}"></p>
+        <p th:text="${'오류 : ' + error}"></p>
+    </div>
+</div>
+<th:block th:include="footer.html"></th:block>
+</body>
+</html>
