@@ -7,7 +7,7 @@ public class PagingUtil {
     private int totalPage; // 전체 페이지의 개수
     private int pageNum; // 현재 보이고 있는 페이지 번호
     private int pageCnt; // 보여질 페이지 번호의 개수
-    private String listName; // 여러 게시판이 있을 경우 게시판을 구분하는 url 지정
+    private String listName; // 게시판이 여러개일 경우 게시판을 구분하는 url 지정
 
     // 페이징용 HTML 코드를 만드는 메소드
     public String makePaging(){

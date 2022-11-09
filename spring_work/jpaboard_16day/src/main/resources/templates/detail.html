@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>상세보기</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+<th:block th:include="header.html"></th:block>
+<div class="content">
+  <div class="write-form">
+    <h2 class="login-header">상세 보기</h2>
+    <!-- 게시글 상세 내용 출력(div) -->
+    <div>
+      <div class="t_content p-15">NUM</div>
+      <div class="d_content p-85" th:text="${board.bnum}"></div>
+    </div>
+    <div>
+      <div class="t_content p-15">WRITER</div>
+      <div class="d_content dp-30" th:text="${board.bwriter}"></div>
+      <div class="t_content p-15">DATE</div>
+      <div class="d_content dp-40" th:text="${#dates.format(board.rdate,'yyyy-MM-dd HH:mm:ss')}"></div>
+    </div>
+    <div>
+      <div class="t_content p-15">TITLE</div>
+      <div class="d_content p-85" th:text="${board.btitle}"></div>
+    </div>
+    <div>
+      <div class="t_content p-15 content_h">CONTENTS</div>
+      <div class="d_content p-85 content_h">
+        <div class="content_in" th:text="${board.bcontent}"></div>
+      </div>
+    </div>
+    <div>
+      <div class="t_content p-15 file_h">FILES</div>
+      <div class="d_content p-85 file_h" style="overflow: auto;">
+        <th:block th:if="${#lists.isEmpty(bfList)}">
+          첨부된 파일이 없습니다.
+        </th:block>
+        <th:block th:unless="${#lists.isEmpty(bfList)}">
+          <th:block th:each="bf:${bfList}">
+            <a th:href="@{download(bfsysname=${bf.bfsysname},bforiname=${bf.bforiname})}">
+              <span class="file-title" th:text="${bf.bforiname}"></span>
+            </a>
+          </th:block>
+        </th:block>
+      </div>
+    </div>
+    <div class="btn-area">
+      <button class="btn-write" id="upbtn">U</button>
+      <button class="btn-write" id="delbtn">D</button>
+      <button class="btn-sub" id="backbtn">B</button>
+    </div>
+  </div>
+</div>
+<th:block th:include="footer.html"></th:block>
+</body>
+<script th:inline="javascript">
+  let msg = [[${msg}]];
+  if(msg != null){
+    alert(msg);
+  };
+
+  $("#backbtn").click(function () {
+    location.href = "/?pageNum=" + [[${session.pageNum}]];
+  });
+
+  $("#upbtn").click(function (){
+    let pw = prompt("비밀번호를 입력하세요.");
+    console.log(pw);
+    if(pw == null || pw == ""){
+      alert("비밀번호가 입력되지 않았습니다.");
+      return;
+    }
+
+    if(pw == [[${board.bpwd}]]){
+      location.href = "updateFrm?bnum=" + [[${board.bnum}]];
+    }else{
+      alert("비밀번호가 틀립니다.")
+    }
+  })
+
+  // 게시글 삭제
+  $("#delbtn").click(function (){
+    let pw = prompt("비밀번호를 입력하세요");
+    if(pw == null || pw == ""){
+      alert("비밀번호가 입력되지 않았습니다.");
+      return;
+    }
+
+    if(pw == [[${board.bpwd}]]){
+      location.href = "delete?bnum=" + [[${board.bnum}]];
+    }else{
+      alert("비밀번호가 틀립니다.");
+    }
+  })
+</script>
+</html>

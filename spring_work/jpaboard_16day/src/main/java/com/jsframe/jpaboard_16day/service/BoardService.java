@@ -7,10 +7,16 @@ import com.jsframe.jpaboard_16day.repository.BoardRepository;
 import com.jsframe.jpaboard_16day.util.PagingUtil;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.CacheControl;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,6 +25,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.List;
 
 @Service
@@ -115,20 +124,120 @@ public class BoardService {
         mv.addObject("bList" , bList);
         mv.addObject("paging", paging);
 
+        // 현재 보이는 페이지의 번호를 저장
+        // 세션에 저장하는 이유?
+        session.setAttribute("pageNum", pageNum);
+
         return mv;
     }
 
-    // 페이지 처리 메소드
-    private String getPaging(Integer pageNum, int totalPage) {
+    // 페이징 처리 메소드
+    private String getPaging(int pageNum, int totalPage) {
         String pageHtml = null;
-        int pageCnt = 2;//보여질 페이지 번호 개수
+        int pageCnt = 2;//보여질 페이지 번호 개수(조정)
         String listName = "?";//게시판 분류 이름(현재 없음)
 
-        PagingUtil paging = new PagingUtil(totalPage, pageNum,
-                pageCnt, listName);
+        PagingUtil paging = new PagingUtil(totalPage, pageNum, pageCnt, listName);
 
         pageHtml = paging.makePaging();
 
         return pageHtml;
+    }
+
+    public ModelAndView getBoard(long bnum){
+        log.info("getBoard()");
+        mv = new ModelAndView();
+
+        // 게시글 가져와서 담기
+        Board board = bRepo.findById(bnum).get();
+        mv.addObject("board" , board);
+
+        // 첨부파일(목록) 가져와서 담기
+        // 하나여도 목록으로 처리해야 함
+        List<BoardFile> bfList = bfRepo.findByBfbid(board);//외래키 사용하여 작명
+        mv.addObject("bfList" , bfList);
+
+        return mv;
+    }
+
+    // 파일 다운로드 처리 메소드
+    public ResponseEntity<Resource> fileDownload(BoardFile bfile, HttpSession session)throws IOException {
+        log.info("fileDownload()");
+        // 파일 저장 경로 구하기
+        String realpath = session.getServletContext().getRealPath("/");
+        realpath += "upload/" + bfile.getBfsysname();
+
+        InputStreamResource fResource = new InputStreamResource(new FileInputStream(realpath));
+
+        // 파일명이 한글인 경우의 처리(UTF-8 로 인코딩 처리)
+        String fileName = URLEncoder.encode(bfile.getBforiname(), "UTF-8");
+
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                .cacheControl(CacheControl.noCache())
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + fileName)
+                .body(fResource);
+    }
+
+    //게시글 수정
+    @Transactional
+    public String boardUpdate(List<MultipartFile> files, Board board, HttpSession session, RedirectAttributes rttr){
+        log.info("boardUpdate()");
+        String msg = null;
+        String view = null;
+
+        try {
+            bRepo.save(board); // insert, update 겸용
+            fileUpload(files, session, board);// 신규 파일 업로드 처리
+
+            msg = "수정 성공";
+            view = "redirect:detail?bnum=" + board.getBnum();
+        }catch (Exception e){
+            e.printStackTrace();
+            msg = "수정 실패";
+            view = "redirect:updatrFrm?bnum=" + board.getBnum();
+        }
+        rttr.addFlashAttribute("msg" , msg); // 메시지 전달.
+        return view;
+    }
+
+    // 게시글 및 관련 파일 삭제
+    @Transactional
+    public String boardDelete(long bnum, HttpSession session, RedirectAttributes rttr){
+        log.info("boardDelete()");
+        String msg = null;
+        String view = null;
+
+        Board board = new Board();
+        board.setBnum(bnum);
+
+        String realPath = session.getServletContext().getRealPath("/");
+        realPath += "upload/";
+
+        List<BoardFile> bfList = bfRepo.findByBfbid(board);
+        try {
+            // 파일 삭제
+            for (BoardFile bf : bfList){
+                String delPath = realPath + bf.getBfsysname();
+                File file = new File(delPath);
+
+                if(file.exists()){
+                    file.delete(); // 파일이 있으면 삭제
+                }
+            }
+            // 파일 정보 삭제(DB)
+            bfRepo.deleteByBfbid(board);
+            // 게시글 삭제
+            bRepo.deleteById(bnum);
+
+            msg = "삭제 성공";
+            view = "redirect:/";
+        }catch (Exception e){
+            e.printStackTrace();
+            msg = "삭제 실패";
+            view = "redirect:detail?bnum=" + bnum;
+        }
+        rttr.addFlashAttribute("msg" , msg);
+        return view;
     }
 }// class end

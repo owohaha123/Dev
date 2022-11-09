@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>글수정</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+<th:block th:include="header.html"></th:block>
+
+<div class="content">
+	<form th:action="@{updateProc}" method="post" class="write-form" enctype="multipart/form-data">
+		<h2 class="login-header">글 수정</h2>
+		<th:block th:object="${board}">
+			<input type="hidden" name="bnum" th:value="*{bnum}">
+			<input type="hidden" name="rdate" th:value="*{rdate}">
+			<input type="text" class="write-input" th:value="*{btitle}"
+				   name="btitle" autofocus placeholder="제목"
+				   required>
+			<input type="text" class="write-input" th:value="*{bwriter}"
+				   name="bwriter" placeholder="작성자"
+				   required>
+			<input type="password" class="write-input" th:value="*{bpwd}"
+				   name="bpwd" placeholder="비밀번호"
+				   required>
+			<textarea rows="15" name="bcontent"
+					  placeholder="내용을 적어주세요."
+					  class="write-input ta"
+					  th:text="*{bcontent}"></textarea>
+		</th:block>
+		<div class="filebox">
+			<div class="d_content file_h" style="overflow: auto; width: 100%;">
+				<th:block th:if="${#lists.isEmpty(bfList)}">
+					첨부된 파일이 없습니다.
+				</th:block>
+				<th:block th:unless="${#lists.isEmpty(bfList)}">
+					<th:block th:each="bf:${bfList}">
+							<span class="file-title" th:text="${bf.bforiname}"></span>
+					</th:block>
+				</th:block>
+			</div>
+			
+			<!-- 파일 입력 처리 영역 -->
+			<label for="file">업로드</label>
+			<input type="file" name="files" id="file"
+				   multiple>
+			<input type="text" class="upload-name"
+				   value="파일선택" readonly>
+		</div>
+		<div class="btn-area">
+			<input type="submit" class="btn-write" value="U">
+			<input type="reset" class="btn-write" value="R">
+			<input type="button" class="btn-write" value="B" id="backbtn">
+		</div>
+	</form>
+</div>
+<th:block th:include="footer.html"></th:block>
+</body>
+<script th:inline="javascript">
+		let msg = [[${msg}]];
+		if(msg != null){
+		alert(msg);
+	};
+
+	$("#backbtn").click(function () {
+		location.href = "detail?bnum=" + [[${board.bnum}]];
+	});
+
+		//파일 업로드 시 선택한 파일명 출력
+		$("#file").on("change", function () {
+			//파일 입력창(input type=file)에서 파일 목록 가져오기
+			let files = $("#file")[0].files;
+			console.log(files);
+
+			let fileName = "";
+
+			if(files.length > 1){//하나 이상의 파일을 선택했을 경우
+				fileName = files[0].name + " 외 "
+						+ (files.length - 1) + "개";
+			}
+			else if(files.length == 1) {
+				fileName = files[0].name;
+			}
+			else {//파일 선택 창에서 '취소' 버튼을 클릭
+				fileName = "파일선택";
+			}
+
+			$(".upload-name").val(fileName);
+		});
+
+		$(document).on("click" , ".file-title" , function (){
+			console.log(this)
+		})
+</script>
+</html>
