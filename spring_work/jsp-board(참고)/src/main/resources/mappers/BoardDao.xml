@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jsframe.jspboard.dao.BoardDao">
+	
+	<select id="boardListSelect" 
+		parameterType="ListDto"
+		resultType="BoardDto">
+		SELECT * FROM blist 
+		<if test="colname != null and colname != ''">
+		WHERE ${colname} LIKE concat('%',#{keyword},'%')
+		</if>
+		LIMIT #{pageNum}, #{listCnt}
+	</select>
+	
+	<select id="bcntSelect"
+		parameterType="ListDto"
+		resultType="int">
+		SELECT count(*) FROM blist
+		<if test="colname != null and colname != ''">
+		WHERE ${colname} LIKE concat('%',#{keyword},'%')
+		</if>
+	</select>
+	
+	<insert id="boardInsert" 
+		parameterType="BoardDto"
+		useGeneratedKeys="true" keyProperty="b_num">
+		<selectKey keyProperty="b_num" resultType="Integer"
+			order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO board
+		VALUES (NULL,#{b_title},#{b_contents}, #{b_id},
+			DEFAULT,DEFAULT)
+	</insert>
+	
+	<insert id="fileInsert" parameterType="BfileDto">
+		INSERT INTO boardfile
+		VALUES (NULL,#{bf_bnum},#{bf_oriname},#{bf_sysname})
+	</insert>
+	
+	<select id="boardSelect" parameterType="Integer"
+		resultType="BoardDto">
+		SELECT * FROM blist WHERE b_num=#{bnum}
+	</select>
+	<select id="fileSelect" parameterType="Integer"
+		resultType="BfileDto">
+		SELECT * FROM boardfile WHERE bf_bnum=#{bnum}
+	</select>
+	<select id="replySelect" parameterType="Integer"
+		resultType="ReplyDto">
+		SELECT * FROM rlist WHERE r_bnum=#{bnum}
+	</select>
+	<select id="replySelectLast" parameterType="Integer"
+		resultType="ReplyDto">
+		SELECT * FROM rlist WHERE r_num=#{r_num}
+	</select>
+
+	<insert id="replyInsert" parameterType="ReplyDto"
+		useGeneratedKeys="true" keyProperty="r_num">
+		<selectKey keyProperty="r_num" resultType="Integer"
+				   order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO reply 
+		VALUES (NULL,#{r_bnum},#{r_contents},#{r_id},DEFAULT)
+	</insert>
+	
+	<delete id="fileDelete" parameterType="String">
+		DELETE FROM boardfile WHERE bf_sysname=#{sysname}
+	</delete>
+	
+	<update id="boardUpdate"
+		parameterType="BoardDto">
+		UPDATE board SET b_title=#{b_title}, 
+						 b_contents=#{b_contents}
+		WHERE b_num=#{b_num}
+	</update>
+
+	<delete id="replyDelete" parameterType="Integer">
+		DELETE FROM reply WHERE r_bnum=#{bnum}
+	</delete>
+	<delete id="fListDelete" parameterType="Integer">
+		DELETE FROM boardfile WHERE bf_bnum=#{bnum}
+	</delete>
+	<delete id="boardDelete" parameterType="Integer">
+		DELETE FROM board WHERE b_num=#{bnum}
+	</delete>
+	<update id="boardRpUpdate" parameterType="Integer">
+		UPDATE board
+		SET b_views=b_views + 1
+		WHERE b_num=#{bnum}
+	</update>
+</mapper>
+
+
+
