@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    //------------------2. 템플릿 리터럴 ---------------------    
+    let str1 = ', ';
+    let str2 = 'World!';
+    let str3 = `Hello${str1}${str2}`;
+    console.log(str3); // Hello, World!
+
+
+    //------------------3. 구조 분해 할당---------------------
+    const arr = [1, 2, 3];
+    console.log(arr[0]);// 1 (개별적인 사용)
+    // let a1 = arr[0];
+    // let a2 = arr[1];
+    // let a3 = arr[2];
+    let [one, two, three] = arr;
+    console.log(one, two, three); // 1 2 3
+    //객체 분해
+    const employee = {
+        company: "ICIA",
+        name: "Hong",
+        age: 23
+    }
+    let { company: comp, name, age } = employee;
+    // console.log(company);
+    console.log(comp); // ICIA
+
+
+    //-----------------4. Spread Operator(...)---------------------
+    let arr1 = [1, 2, 3, 4];
+    let arr2 = arr1; //얕은 복사(shallow copy)
+    arr2[2] = 5;
+    console.log(arr1); // 1 2 5 4
+
+    let arr3 = [];
+    for (let i = 0; i < arr1.length; i++) {
+        arr3.push(arr1[i]); //깊은 복사(deep copy)
+    }
+    arr3[2] = 15;
+    console.log(arr1); // 1 2 5 4
+    console.log(arr3); // 1 2 15 4
+
+    arr4 = [...arr1]; // [...] : deep copy 생략
+    arr4[3] = 100;
+    console.log(arr1); // 1 2 5 4
+    console.log(arr4); // 1 2 4 100
+
+    arr5 = [5, ...arr1, 6];
+    console.log(arr5); // 5 1 2 5 4 6
+
+    employee2 = { ...employee }; //객체 복제
+    employee2.company = '중앙';
+    console.log(employee); // 23 "ICIA" "Hong"
+    console.log(employee2); // 23 "중앙" "Hong"
+
+
+    //-----------------5. Default Parameter(기본 매개 변수)---------------------
+    function add1(a = 0, b = 1) { // 기본 매개 변수
+        return a + b; 
+    }
+    let res1 = add1();
+    let res2 = add1(3,5);
+    console.log(res1); // 1
+    console.log(res2); // 8
+    
+    console.log(add2(3, 4)); // 7 (add2 hoisting)
+    function add2(a, b) {
+        return a + b;
+    }
+
+    //console.log(add3(5, 8)); // add3 호이스팅 불가
+    const add3 = function (a, b) {
+        return a + b;
+    }
+    console.log(add3(5, 8)); // 13 ()
+
+
+    //----------------- 6. 화살표 함수 ---------------------
+    const add4 = function (a, b) {
+        return a + b;
+    }
+    const add4_1 = (a, b) => {
+        return a + b;
+    }
+    const add4_2 = (a, b) => a + b;
+
+    const nowdate1 = function () {
+        let d = new Date();
+        return d;
+    }
+    const nowdate2 = function () {
+        return new Date();
+    }
+    const nowdate3 = () => new Date();
+
+    // 5) return에 객체를 보내는 경우 () 필수
+    const objReturn = function (x) {
+        objx = {
+            xfact: x,
+            yfact: 10
+        };
+        return objx;
+    }
+    const objReturn2 = x => ({ xfact: x, yfact: 10 });
+
+</script>
+
+</html>
