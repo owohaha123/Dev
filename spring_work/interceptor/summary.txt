@@ -1,0 +1,18 @@
+* Session Interceptor(세션 인터셉터)
+  - view 에서 Controller 로 넘어가는 요청(request)을 가로채서 일정 작업을 수행하는 객체
+  - client - (request) - Dispatcher Servlet
+  - 작업)
+    1. 인터셉터 클래스 작성
+    2. 설정을 통해 해당 인터셉터 클래스를 등록하고, 사용설정을 한다
+       > 인터셉터 클래스 작성
+         1) HandlerInterceptorAdapter 클래스를 상속받아서 작성
+       > 두 가지 메소드를 작성
+         1) preHandle()
+            - 컨트롤러 들어가기 전에 할 일 작성
+            - request 객체에서 세션을 꺼내서 확인.
+              로그인 정보가 없을 경우 다시 처음 페이지로 돌려보냄
+         2) postHandle()
+            - 컨트롤러 이후 할 일 작성
+
+    참고) Spring Framework 가 자동으로 처리하도록 클래스를 등록하는 어노테이션
+         : controller, service, component
