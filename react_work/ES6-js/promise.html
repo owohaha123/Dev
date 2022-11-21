@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.11.21">
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+    <button id="prm" onclick="ckbtn()">프로미스</button>
+</body>
+
+<!-- script -->
+<script>
+    const promi = (param) => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if(param === 'suc'){
+                    resolve("성공");
+                } else{
+                    reject("실패");
+                }
+            },1000);
+        });
+    };
+    // 위의 함수를 일반함수로 작성하면...
+    const promi2 = function(param){
+        return new Promise(function(resolve, reject){
+            setTimeout(function(){
+                if(param === 'suc'){
+                    resolve("성공");
+                } else{
+                    reject("실패");
+                }
+            },1000);
+        });
+    };
+
+    function ckbtn(){
+        let i = prompt("입력");
+        promi(i)
+        .then(v => console.log(v))
+        .catch(e => console.log(e))
+        .finally(console.log("프로미스 끝"))
+    }
+
+</script>
+</html>
