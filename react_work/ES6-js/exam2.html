@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- head -->
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="yunusss">
+   <meta name="date" content="2022.11.21">
+   <title></title>
+</head>
+
+<!-- body -->
+<body>
+
+</body>
+
+<!-- script -->
+<script>
+    // --------------------  7. Array Helper -------------------------
+
+    // ----1) forEach
+    const numArr = [1,2,3,4,5,6,7,8,9,10];
+    // numArr.forEach(function(v, i, a){
+    //     //a.shift(); // 처음 위치의 요소를 제거하고 출력
+    //     //console.log(v); // 숫자 순서대로 (1~10)
+    //     //console.log(i); // 배열기준 순서 (0~9)
+    //     console.log(a); // 배열 ({1~10})
+    // });
+    // ------ 위 함수를 화살표 함수로 작성하면...
+    numArr.forEach((v,i,a) => {
+        a.shift();
+        console.log(a);
+    });
+
+    // ----2) map
+    const mapArr = [1, 4, 6, 9, 16];
+    // const mapArr1 = mapArr.map(function(x){
+    //     x = x * 2;
+    //     return x;
+    // });
+    const mapArr1 = mapArr.map(x => x * 2);
+    console.log(mapArr1);
+    console.log(mapArr);
+
+    // ----3) filter
+    const numArr2 = [1,2,3,4,5,6,7,8,9,10];
+    // const highArr = numArr2.filter(function(v){
+    //     return v > 5;
+    // });
+    const highArr = numArr2.filter(v => v > 5);
+    const lowArr = numArr2.filter(v => v <= 5);
+    console.log(highArr);
+    console.log(lowArr);
+
+    // ----4) find & findIndex
+    const fValue = numArr2.find(v => v > 5);
+    const fIndex = numArr2.findIndex(v => v > 5);
+    // const fValue = numArr2.find(v => v > 10); // undefined
+    // const fIndex = numArr2.findIndex(v => v > 10); // -1
+    console.log(fValue);
+    console.log(fIndex);
+
+    // ----5) every
+    const e1 = numArr2.every(v => v > 0);
+    const e2 = numArr2.every(v => v >= 2);
+    console.log(e1);
+    console.log(e2);
+
+    // ----6) some
+    const e3 = numArr2.some(v => v < 0);
+    const e4 = numArr2.some(v => v >= 10);
+    console.log(e3); // false
+    console.log(e4); // true
+
+    // ----7) reduce
+    let iv = 100;
+    const sum = numArr2.reduce((acc, v) => acc + v, iv);
+    console.log(sum);  // 155
+
+</script>
+</html>
