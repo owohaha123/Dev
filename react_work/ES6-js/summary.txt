@@ -70,7 +70,7 @@
      - 배열과 관련된 작업을 보다 깔끔하게 처리할 수 있도록 지원하는 것들.
      - 화살표 함수와 함께 사용
      1) forEach - 배열의 처음 요소부터 순서대로 사용하도록 지원
-        array.horEach(function(value, index, arr){...})
+        array.forEach(function(value, index, arr){...})
         arr : 원본 배열(변경할 필요가 있을 경우 사용)
      2) map - 배열 내의 모든 요소 각각에 대하여 연산을 수행, 그 결과로 새 배열 생성 (원본 배열 유지)
         array.map(function(value, index, arr){...})  
