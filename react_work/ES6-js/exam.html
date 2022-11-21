@@ -64,6 +64,17 @@
     console.log(employee); // 23 "ICIA" "Hong"
     console.log(employee2); // 23 "중앙" "Hong"
 
+    //------- 가변 param 처리 (param의 개수가 명확히 지정x)
+    function sumNumber(...args){ 
+        let sum = 0;
+        for(let v of args){
+            sum += v;
+        }
+        return sum;
+    }
+    console.log(sumNumber(1,2));//3
+    console.log(sumNumber(1,2,3,4,5));//15
+
 
     //-----------------5. Default Parameter(기본 매개 변수)---------------------
     function add1(a = 0, b = 1) { // 기본 매개 변수
