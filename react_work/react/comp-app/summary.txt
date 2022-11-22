@@ -1,0 +1,73 @@
+* Component(컴포넌트)
+  - 리액트 프로그램의 기본 모듈 단위
+  - 함수형 컨포넌트와 클래스형 컴포넌트가 있음
+  - 기본 작성(생성)되는 컴포넌트 : App
+  - 작성규칙
+    1) 컴포넌트 파일명과 컴포넌트 이름은 동일하게 작성
+    2) 컴포넌트 파일의 시작은 
+       import React from 'React';
+    3) 컴포넌트 파일의 마지막은
+       export default 컨포넌트명;
+    4) 컴포넌트명의 첫글자는 대문자 (카멜케이스 활용)  
+  - 컴포넌트 가져오기 (import로 가져와서 사용)
+     > import 컴포넌트명 from './컴포넌트파일명';
+  - 컴포넌트 내보내기
+     > export default 컨포넌트명;
+  - 컴포넌트 경로
+    (src 폴더 밑에 하위 폴더를 만들어서 컴포넌트를 작성할 경우)
+     > import 컴포넌트명 from './폴더/컴포넌트명';
+
+
+* props (프로퍼티)
+  - 부모 컴포넌트에서 자식 컨포넌트에 데이터 보내는 기능?
+  - 자식 컴포넌트에서 이 데이터는 읽기 전용임
+
+  1) 속성으로 보내기
+     - 부모 컴포넌트에서는 자식 컴포넌트 요소에 작성
+       (예. title, writer)를 작성
+     - 위에 작성한 속성이 props에 함께 묶여 넘어감
+     - 자식 컴포넌트의 출력 위치에 {props.title}를 작성
+  2) props의 기본값 설정 : defaultProps
+     컴포넌트명.defaultProps = {
+        속성1 : 기본값,
+        속성2 : 기본값   
+     }
+  3) 객체로 데이터를 묶어서 보내기
+     - 객체 형식을 사용하여 데이터를 전달하면
+       'props.객체명.변수명' 으로 출력할 수 있다.
+  4) content로 데이터 보내기
+     - 부모 컨포넌트에서 자식 컴포넌트의 시작태그와 종료태그 사이에 값을 입력하면
+       props.children으로 전달된다
+     - 자식 컴포넌트의 출력 위치에 {props.children} 작성
+     - HTML 요소(element)의 구성
+       <시작태그 속성=속성값>내용(content)</종료태그>
+  5) props 내부 값 추출
+     - 자식 컴포넌트에서 구조 분해 할당 활용
+  6) props 타입 검증
+     - propTypes를 통한 검증
+     - 타입이 맞지 않으면 콘솔에 경고(warning) 출력
+     - prop-types 라이브러리 필요
+  7) 필수 입력 요소 확인
+     - isRequired를 통한 전달값 유무 확인
+     - 없을 경우 콘솔에 경고 출력
+     - PropTypes.자료형.isRequired
+
+
+* Font-awesome 아이콘 사용하기
+  1. 기본 패키지 설치
+     npm i @fortawesome/fontawesome-svg-core
+  2. 아이콘 패키지 설치   
+     npm i @fortawesome/free-solid-svg-icons
+     npm i @fortawesome/free-regular-svg-icons
+  3. 리액트용 컴포넌트
+     npm i @fortawesome/react-fontawesome@latest
+
+
+
+  - React js snippet 단축키
+    rcc	클래스 컴포넌트 생성
+    rrc	클래스 컴포넌트와 react-redux 리덕스를 연결하여 생성
+    rcjc import와 export 없이 클래스 컴포넌트 생성
+    rwwd import 없이 클래스 컴포넌트 생성
+    rsc	화살표 함수형 컴포넌트 생성
+    rsf	함수형 컴포넌트 생성
