@@ -1,0 +1,18 @@
+* React
+  - 메타(메타 플랫폼, 페이스북)에서 개발한 오픈 소스
+  - 자바스크립트 라이브러리
+  - SPA(Single Page Application)를 전제로 하는 라이브러리
+  - 기본적으로 모듈형 개발이기 때문에 생산성 또한 상당히 높은 라이브러리
+  - 전체 페이지를 분할하여 조합하는 방식. 분할된 조각을 component 라고 함
+    (HTML 요소의 Element = Component(xxx.js))
+
+  1. 개발환경
+     - Node.js 설치 (https://nodejs.org/ko/) > LTS 버전 설치
+     - Vscode 활용
+  2. 프로젝트 생성 (vscode 터미널)
+     - 명령어 : npx create-react-app 『프로젝트명』
+     - 프로젝트 생성 완료 후
+       파일 > 폴더열기 : 프로젝트명 폴더 선택
+
+
+
