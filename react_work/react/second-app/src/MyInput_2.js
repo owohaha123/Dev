@@ -12,7 +12,7 @@ const MyInput_2 = () => {
     const onch = (e) => {
       const newForm = {
         ...form, //기존 form의 내용이 그대로 복제
-        [e.target.name]: e.target.value,
+        [e.target.name]: e.target.value, // = uname: e.target.value
         //입력이 들어온 input 요소의 value를 변경하는 코드
       };
       setForm(newForm);
