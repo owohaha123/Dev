@@ -31,7 +31,7 @@ const Header = (props) => {
     return (
         <div style={HeaderBar}>
             <div style={HeaderContent}>
-                <div><FontAwesomeIcon icon={faHouse} size="2x" style={IconStyle} /></div>
+                <FontAwesomeIcon icon={faHouse} size="2x" style={IconStyle} />
                 <h1 style={HeaderTitle}>{props.title}</h1>
                 <div>
                     <span style={MenuItem}>{props.nav.home}</span>
