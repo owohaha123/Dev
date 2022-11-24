@@ -7,6 +7,7 @@ import MyInput_1 from "./MyInput_1";
 import MyInput_2 from "./MyInput_2";
 import MyList from './MyList';
 import CafeMenu from './CafeMenu';
+import CafeMenu2 from './CafeMenu2';
 
 
 function App() {
@@ -32,6 +33,8 @@ function App() {
       <MyList/>
       <br/>
       <CafeMenu/>
+      <br/>
+      <CafeMenu2/>
     </div>
   );
 }
