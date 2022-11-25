@@ -1,0 +1,35 @@
+//변수 사용
+//색상 값을 변수에 저장하여 사용
+$red: #fa5252;
+$orange: #fd7e14;
+
+//mixin 재사용 가능한 스타일 블록(일종의 함수처럼 사용)
+@mixin square($size) {
+    $cal: 50px * $size;
+    width: $cal;
+    height: $cal;
+}
+
+.SassComp {
+    display: flex;
+
+    .box {
+        background: red;
+        cursor: pointer;
+        transition: all 0.3s ease-in;
+
+        &.red {
+            background: $red;
+            @include square(1); //width, height 설정
+        }
+
+        &.orange {
+            background: $orange;
+            @include square(2);
+        }
+
+        &:hover {
+            background: black;
+        }
+    }
+}
