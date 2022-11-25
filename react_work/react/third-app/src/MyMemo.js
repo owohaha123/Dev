@@ -25,7 +25,7 @@ const MyMemo = () => {
         setNumber("");
     }, [number, list]);//number나 list가 변경될 때만 실행
 
-    // useMemo 메모를 활용
+    // useMemo 활용
     // list에 새로운 값이 추가될 때만 log 찍히게 정리
     const avg = useMemo(() => getAverage(list), [list])
 
