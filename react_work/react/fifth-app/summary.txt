@@ -1,0 +1,55 @@
+* css에서 주로 사용되는 단위 7가지 (반응형 웹)
+  - rem(root em)
+    : em은 출판업계에서 사용하는 글자크기 단위(M기준)
+    : html 태그에 정의된 크기를 기준으로 그 배수에 해당하는 크기를 지정할 때 사용
+      html 태그에 정의된 크기는 일반적으로 브라우저의 기본설정값
+      예)html 태그 : font-size: 20px일 때, 1rem은 20px, 1.5rem은 30px
+  - vw, vh
+    : v = Viewport 기반의 너비와 높이 (디바이스에 따라 다름)
+  - vmin : Viewport 길이 기준 최소값
+  - vmax : Viewport 길이 기준 최대값
+  - ch : 문자 '0'의 너비값을 기준으로 하는 단위
+  - ex : 문자 'x'의 높이값 기준(em의 절반값)
+  
+
+* Sass(Syntactically Awesome Style Sheets)
+  - css 의 pre-processor(전처리기)
+  - 복잡한 css 코딩 작업 용이, 코드 재사용성 및 가독성 높임, 유지보수 원할
+  - 두가지 확장자 지원 : sass, scss (작성문법이 다름)
+    sass : css에서 {}와 ; 제거
+    scss : 두 가지 사용하여 작성 (css와 동일)
+  - 라이브러리 설치 필요 (node.js 16.16.0 버전)
+    npm i node-sass  
+  - 스타일 계층화
+    > 한 스타일 내부에 가상 선택자를 활용한 액션(하위) 스타일 설정
+    > '&' 스타일이 적용될 요소 선택자
+
+
+* sass 기본 제공 함수
+  - lighten(색상, 배율): 요소의 색상을 밝게 처리
+  - darken(색상, 배율): 요소의 색상을 어둡게 처리
+
+* Properties(props)를 활용한 버튼 크기 설정
+  - 크기 단위 : large, medium(기본), small
+  - 크기 단위도 클래스 -> Button에 두개의 클래스가 설정되는 방식
+  - props를 활용한 버튼색상 설정
+    > 색상 종류 : blue, gray, pink
+    > 색상 종류도 클래스 -> Button에 3개의 클래스가 설정
+  - sass 제공하는 함수형 스타일 작성 키워드
+    > @mixin - 함수를 정의하는 키워드
+        @mixin mName (arg1, arg2, ...){
+            ....//스타일 정의
+        }
+    > @include - 정의된 mixin을 사용하는 키워드  
+        @include nName(값1, 값2, ...)
+  - props를 활용한 아웃라인 형식 설정
+    > 옵션 형식으로 전달      
+
+
+* classnames 라이브러리
+  - jsx 클래스명 처리와 관련된 라이브러리
+  - 조건부로 클래스명을 적용할 때 유용한 라이브러리  
+    npm i classnames
+  - 예)  
+    classnames('c1','c2'); => class="c1 c2"
+    classnames('c1',{c2: false}); => class="c1"
