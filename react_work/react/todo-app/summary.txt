@@ -1,0 +1,10 @@
+* 일정관리 앱 (to-do list)
+  - 추가 라이브러리
+    1) sass 사용 : npm i node-sass
+    2) classNames 사용 : npm i classnames
+    3) React icon 사용 : npm i react-icons
+  - 앱 구성
+    1) TodoTemplate : 입력창, 할 일 목록을 담는 컴포넌트
+    2) TodoInsert : 입력창 컴포넌트
+    3) TodoList : 할 일 목록 컴포넌트
+    4) TodoListItem : 할 일 항목 컴포넌트
