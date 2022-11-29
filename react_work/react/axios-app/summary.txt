@@ -1,0 +1,37 @@
+* Back-end 서버와의 연동 - Axios
+  - 비동기 통신을 기반으로 한 서버 연동(REST-ful)
+  - Promise 기반으로 XmlHttpRequest 요청을 쉽게 처리해주는 axios 라이브러리를 사용.
+    설치> npm i axios
+  - 전송 방식에 따른 axios 작성법
+    1) get 방식 : axios.get(url[, data])
+    2) post 방식 : axios.post(url[, data])
+  - 공통 처리 함수
+    1) .then(함수)
+      - 전송 성공 시 실행할 작업을 작성하는 부분.
+      - reponse에 담겨서 넘어오는 데이터를 처리하거나,
+        성공 시 페이지 이동 등의 작업을 수행하도록 함수를 구성
+        (ajax의 success 부분과 동일)
+    2) .catch(함수)
+      - 전송 실패 시 실행할 작업을 작성하는 부분.
+      - error에 담겨서 넘어오는 내용과 관련 작업을 수행하도록 함수를 구성.
+        (보통. 콘솔에 출력하거나 경고창을 띄움)
+
+* CORS 처리
+  - 두 개 이상의 서버에서 하나의 서비스를 제공하는 경우
+  - package.json에 다음 문장을 포함.
+    "proxy": "http://스프링서버IP:포트번호/"
+
+
+* 위의 방식이 안될 경우 (위 내용 제거)
+  - 설치 라이브러리> npm i http-proxy-middleware
+  - src 폴더에 setupProxy.js 생성
+    const { createProxyMiddleware } = require('http-proxy-middleware');
+
+    module.exports = function(app){
+        app.use(
+            createProxyMiddleware('/api', {
+                target: 'http://서버IP:포트번호',
+                changeOrigin: true
+            })
+        )
+    };
