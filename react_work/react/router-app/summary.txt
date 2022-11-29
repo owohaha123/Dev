@@ -1,0 +1,38 @@
+* SPA(Single Page Application)
+  - 하나의 html 문서로 모든 페이지를 처리하는 방식.
+  - 링크(메뉴)에 따라서 내부 컴포넌트를 변경한다.
+  - 이것은 리액트 라우팅이라고 한다.
+  - 필요 라이브러리 : react-router-dom
+    설치> npm i react-router-dom
+
+
+* react router dom에서 제공하는 컴포넌트
+  1) BrowserRouter 
+     - html5의 history api를 사용하여 페이지를 새로고침하지 않아도 주소를 변경하고,
+       현재 주소에 관련된 정보를 props로 쉽게 조회하거나 사용할 수 있게 해주는 컴포넌트.
+     - 라우팅과 관련된 컴포넌트가 BrowserRouter 하위 컴포넌트로 위치해야 함
+       > index.js 에서 사용.
+  2) Route 
+     - 현재 경로에 따라 다른 컴포넌트를 보여주는 컴포넌트
+     - 사용법>
+       <Route path="주소" element={<보여줄 컴포넌트/>} />
+  3) Routes
+     - Route를 하나로 묶어주는 컴포넌트
+  4) Link
+     - 클릭하면 다른 주소로 이동시켜 주는 컴포넌트
+       (a 태그를 직접 사용할 수 없음!)
+     - 사용법>
+       <Link to="주소">내용</Link>
+
+
+
+
+실습) 개인 소개 페이지를 리액트 라우터를 사용하여 제작하기~
+      새 프로젝트를 생성하여 작업해 보세요~
+
+서버와의 통신(promise) -> axios 라이브러리
+ > 일정 관리 앱 + DB(spring boot)
+
+
+  
+
