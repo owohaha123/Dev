@@ -19,8 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Header title="My Home" nav={menu} /> */}
-      <Header/>
+      <Header title="My Home" nav={menu} />
       <MyEffect/>
       <br/>
       <Counter/>

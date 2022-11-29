@@ -41,10 +41,29 @@ function App() {
     }, [todos],
   );
 
+    //삭제 처리 함수
+    const onRemove = useCallback(id => {
+      const afterList = todos.filter(todo => todo.id !== id);
+      setTodos(afterList);
+    },[todos]);
+  
+    //토글 처리 함수
+    const onToggle = useCallback(id => {
+      const toggleList = todos.map(todo => (
+        todo.id === id ? {...todo, checked: !todo.checked} : todo
+      ));
+      console.log(toggleList);
+      setTodos(toggleList);
+    }, [todos]);
+
   return (
     <TodoTemplate>
+      {/* 
+        자식 컴포넌트에 state를 사용하는 함수를 전달하면
+        자식 컴포넌트에서 부모 컴포넌트의 state 변경을 할 수 있다.
+      */}
       <TodoInsert onInsert={onInsert}/>
-      <TodoList todos={todos}/>
+      <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle}/>
     </TodoTemplate>
   );
 }
