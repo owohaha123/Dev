@@ -13,3 +13,13 @@
      - 명령어 : npx create-react-app 『프로젝트명』
      - 프로젝트 생성 완료 후
        파일 > 폴더열기 : 프로젝트명 폴더 선택
+
+* 11/29
+  일정관리 앱 마무리 (삭제, 토글)
+  npx create-react-app todo-app
+
+  리액트 라우터(페이지 변경)
+  npx create-react-app router-app
+
+  백엔드 서버와의 통신(Axios)
+  npx create-react-app axios-app
