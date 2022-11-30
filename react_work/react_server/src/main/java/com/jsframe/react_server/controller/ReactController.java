@@ -2,13 +2,12 @@ package com.jsframe.react_server.controller;
 
 import com.jsframe.react_server.dto.DataDto;
 import lombok.extern.java.Log;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
+@RestController //controller 사용해도 무방하나 그럼 @ResponseBody 를 사용해줘야 함
 @Log
 public class ReactController {
     @GetMapping("getData")
@@ -39,4 +38,22 @@ public class ReactController {
         }
         return dList;
     }
-}
+
+    @GetMapping("sendData")
+    public String sendData(@RequestParam String data,
+                           @RequestParam String second) {
+        log.info("sendData()");
+        log.info("data: "  + data);
+        log.info("second: " + second);
+
+        return "문자열 전송 ok";
+    }
+
+    @PostMapping("sendObject")
+    public String sendObject(@RequestBody DataDto data){
+        log.info("sendObject()");
+        log.info(data.getStr() + ", " + data.getNumber());
+
+        return "객체 전송 ok";
+    }
+}// class end
