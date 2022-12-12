@@ -1,0 +1,95 @@
+//변수 선언
+$blue : #228be6;
+$gray : #495057;
+$pink : #f06595;
+$red : #f74848;
+
+@mixin btn-color($color) {
+    background: $color;
+
+    &:hover {
+        background: lighten($color, 10%); //색상 10% 밝게.
+    }
+
+    &:active {
+        background: darken($color, 10%); //색상 10% 어둡게.
+    }
+
+    &.outline {
+        color: $color;
+        background: none;
+        border: 1px solid $color;
+
+        &:hover {
+            background: $color;
+            color: white;
+        }
+    }
+}
+
+@mixin btn-size($h, $fsize) {
+    height: $h;
+    line-height: $h;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: $fsize;
+}
+
+.Button {
+    display: inline-flex;
+    color: white;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    border-radius: 1.125rem;
+    cursor: pointer;
+    justify-content: center;
+
+    //여기 부분을 단계별로 변경.
+    &.large {
+        @include btn-size(3rem, 1.25rem);
+    }
+
+    &.medium {
+        @include btn-size(2.25rem, 1rem);
+    }
+
+    &.small {
+        @include btn-size(1.75rem, 0.875rem);
+    }
+
+    &.blue {
+        @include btn-color($blue);
+    }
+
+    &.gray {
+        @include btn-color($gray);
+    }
+
+    &.pink {
+        @include btn-color($pink);
+    }
+
+    &.red {
+        @include btn-color($red);
+    }
+
+    &+& {
+        margin-left: 1rem;
+    }
+
+    &.basic {
+        width: 80%;
+    }
+
+    &.s-30 {
+        width: 30%;
+    }
+    &.s-5 {
+        width: 5%;
+    }
+
+    input + & {
+        margin-top: 2rem;
+    }
+}

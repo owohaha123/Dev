@@ -1,0 +1,38 @@
+.Table {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    border-spacing: 0;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+    .TableHeader {
+        border-bottom: 1px solid #e8e8e8;
+        padding: 0;
+        padding: 10px 5px;
+        font-weight: bold;
+    }
+    .TableRow:hover {
+        background-color: #eceaea;        
+    }
+    .TableColumn {
+        padding: 10px 5px;
+        
+        &.w-10 {
+            width: 10%;
+        }
+        &.w-20 {
+            width: 20%;
+        }
+        &.w-30 {
+            width: 30%;
+        }
+        &.w-40 {
+            width: 40%;
+        }
+        &>div:hover {
+            cursor: pointer;
+            
+            color: rgb(87, 96, 216);
+        }
+    }
+}
